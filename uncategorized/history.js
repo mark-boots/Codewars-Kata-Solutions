@@ -1,13 +1,9 @@
-//7 kyu
-//Moves in squared strings (I)
-//JavaScript:
+//[7 kyu] Moves in squared strings (I)
 const vertMirror = lines => lines.map(l => l.split``.reverse().join``).join('\n')
 const horMirror = lines => lines.reverse().join('\n')
 const oper = (fct, s) => fct(s.split('\n'))
 
-//7 kyu
-//Scaling Squared Strings
-//JavaScript:
+//[7 kyu] Scaling Squared Strings
 function scale(str, k, n) {
   if(str.length == 0) return '';
   lines = str.split('\n');
@@ -20,27 +16,19 @@ function scale(str, k, n) {
   return output.join('\n')
 }
 
-//7 kyu
-//Sort the Bytes
-//JavaScript:
+//[7 kyu] Sort the Bytes
 function sortBytes(uint32) {
   bytes = (uint32 >>> 0).toString(2).padStart(32, '0').match(/.{1,8}/g)
   return parseInt(bytes.sort((a,b)=>Number(b) - Number(a)).join(''),2)
 }
 
-//7 kyu
-//Bumps in the Road
-//JavaScript:
+//[7 kyu] Bumps in the Road
 const bump = x => (x.match(/n/g)||[]).length > 15 ? 'Car Dead' : 'Woohoo!'
 
-//7 kyu
-//Birthday I - Cake
-//JavaScript:
+//[7 kyu] Birthday I - Cake
 const cake = (x,y) => x*0.7>[...y].reduce((a,b,i)=>a+(i%2==0?b.charCodeAt(0):b.charCodeAt(0)-96),0)?'That was close!':'Fire!'
 
-//7 kyu
-//Birthday II - Presents
-//JavaScript:
+//[7 kyu] Birthday II - Presents
 function present(x, y){
   console.log([x,y]);
   if(x == 'badpresent') return 'Take this back!';
@@ -50,9 +38,7 @@ function present(x, y){
   return `pass out from excitement ${y} times`
 }
 
-//7 kyu
-//Char Code Calculation
-//JavaScript:
+//[7 kyu] Char Code Calculation
 function calc(x){
   const strSum = s => [...s].reduce((a,b)=>a+Number(b), 0);
   const total1 = [...x].map(v=>v.charCodeAt(0)).join('');
@@ -60,19 +46,13 @@ function calc(x){
   return strSum(total1) - strSum(total2);
 }
 
-//7 kyu
-//Largest Square Inside A Circle
-//JavaScript:
+//[7 kyu] Largest Square Inside A Circle
 const areaLargestSquare = r => 2 * r**2
 
-//7 kyu
-//Perimeter sequence
-//JavaScript:
+//[7 kyu] Perimeter sequence
 const perimeterSequence = (a,n) => a*n*4
 
-//7 kyu
-//Peak array index
-//JavaScript:
+//[7 kyu] Peak array index
 function peak(arr){
   const sum = a => a.reduce((sum,val)=>sum+val,0);
   for(let index = 1; index < arr.length-1; index+=1){
@@ -81,35 +61,25 @@ function peak(arr){
   return -1
 }
 
-//7 kyu
-//Easy wallpaper
-//JavaScript:
+//[7 kyu] Easy wallpaper
 const wallpaper = (l, w, h) => [l,w,h].includes(0) ? numbers[0] : numbers[Math.ceil((l+w)*2*h*1.15 / 5.2)]
 
-//7 kyu
-//Chicken Sexing
-//JavaScript:
+//[7 kyu] Chicken Sexing
 const correctness = (b, e) => b.reduce((p,v,i) => p += v == e[i] ? 1 : [v,e[i]].includes('?') ? 0.5 : 0 , 0)
 
-//7 kyu
-//Driving School Series #2
-//JavaScript:
+//[7 kyu] Driving School Series #2
 function cost (mins) { 
   if(mins <= 60) return 30
   return Math.ceil((mins - 65) / 30) * 10 + 30
 } 
 
-//7 kyu
-//Stanton measure
-//JavaScript:
+//[7 kyu] Stanton measure
 const stantonMeasure = arr => {
   const n = arr.filter(v => v == 1).length;
   return arr.filter(v => v == n).length;
 }
 
-//7 kyu
-//Double Trouble
-//JavaScript:
+//[7 kyu] Double Trouble
 function trouble(x, t){
   const returnArr = [];
   for(let i = 0; i<x.length; i++){
@@ -118,28 +88,21 @@ function trouble(x, t){
   return returnArr
 }
 
-//7 kyu
-//Next Prime
-//JavaScript:
+//[7 kyu] Next Prime
 const isPrime = num => {
     for(let i = 2, s = Math.sqrt(num); i <= s; i++)
         if(num % i === 0) return false; 
     return num > 1;
 }
-
 const nextPrime = num => {
    while(!isPrime(++num)){};
    return num;
 };
 
-//7 kyu
-//Printer Errors
-//JavaScript:
+//[7 kyu] Printer Errors
 const printerError = s => s.length - s.match(/[a-m]/g).length + '/' + s.length;
 
-//7 kyu
-//A Rule of Divisibility by 7
-//JavaScript:
+//[7 kyu] A Rule of Divisibility by 7
 const seven = m => {
   let times = 0
   let number = m
@@ -150,14 +113,10 @@ const seven = m => {
   return [number, times]
 }
 
-//7 kyu
-//Ones and Zeros
-//JavaScript:
+//[7 kyu] Ones and Zeros
 const binaryArrayToNumber = arr => Number.parseInt(arr.join(''), 2)
 
-//7 kyu
-//Maximum Product
-//JavaScript:
+//[7 kyu] Maximum Product
 function adjacentElementsProduct(array) {
   const products = [];
   for(let i = 0; i < array.length - 1; i++){
@@ -166,14 +125,10 @@ function adjacentElementsProduct(array) {
   return Math.max(...products)
 }
 
-//7 kyu
-//Single digit
-//JavaScript:
+//[7 kyu] Single digit
 const singleDigit = n => n < 10 ? n : singleDigit(n.toString(2).match(/1/g).length)
 
-//7 kyu
-//Coprime Validator
-//JavaScript:
+//[7 kyu] Coprime Validator
 function isCoprime(x, y) {
   for(let i = Math.max(x,y); i>1; i--){
     if(x%i == 0 && y%i == 0) return false
@@ -181,9 +136,7 @@ function isCoprime(x, y) {
   return true
 }
 
-//7 kyu
-//16+18=214
-//JavaScript:
+//[7 kyu] 16+18=214
 function add(...nums) {
   let str = []
   let numA = nums.map((n)=>[...''+n].reverse());
@@ -193,62 +146,41 @@ function add(...nums) {
   return parseInt(str.reverse().join(''))
 }
 
-//7 kyu
-//Simple Fun #8: Kill K-th Bit
-//JavaScript:
+//[7 kyu] Simple Fun #8: Kill K-th Bit
 function killKthBit(n, k) {
   bits = [...n.toString(2)]
   bits[bits.length-k] = 0;
   return parseInt(bits.join(''),2)
 }
 
-//7 kyu
-//Is this a triangle?
-//JavaScript:
+//[7 kyu] Is this a triangle?
 const isTriangle = (...arg) => arg.sort((a,b)=>b-a).reduce((a,b)=>a-b) < 0
 
-//7 kyu
-//The fusc function -- Part 1
-//JavaScript:
+//[7 kyu] The fusc function -- Part 1
 const fusc = n => n<2 ? n : n%2==0 ? fusc(n/2) : fusc((n-1) / 2) + fusc((n+1) / 2)
 
-//7 kyu
-//Round up to the next multiple of 5
-//JavaScript:
+//[7 kyu] Round up to the next multiple of 5
 const roundToNext5 = n => Math.ceil(n/5) * 5
 
-//7 kyu
-//Count the Digit
-//JavaScript:
+//[7 kyu] Count the Digit
 function nbDig(n, d) {
     const str = Array.from({length: n+1},(_,i)=> i**2).join('');
     return str.match(new RegExp(d, 'g')).length;
 }
 
-//7 kyu
-//Consecutive Ducks
-//JavaScript:
+//[7 kyu] Consecutive Ducks
 const consecutiveDucks = num => !Number.isInteger(Math.log2(num, 2))
 
-//7 kyu
-//Count the divisors of a number
-//JavaScript:
+//[7 kyu] Count the divisors of a number
 const getDivisorsCnt = (n) => [...Array(n + 1).keys()].slice(1).filter((i) => n % i === 0).length
 
-//7 kyu
-//Breaking chocolate problem
-//JavaScript:
+//[7 kyu] Breaking chocolate problem
 const breakChocolate = (n,m) => Math.max(n * m - 1, 0)
 
-
-//7 kyu
-//Friends
-//JavaScript:
+//[7 kyu] Friends
 const friends =n => ~~Math.log2(n-1);
 
-//7 kyu
-//Jumping Number (Special Numbers Series #4)
-//JavaScript:
+//[7 kyu] Jumping Number (Special Numbers Series #4)
 function jumpingNumber(n){
   const arr = [...''+n]
   for(let i = 1; i< arr.length; i++){
@@ -257,21 +189,15 @@ function jumpingNumber(n){
   return  'Jumping!!'
 }
 
-//7 kyu
-//Disarium Number (Special Numbers Series #3)
-//JavaScript:
+//[7 kyu] Disarium Number (Special Numbers Series #3)
 const disariumNumber = n => n == [...''+n].reduce((a,b,i)=> a + b**++i, 0) ? 'Disarium !!' : 'Not !!'
 
-//7 kyu
-//Jaden Casing Strings
-//JavaScript:
+//[7 kyu] Jaden Casing Strings
 String.prototype.toJadenCase = function () {
   return this.replace(/(^|\s)[a-z]/g, x => x.toUpperCase());
 };
 
-//7 kyu
-//Looking for a benefactor
-//JavaScript:
+//[7 kyu] Looking for a benefactor
 function newAvg(arr, newavg) {
     let goal = (arr.length + 1) * newavg;
     let curr = arr.reduce((sum,val) => sum + val, 0);
@@ -281,30 +207,23 @@ function newAvg(arr, newavg) {
     return diff;
 }
 
-//7 kyu
-//Beginner Series #3 Sum of Numbers
-//JavaScript:
+//[7 kyu] Beginner Series #3 Sum of Numbers
 function getSum(...a) {
   const [min,max] = a.sort((a,b)=>a-b);
   let total = 0;
-  
   for(let i = min; i <= max; i++){
     total+=i
   }
   return total || min
 }
 
-//7 kyu
-//Find Screen Size
-//JavaScript:
+//[7 kyu] Find Screen Size
 function findScreenHeight(width, ratio) {
   const [ratioW,ratioH] = ratio.split(":");
   return `${width}x${width/ratioW*ratioH}`
 }
 
-//7 kyu
-//Sort with a sorting array
-//JavaScript:
+//[7 kyu] Sort with a sorting array
 function sort(initialArray, sortingArray) {
   const arr = [];
   for(let i=0; i<sortingArray.length;i++){
@@ -313,14 +232,10 @@ function sort(initialArray, sortingArray) {
   return arr;
 }
 
-//7 kyu
-//Boiled Eggs
-//JavaScript:
+//[7 kyu] Boiled Eggs
 const cookingTime = eggs => Math.ceil(eggs/8)*5
 
-//7 kyu
-//Find the divisors!
-//JavaScript:
+//[7 kyu] Find the divisors!
 function divisors(integer) {
   const devisors = []
   for(let i = 2; i <= integer/2; i++){
@@ -329,62 +244,44 @@ function divisors(integer) {
   return devisors.length > 0 ? devisors : `${integer} is prime`
 };
 
-//7 kyu
-//Partial Word Searching
-//JavaScript:
+//[7 kyu] Partial Word Searching
 function wordSearch(query, seq){
   const res = seq.filter(v => v.toLowerCase().includes(query.toLowerCase()))
   return res.length > 0 ? res : ['Empty']
 }
 
-//7 kyu
-//Thinkful - Number Drills: Rømer temperature
-//JavaScript:
+//[7 kyu] Thinkful - Number Drills: Rømer temperature
 const celsiusToRomer = t => t * 0.525 + 7.5
 
-//7 kyu
-//Understanding closures - the basics
-//JavaScript:
+//[7 kyu] Understanding closures - the basics
 const buildFun = n => Array.from({length: n},(_,i) => ()=> i)
 
-//7 kyu
-//Interactive Dictionary
-//JavaScript:
+//[7 kyu] Interactive Dictionary
 class Dictionary {
   constructor() {
     this.dictionary = new Map()
   }
-
   newEntry(key, value) {
     this.dictionary.set(key, value)
   }
-
   look(key) {
     return this.dictionary.has(key) ? this.dictionary.get(key) : `Can't find entry for ${key}`
   }
 }
 
-//7 kyu
-//Complementary DNA
-//JavaScript:
+//[7 kyu] Complementary DNA
 function DNAStrand(dna){
   const d = { A: "T", T: 'A', C: 'G', G: 'C' }
   return [...dna].map(v => d[v]).join('')
 }
 
-//7 kyu
-//Descending Order
-//JavaScript:
+//[7 kyu] Descending Order
 const descendingOrder = n => +[...''+n].sort().reverse().join('')
 
-//7 kyu
-//Functional Addition
-//JavaScript:
+//[7 kyu] Functional Addition
 const add = n => m => n+m
 
-//7 kyu
-//Monotone travel
-//JavaScript:
+//[7 kyu] Monotone travel
 const isMonotone = arr => {
   for(let i = 1; i< arr.length; i++){
     if(arr[i-1] > arr[i]) return false
@@ -392,9 +289,7 @@ const isMonotone = arr => {
   return true;
 }
 
-//7 kyu
-//String prefix and suffix
-//JavaScript:
+//[7 kyu] String prefix and suffix
 const solve = s => {
   for (let i = ~~(s.length / 2); i > 0; i--) {
     if (s.slice(0, i) == s.slice(-i)) return i
@@ -402,9 +297,7 @@ const solve = s => {
   return 0;
 }
 
-//7 kyu
-//Number of Divisions
-//JavaScript:
+//[7 kyu] Number of Divisions
 const divisions = (n, divisor) => {
   let count = 0;
   while(n >= divisor){
@@ -414,24 +307,16 @@ const divisions = (n, divisor) => {
   return count
 };
 
-//7 kyu
-//Rearrange Number to Get its Maximum
-//JavaScript:
+//[7 kyu] Rearrange Number to Get its Maximum
 const maxRedigit = n => (n = ''+n).length !==3  ? null : +[...n].sort().reverse().join('')
 
-//7 kyu
-//Digitize
-//JavaScript:
+//[7 kyu] Digitize
 const digitize = n => [...''+n].map(Number)
 
-//7 kyu
-//All Star Code Challenge #3
-//JavaScript:
+//[7 kyu] All Star Code Challenge #3
 const removeVowels = str => str.replace(/[aeoiu]/gi,'')
 
-//7 kyu
-//Factorial
-//JavaScript:
+//[7 kyu] Factorial
 function factorial(n){
   let fac = 1;
   for(let i = 1; i<=n; i++){
@@ -440,49 +325,33 @@ function factorial(n){
   return fac
 }
 
-//7 kyu
-//Convert an array of strings to array of numbers
-//JavaScript:
+//[7 kyu] Convert an array of strings to array of numbers
 const toNumberArray = arr => arr.map(v=>+v);
 
-//7 kyu
-//Get the integers between two numbers
-//JavaScript:
+//[7 kyu] Get the integers between two numbers
 const range = (s, e) => Array.from({length : e - s - 1}, (_,i) => s + i + 1)
   
-
-//7 kyu
-//Waiting room
-//JavaScript:
+//[7 kyu] Waiting room
 const lastChair = N => N - 1
 
-//7 kyu
-//Drying Potatoes
-//JavaScript:
+//[7 kyu] Drying Potatoes
 const potatoes = (p0, w0, p1) => ~~(w0 * (100 - p0) / (100 - p1))
 
-//7 kyu
-//Ninja vs Samurai: Strike
-//JavaScript:
+//[7 kyu] Ninja vs Samurai: Strike
 class Warrior {
   constructor(name) {
     this.name = name;
     this.health = 100;
   }
-  
   strike(enemy, swings) {
     enemy.health = Math.max(0, enemy.health - (swings * 10));   
   }
 }
 
-//7 kyu
-//Sort Numbers
-//JavaScript:
+//[7 kyu] Sort Numbers
 const solution = nums => nums ? nums.sort((a,b)=>a-b) : []
 
-//7 kyu
-//Refactored Greeting
-//JavaScript:
+//[7 kyu] Refactored Greeting
 class Person {
   constructor(name) {
     this.name = name;
@@ -495,9 +364,7 @@ class Person {
   }
 }
 
-//7 kyu
-//Largest 5 digit number in a series
-//JavaScript:
+//[7 kyu] Largest 5 digit number in a series
 const solution = digits =>{
   let num = 0;
   for (let i=0; i<digits.length-4; i++){
@@ -507,45 +374,28 @@ const solution = digits =>{
   return num;
 }
 
-//7 kyu
-//Two Oldest Ages
-//JavaScript:
+//[7 kyu] Two Oldest Ages
 const twoOldestAges = ages => ages.sort((a,b)=>a-b).slice(-2)
 
-//7 kyu
-//getNames()
-//JavaScript:
+//[7 kyu] getNames()
 const getNames = data => data.map(a=>a.name)
 
-//7 kyu
-//Square Every Digit
-//JavaScript:
+//[7 kyu] Square Every Digit
 const squareDigits = num => +[...''+num].map(v=>v**2).join('')
 
-
-//7 kyu
-//Search for letters
-//JavaScript:
+//[7 kyu] Search for letters
 const change = string => [...'abcdefghijklmnopqrstuvwxyz'].map((v,i)=>[...string.toLowerCase()].includes(v)? 1: 0).join('')
 
-//7 kyu
-//Binary Pyramid 101
-//JavaScript:
+//[7 kyu] Binary Pyramid 101
 const BinaryPyramid = (m,n) => Array.from({length: n-m+1},((_,i)=>(m+i).toString(2))).reduce((a,b)=>a+b*1,0).toString(2)
 
-//7 kyu
-//Ones' Complement
-//JavaScript:
+//[7 kyu] Ones' Complement
 const onesComplement = n => [...n].map(v => +(v == 0)).join('');
 
-//7 kyu
-//Flatten and sort an array
-//JavaScript:
+//[7 kyu] Flatten and sort an array
 const flattenAndSort = a => [].concat(...a).sort((a,b)=>a-b)
 
-//7 kyu
-//Bits Battle
-//JavaScript:
+//[7 kyu] Bits Battle
 function bitsBattle(numbers) {
   bits = numbers.map(v=>v.toString(2));
   odds = bits.filter(v => v.charAt(v.length-1) ==  1).join('').replace(/0/g,'').length;
@@ -553,52 +403,35 @@ function bitsBattle(numbers) {
   return odds > evens ? 'odds win' : evens > odds ? 'evens win' : 'tie'
 }
 
-//7 kyu
-//The Pony Express
-//JavaScript:
+//[7 kyu] The Pony Express
 const riders = s => s.reduce(([a, r], d) => a + d <= 100 ? [a+d, r] : [d, r+1], [0,1])[1]
 
-//7 kyu
-//Balanced Number (Special Numbers Series #1 )
-//JavaScript:
+//[7 kyu] Balanced Number (Special Numbers Series #1 )
 const balancedNum = number => {
   const stringNumber = String(number)
   const numbers = Array.from(
     { length: (stringNumber.length - 1) / 2 },
     (_, index) => stringNumber[index] - stringNumber[stringNumber.length - 1 - index]
   )
-
   return numbers.reduce((total, number) => total + number, 0) === 0 ? 'Balanced' : 'Not Balanced'
 }
 
-//7 kyu
-//EZ code golf #2 : 8 -> 10
-//JavaScript:
+//[7 kyu] EZ code golf #2 : 8 -> 10
 f=n=>+('0o'+n)
 
-//7 kyu
-//Sort the Vowels!
-//JavaScript:
+//[7 kyu] Sort the Vowels!
 const sortVowels = s => typeof s === 'string' ? [...s].map(v=>'aeiouAEIOU'.indexOf(v) > -1 ? '|' + v : v + '|').join('\n') : '';
 
-//7 kyu
-//Series of integers from m to n
-//JavaScript:
+//[7 kyu] Series of integers from m to n
 const generateIntegers = (m, n) => Array.from({length: n-m+1},((v,i)=>m+i))
 
-//7 kyu
-//Series of integers from 0 to n
-//JavaScript:
+//[7 kyu] Series of integers from 0 to n
 const generateIntegers = n => Array.from({length: n + 1}, ((v, i) => i))
 
-//7 kyu
-//Basic JS - Calculating averages
-//JavaScript:
+//[7 kyu] Basic JS - Calculating averages
 Calculator.average = (...args) => args.reduce((a,b)=>a+b,0) / args.length || 0
 
-//7 kyu
-//Pairs of integers from 0 to n
-//JavaScript:
+//[7 kyu] Pairs of integers from 0 to n
 function generatePairs(n) {
   const arr= [];
   for (let i=0;i<=n;i++){
@@ -609,18 +442,14 @@ function generatePairs(n) {
   return arr
 }
 
-//7 kyu
-//last digits of a number
-//JavaScript:
+//[7 kyu] last digits of a number
 function lastDigit(n, d) {
   if(d>n.length) return n;
   if(d<= 0) return [];
   return [...n+''].slice(-d).map(v=>v*1);
 }
 
-//7 kyu
-//TV Remote
-//JavaScript:
+//[7 kyu] TV Remote
 var tvRemote = function(word) {
   const keys = {
     a: [0,0], b: [0,1], c: [0,2], d: [0,3], e: [0,4], 1: [0,5], 2: [0,6], 3: [0,7],
@@ -641,25 +470,16 @@ var tvRemote = function(word) {
   return count
 }
 
-//7 kyu
-//Shortest Word
-//JavaScript:
+//[7 kyu] Shortest Word
 const findShort = s => Math.min(...s.split(' ').map(v => v.length))
 
-
-//7 kyu
-//Thinking & Testing: A and B?
-//JavaScript:
+//[7 kyu] Thinking & Testing: A and B?
 const testit = (a,b) => a | b
 
-//7 kyu
-//SevenAte9
-//JavaScript:
+//[7 kyu] SevenAte9
 const sevenAte9 = s => s.replace(/79(?=7)/g, '7')
 
-//7 kyu
-//Merge two arrays
-//JavaScript:
+//[7 kyu] Merge two arrays
 function mergeArrays(a, b) {
   arr = []
   for(let i = 0; i < Math.max(a.length, b.length); i++){
@@ -669,29 +489,25 @@ function mergeArrays(a, b) {
   return arr
 }
 
-//7 kyu
-//Queue time counter
-//JavaScript:
+//[7 kyu] Queue time counter
 function queue(queuers, pos){
-    let count=0
-    for (let i=0;queuers[pos];i++){
-      for (let j=0;j<queuers.length;j++){
-        if (queuers[pos]===0){break}
-        else {
-          if (queuers[j]>0){
-              count++
-              queuers[j]--
-          }
-          if (queuers[pos]===0){break}
+  let count=0
+  for (let i=0;queuers[pos];i++){
+    for (let j=0;j<queuers.length;j++){
+      if (queuers[pos]===0){break}
+      else {
+        if (queuers[j]>0){
+            count++
+            queuers[j]--
         }
+        if (queuers[pos]===0){break}
       }
     }
-    return count
+  }
+  return count
 }
 
-//7 kyu
-//Character Counter
-//JavaScript:
+//[7 kyu] Character Counter
 const validateWord = s => !(s.length % new Set(s.toLowerCase()).size)
 
 function validateWord(s)
@@ -700,18 +516,14 @@ function validateWord(s)
   return Math.min(...counts) == Math.max(...counts)
 }
 
-//7 kyu
-//Decoding a message
-//JavaScript:
+//[7 kyu] Decoding a message
 function decode(message){
   const a = 'abcdefghijklmnopqrstuvwxyz'
   const rev = [...a].reverse().join('');
   return [...message].map(v => v === ' ' ? ' ' : rev[a.indexOf(v)]).join('')
 }
 
-//7 kyu
-//Larger Product or Sum
-//JavaScript:
+//[7 kyu] Larger Product or Sum
 
 function sumOrProduct(array, n) {
   const sorted = array.sort((a,b)=> b-a);
@@ -720,25 +532,16 @@ function sumOrProduct(array, n) {
   return sum > product ? 'sum' : sum < product ? 'product' : 'same';
 }
 
-//7 kyu
-//Build a square
-//JavaScript:
+//[7 kyu] Build a square
 const generateShape = int => new Array(int).fill("+".repeat(int)).join('\n');
 
-//7 kyu
-//Even numbers in an array
-//JavaScript:
+//[7 kyu] Even numbers in an array
 const evenNumbers = (a,n) => a.filter(v => !(v%2)).slice(-n)
 
-//7 kyu
-//Highest and Lowest
-//JavaScript:
+//[7 kyu] Highest and Lowest
 const highAndLow = num => [Math.max(...n = num.split` `.map(v => v*1)),Math.min(...n)].join` `
 
-
-//7 kyu
-//Computer problem series #1: Fill the Hard Disk Drive
-//JavaScript:
+//[7 kyu] Computer problem series #1: Fill the Hard Disk Drive
 function save(sizes, hd) {
   let size = 0;
   for(let i = 0; i<sizes.length;i++){
@@ -748,26 +551,18 @@ function save(sizes, hd) {
   return sizes.length;
 }
 
-//7 kyu
-//Exclamation marks series #3: Remove all exclamation marks from sentence except at the end
-//JavaScript:
+//[7 kyu] Exclamation marks series #3: Remove all exclamation marks from sentence except at the end
 const remove = s => s.split('!').join('') + (s.match(/!+$/) || []).join('')
 
-//7 kyu
-//Testing 1-2-3
-//JavaScript:
+//[7 kyu] Testing 1-2-3
 const number = arr => arr.map((v,i)=>`${i+1}: ${v}`)
 
-//7 kyu
-//Exclamation marks series #8: Move all exclamation marks to the end of the sentence
-//JavaScript:
+//[7 kyu] Exclamation marks series #8: Move all exclamation marks to the end of the sentence
 function remove(s){
   return s.split('!').join('') + (s.match(/\!/g)||[]).join('')
 }
 
-//7 kyu
-//Alphabet symmetry
-//JavaScript:
+//[7 kyu] Alphabet symmetry
 function solve(arr){
   returnArr = [];
   arr.forEach(w=>{
@@ -777,68 +572,48 @@ function solve(arr){
   return returnArr
 };
 
-//7 kyu
-//Consecutive letters
-//JavaScript:
+//[7 kyu] Consecutive letters
 const solve = ([...s]) => {
   console.log(s);
   const cc = s.map(c => c.charCodeAt(0));
   return Math.max(...cc) - Math.min(...cc) == s.length -1;
 }
 
-//7 kyu
-//Split In Parts
-//JavaScript:
+//[7 kyu] Split In Parts
 const splitInParts = (s, l) => s.match(new RegExp('.{1,' + l + '}', 'g')).join` `;
 
-//7 kyu
-//Thinking & Testing : How many "word"?
-//JavaScript:
+//[7 kyu] Thinking & Testing : How many "word"?
 const testit = s => (s.match(/w.*?o.*?r.*?d/ig) || []).length;
 
-//7 kyu
-//Difference between biggest 2 numbers
-//JavaScript:
+//[7 kyu] Difference between biggest 2 numbers
 function diffBig2(arr) {
   first = arr.splice(arr.indexOf(Math.max(...arr)),1);
   second = arr.splice(arr.indexOf(Math.max(...arr)),1);
   return first - second;
 }
 
-//7 kyu
-//Longest vowel chain
-//JavaScript:
+//[7 kyu] Longest vowel chain
 const solve = s => s.split(/[^aeiou]+/).sort((a,b)=>b.length - a.length)[0].length
 
-//7 kyu
-//All Star Code Challenge #14 - Find the median
-//JavaScript:
+//[7 kyu] All Star Code Challenge #14 - Find the median
 const median = arr => {
   const a = arr.sort((a,b)=>a-b);
   const m = Math.floor(a.length /2);
   return a.length % 2 ? a[m] : (a[m] + a[m - 1]) / 2
 }
 
-//7 kyu
-//Fix string case
-//JavaScript:
+//[7 kyu] Fix string case
 const solve = str => str.replace(/[a-z]/g, '').length > str.length / 2
    ? str.toUpperCase()
    : str.toLowerCase()
 
-//7 kyu
-//Simple equation reversal
-//JavaScript:
+//[7 kyu] Simple equation reversal
 const solve = eq =>  eq.split(/([*+-/])/).reverse().join('');
 
-//7 kyu
-//Hello World - Without Strings
-//JavaScript:
+//[7 kyu] Hello World - Without Strings
 const helloWorld = () => String.fromCharCode(72,101,108,108,111,44,32,87,111,114,108,100,33);
 
-//7 kyu
-//Alan Partridge I - Partridge Watch
-//JavaScript:
+//[7 kyu] Alan Partridge I - Partridge Watch
 const lookup = ['Partridge','PearTree','Chat','Dan','Toblerone','Lynn','AlphaPapa','Nomad']
 function part(x){
   let found = '';
@@ -848,25 +623,17 @@ function part(x){
   return found.length > 0 ? `Mine\'s a Pint${found}` : "Lynn, I've pierced my foot on a spike!!";
 }
 
-//7 kyu
-//Invisible cubes
-//JavaScript:
+//[7 kyu] Invisible cubes
 const notVisibleCubes = n => n < 3 ? 0 : (n-2) ** 3
 
-//7 kyu
-//For the sake of argument
-//JavaScript:
+//[7 kyu] For the sake of argument
 const numbers = (...arg) => !arg.filter(a=>typeof a !== 'number').length > 0;
 
-//7 kyu
-//Sort by Last Char
-//JavaScript:
+//[7 kyu] Sort by Last Char
 const lc = s => s.substr(-1);
 const last = x => x.split` `.sort((a,b)=> lc(a).localeCompare(lc(b)));
 
-//7 kyu
-//The wheat/rice and chessboard problem
-//JavaScript:
+//[7 kyu] The wheat/rice and chessboard problem
 function squaresNeeded(grains){
   if(grains == 0) return 0;
   total = 0;
@@ -879,59 +646,41 @@ function squaresNeeded(grains){
   return square-1
 }
 
-//7 kyu
-//sPoNgEbOb MeMe
-//JavaScript:
+//[7 kyu] sPoNgEbOb MeMe
 const spongeMeme = s => [...s].map((c,i)=> i%2 ? c.toLowerCase(): c.toUpperCase()).join``
 
-//7 kyu
-//Grains
-//JavaScript:
+//[7 kyu] Grains
 const square = n => 2 ** (n-1)
 
-//7 kyu
-//Triangle area
-//JavaScript:
+//[7 kyu] Triangle area
 const tArea = s => ( h = s.split('\n').length - 3) * h / 2
 
-//7 kyu
-//Adding remainders to a list
-//JavaScript:
+//[7 kyu] Adding remainders to a list
 const solve = (nums, div) => nums.map( n => n += n % div)
 
-//7 kyu
-//Simple Fun #69: Are Equally Strong?
-//JavaScript:
+//[7 kyu] Simple Fun #69: Are Equally Strong?
 function areEquallyStrong(yl, yr, fl, fr) {
   return Math.max(yl,yr) == Math.max(fl,fr) && Math.min(yl,yr) == Math.min(fl,fr);
 }
 
-//7 kyu
-//Credit Card Mask
-//JavaScript:
+//[7 kyu] Credit Card Mask
 function maskify(cc) {
   const endString = cc.slice(-4);
   const startString = cc.length > 4 ? cc.slice(0,cc.length-4).replace(/./g,'#') : '';
   return startString+endString
 }
 
-//7 kyu
-//Sum of Triangular Numbers
-//JavaScript:
+//[7 kyu] Sum of Triangular Numbers
 function sumTriangularNumbers(n) {
   return n <=0 ? 0 : (n*(n+1)*(n+2))/6
 }
 
-//7 kyu
-//Disemvowel Trolls
-//JavaScript:
+//[7 kyu] Disemvowel Trolls
 function disemvowel(str) {
   return str.replace(/[aeiou]/ig,'');
 }
 
-//7 kyu
-//Return String of First Characters
-//JavaScript:
+//[7 kyu] Return String of First Characters
 function makeString(s){
   string = '';
   s.split(' ').forEach(word =>{
@@ -940,19 +689,13 @@ function makeString(s){
   return string 
 }
 
-//7 kyu
-//Filter the number
-//JavaScript:
+//[7 kyu] Filter the number
 const FilterString = value => value.replace(/\D/g,'') * 1;
 
-//7 kyu
-//Vowel Count
-//JavaScript:
+//[7 kyu] Vowel Count
 const getCount = str => [...str].filter(v=>[...'aeiou'].includes(v)).length
 
-//7 kyu
-//Coding 3min : Remove screws I
-//JavaScript:
+//[7 kyu] Coding 3min : Remove screws I
 function sc(screws){
   let total = 1;
   for (let i=1; i<screws.length; i++){
@@ -960,23 +703,16 @@ function sc(screws){
     if(screws[i] !== screws[i-1]) total+=5; //switch
   }
   console.log(total);
-  return total;
-                        
+  return total;                       
 }
 
-//7 kyu
-//Thinkful - String Drills: Quotable
-//JavaScript:
+//[7 kyu] Thinkful - String Drills: Quotable
 const quotable = (name, quote) => `${name} said: "${quote}"`
 
-//7 kyu
-//Number of Rectangles in a Grid
-//JavaScript:
+//[7 kyu] Number of Rectangles in a Grid
 const numberOfRectangles = (m, n) => m * (m+1) * n * (n+1) / 4 
 
-//7 kyu
-//Elevator Distance
-//JavaScript:
+//[7 kyu] Elevator Distance
 function elevatorDistance(array) {
   let diff = 0;
   for(let i = 0; i < array.length -1; i++){
@@ -985,19 +721,13 @@ function elevatorDistance(array) {
   return diff;
 }
 
-//7 kyu
-//Greet Me
-//JavaScript:
+//[7 kyu] Greet Me
 const greet = name => `Hello ${name[0].toUpperCase()+name.slice(1).toLowerCase()}!`
 
-//7 kyu
-//JavaScript Array Filter
-//JavaScript:
+//[7 kyu] JavaScript Array Filter
 const getEvenNumbers = arr => arr.filter(v => !(v%2));
 
-//7 kyu
-//Kooka-Counter
-//JavaScript:
+//[7 kyu] Kooka-Counter
 const kookaCounter = laughing => {
   let count = 0;
   let curr = ''
@@ -1008,14 +738,10 @@ const kookaCounter = laughing => {
   return count;
 }
 
-//7 kyu
-//Valid number to 2 decimal places
-//JavaScript:
+//[7 kyu] Valid number to 2 decimal places
 const validNumber = n => /^[+-]?\d*\.\d{2}$/.test(n)
 
-//7 kyu
-//Pairs of integers from m to n
-//JavaScript:
+//[7 kyu] Pairs of integers from m to n
 const generatePairs = (m, n, r=[]) =>{
   for(let i = m; i<=n; i++){
     b = i;
@@ -1026,32 +752,16 @@ const generatePairs = (m, n, r=[]) =>{
   return r;
 }
 
-//7 kyu
-//You're a square!
-//JavaScript:
+//[7 kyu] You're a square!
 const isSquare = n => Math.floor(X = Math.sqrt(n)) == X
 
-//7 kyu
-//Number of People in the Bus
-//JavaScript:
+//[7 kyu] Number of People in the Bus
 const number = stops => stops.reduce((peeps, [on, off]) => peeps + on - off, 0);
 
-const number = busStops =>{
-  let result = 0;
-  busStops.forEach(busStop => {
-    result += busStop[0] - busStop[1];  
-  })
-  return result;
-}
-
-//8 kyu
-//Return Two Highest Values in List
-//JavaScript:
+//[8 kyu] Return Two Highest Values in List
 const twoHighest = arr => [...new Set(arr)].sort((a,b)=>b-a).splice(0,2)
 
-//7 kyu
-//Convert Decimal Degrees to Degrees, Minutes, Seconds
-//JavaScript:
+//[7 kyu] Convert Decimal Degrees to Degrees, Minutes, Seconds
 const convert = (degrees)  => {
   const d  = parseInt(degrees);
   const m  = parseInt(degrees % 1 * 60);
@@ -1059,9 +769,7 @@ const convert = (degrees)  => {
   return s ? [d,m,s] : m ? [d,m] : [d];
 }
 
-//7 kyu
-//Which section did you scroll to?
-//JavaScript:
+//[7 kyu] Which section did you scroll to?
 function getSectionIdFromScroll(scrollY,sizes){
   let currPos = 0;
    for(let i = 0; i < sizes.length; i++){
@@ -1072,9 +780,7 @@ function getSectionIdFromScroll(scrollY,sizes){
   return -1;
 }
 
-//7 kyu
-//Deodorant Evaporator
-//JavaScript:
+//[7 kyu] Deodorant Evaporator
 const evaporator = (c, e, t, d = 0, p = 100) => {
   while (p > t) {
     p -= p * e / 100;
@@ -1083,9 +789,7 @@ const evaporator = (c, e, t, d = 0, p = 100) => {
   return d;
 }
 
-//8 kyu
-//Fundamentals: Return
-//JavaScript:
+//[8 kyu] Fundamentals: Return
 const add = (a,b) => a+b
 const divide = (a,b) => a/b
 const multiply = (a,b)=> a*b
@@ -1093,14 +797,10 @@ const mod = (a,b) => a%b
 const exponent = (a,b) => a**b
 const subt = (a,b) => a-b
 
-//8 kyu
-//Ensure question
-//JavaScript:
+//[8 kyu] Ensure question
 const ensureQuestion = s => s.replace('?','')+'?'
 
-//5 kyu
-//Buddy Pairs
-//JavaScript:
+//[5 kyu] Buddy Pairs
 const sumDivisors = (num) => {
     let sum = 0;
     for(let i = 2; i <= Math.sqrt(num); i++){
@@ -1110,7 +810,6 @@ const sumDivisors = (num) => {
     }
     return sum;
   }
-
 function buddy(start,limit) {
   for(let i = start; i <= limit; i++) {
     let sd = sumDivisors(i)
@@ -1119,65 +818,36 @@ function buddy(start,limit) {
   return "Nothing";
 }
 
-//8 kyu
-//Mr. Freeze
-//JavaScript:
+//[8 kyu] Mr. Freeze
 Object.freeze(MrFreeze)
 
-//8 kyu
-//Shifty Closures
-//JavaScript:
+//[8 kyu] Shifty Closures
 const greet_abe = () => greet('Abe')
 const greet_ben = () => greet('Ben')
 const greet = name => `Hello, ${name}!`
 
-
-
-
-var greet_abe = function() {
-  var name = 'Abe';
-  return "Hello, " + name + '!';
-};
-
-var greet_ben = function() {
-  var name = 'Ben';
-  return "Hello, " + name + '!';
-};
-
-//8 kyu
-//Basic Training: Add item to an Array
-//JavaScript:
+//[8 kyu] Basic Training: Add item to an Array
 websites.push("codewars")
 
-//8 kyu
-//Return to Sanity
-//JavaScript:
+//[8 kyu] Return to Sanity
 const mystery = () => ({sanity: 'Hello'})
 
-//8 kyu
-//Semi-Optional
-//JavaScript:
+//[8 kyu] Semi-Optional
 const wrap = value => ({value})
 
-//8 kyu
-//Max Headroom and JavaScript style
-//JavaScript:
+//[8 kyu] Max Headroom and JavaScript style
 const obj = {name: 'Max Headroom'}
 const getMax1 = () => obj;
 const getMax2 = () => obj;
 
-//8 kyu
-//Color Ghost
-//JavaScript:
+//[8 kyu] Color Ghost
 class Ghost {
   constructor(){
     this.color = ['white','yellow','purple','red'][Math.floor(Math.random()*4)]
   }
 }
 
-//8 kyu
-//Hello Happy Codevarrior!
-//JavaScript:
+//[8 kyu] Hello Happy Codevarrior!
 function Warrior(n){
 let name = n;  
   this.name = function(n){
@@ -1185,57 +855,41 @@ let name = n;
     return name;
   }
 }
-  
 Warrior.prototype.toString = function(){
     return "Hi! my name's "+this.name();
 }
 
-//8 kyu
-//"this" is a problem
-//JavaScript:
+//[8 kyu] "this" is a problem
 function NameMe(first, last) {
     this.firstName = first;
     this.lastName = last;
     this.name = this.firstName + ' ' + this.lastName;
 }
 
-//8 kyu
-//Barking mad
-//JavaScript:
+//[8 kyu] Barking mad
 function Dog (breed) {
   this.breed = breed;
   this.bark = () => "Woof"
 }
-
 var snoopy = new Dog("Beagle");
 var scoobydoo = new Dog("Great Dane");
 
-//8 kyu
-//Vowel remover
-//JavaScript:
+//[8 kyu] Vowel remover
 const shortcut = str => str.replace(/[aeiou]/g,'')
 
-//8 kyu
-//Online RPG: player to qualifying stage?
-//JavaScript:
+//[8 kyu] Online RPG: player to qualifying stage?
 function playerRankUp (points) {
   let str = 'Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.'
   return points >= 100 ? str : false
 }
 
-//8 kyu
-//Take an Arrow to the knee, Functionally
-//JavaScript:
+//[8 kyu] Take an Arrow to the knee, Functionally
 const ArrowFunc = arr => arr.map(nr => String.fromCharCode(nr)).join('')
 
-//8 kyu
-//Are there any arrows left?
-//JavaScript:
+//[8 kyu] Are there any arrows left?
 const anyArrows = arrows => arrows.some(arrow => !arrow.damaged)
 
-//8 kyu
-//Lexical this
-//JavaScript:
+//[8 kyu] Lexical this
 const Person = () => {
   const person = {
     _name: 'Leroy',
@@ -1247,66 +901,41 @@ const Person = () => {
   return person
 }
 
-//8 kyu
-//Switch/Case - Bug Fixing #6
-//JavaScript:
+//[8 kyu] Switch/Case - Bug Fixing #6
 const evalObject = ({a, b, operation}) => eval(a+operation.replace('^','**')+b)
 
-//8 kyu
-//Grasshopper - Array Mean
-//JavaScript:
+//[8 kyu] Grasshopper - Array Mean
 const findAverage = nums => nums.reduce((a, b) => a + b) / nums.length
 
-//8 kyu
-//Invalid Login - Bug Fixing #11
-//JavaScript:
+//[8 kyu] Invalid Login - Bug Fixing #11
 const validate = (un, pw) => new Database().login(un, encodeURI(pw))
 
-//8 kyu
-//Find variable which breaks strict comparison!
-//JavaScript:
+//[8 kyu] Find variable which breaks strict comparison!
 const findStrangeValue = () => -"a"
 
-//8 kyu
-//Grasshopper - Order of operations
-//JavaScript:
+//[8 kyu] Grasshopper - Order of operations
 const orderOperations = () => (2 + 2) * (2 + 2) * 2
 
-//8 kyu
-//Unexpected parsing
-//JavaScript:
+//[8 kyu] Unexpected parsing
 const getStatus = isBusy => {
   return {status: (isBusy ? "busy" : "available")}
 }
 
-//8 kyu
-//A bugs trilogy: Episode 1 - "Let Math.Random(); decide your future"
-//JavaScript:
+//[8 kyu] A bugs trilogy: Episode 1 - "Let Math.Random(); decide your future"
 const yourFutureCareer = (career = Math.random()) => 
   career <= .32 ? 'FrontEnd Developer' : career <= 0.65 ? 'BackEnd Developer' : 'Full-Stack Developer'
-
-
-
 yourFutureCareer();
 
-//8 kyu
-//Regex count lowercase letters
-//JavaScript:
+//[8 kyu] Regex count lowercase letters
 const lowercaseCount = str => (str.match(/[a-z]/g) || []).length
 
-//8 kyu
-//Job Matching #1
-//JavaScript:
+//[8 kyu] Job Matching #1
 const match = ({minSalary}, {maxSalary}) => minSalary && maxSalary ? minSalary * .9 <= maxSalary : error()
 
-//8 kyu
-//Improving Math.round(x)
-//JavaScript:
+//[8 kyu] Improving Math.round(x)
 Math.roundTo = (n, dec)  => Math.round(n * 10**dec) / 10**dec
 
-//8 kyu
-//Grasshopper - Object syntax debug
-//JavaScript:
+//[8 kyu] Grasshopper - Object syntax debug
 var rooms = {
   first: {
     description: 'This is the first room',
@@ -1324,14 +953,10 @@ var rooms = {
   }
 }
 
-//8 kyu
-//Double Char
-//JavaScript:
+//[8 kyu] Double Char
 const doubleChar = str => [...str].map(c=>c+c).join('')
 
-//8 kyu
-//Do something "n.times" (Simplifying "for" loops)
-//JavaScript:
+//[8 kyu] Do something "n.times" (Simplifying "for" loops)
 Number.prototype.times = function (f) {
   let i=0;
   while(i<this) {
@@ -1340,63 +965,43 @@ Number.prototype.times = function (f) {
   }
 }
 
-//8 kyu
-//Be Concise III - Sum Squares
-//JavaScript:
+//[8 kyu] Be Concise III - Sum Squares
 const sumSquares = arr => arr.reduce((sum, val) => val**2 + sum, 0)
 
-//8 kyu
-//Remove First and Last Character Part Two
-//JavaScript:
+//[8 kyu] Remove First and Last Character Part Two
 function array(arr){
   let _arr =  arr.split(",").slice(1,-1).join(" ")
   return _arr.length > 0 ? _arr : null
 }
 
-//8 kyu
-//Generate user links
-//JavaScript:
+//[8 kyu] Generate user links
 const generateLink = user => `http://www.codewars.com/users/${encodeURIComponent(user)}`
 
-//8 kyu
-//Count words
-//JavaScript:
+//[8 kyu] Count words
 const countWords = str => str.split(/\s/g).filter(Boolean).length
 
-//8 kyu
-//Fix your code before the garden dies!
-//JavaScript:
+//[8 kyu] Fix your code before the garden dies!
 const rainAmount = mm =>
     mm < 40
       ? "You need to give your plant " + (40 - mm) + "mm of water"
       : "Your plant has had more than enough water for today!"
 
-//8 kyu
-//Freudian translator
-//JavaScript:
+//[8 kyu] Freudian translator
 const toFreud = str => str.replace(/[^ ]+/g,'sex')
 
-//8 kyu
-//Implement Array.prototype.filter()
-//JavaScript:
+//[8 kyu] Implement Array.prototype.filter()
 Array.prototype.filter = function (func) {
   const newArray = []
-
   for (let i = 0; i < this.length; i++) {
     if (func(this[i])) newArray.push(this[i])
   }
-
   return newArray
 }
 
-//8 kyu
-//Name on billboard
-//JavaScript:
+//[8 kyu] Name on billboard
 const billboard = (name, price = 30) => [...name].reduce(sum=>sum+price,0)
 
-//8 kyu
-//Training JS #4: Basic data types--Array
-//JavaScript:
+//[8 kyu] Training JS #4: Basic data types--Array
 const getLength = arr => arr.length
 const getFirst = arr => arr[0]
 const getLast = arr => arr.pop()
@@ -1409,35 +1014,17 @@ const popElement = arr => {
   return arr
 }
   
-
-//8 kyu
-//Training JS #3: Basic data types--String
-//JavaScript:
+//[8 kyu] Training JS #3: Basic data types--String
 var a1="A",a2="a",b1="B",b2="b",c1="C",c2="c",d1="D",d2="d",e1="E",e2="e",n1="N",n2="n"
-
 const overAbundant = ([...fnName]) => fnName.map(v=>eval(v.toLowerCase()+(v===v.toUpperCase()?'1':'2'))).join('')
-
 function Dad(){ return overAbundant(arguments.callee.name) }
 function Bee(){ return overAbundant(arguments.callee.name) }
 function banana(){ return overAbundant(arguments.callee.name) }
-
 const answer1 = () => 'no';
 const answer2 = () => 'no';
 const answer3 = () => 'yes';
 
-let a1="A", a2="a", b1="B", b2="b", c1="C", c2="c", d1="D", d2="d", e1="E", e2="e", n1="N", n2="n"
-
-const Dad = () => d1+a2+d2;
-const Bee = () => b1+e2+e2;
-const banana = () => b2+a2+n2+a2+n2+a2;
-
-const answer1 = () => 'no'
-const answer2 = () => 'no'
-const answer3 = () => 'yes'
-
-//8 kyu
-//Training JS #2: Basic data types--Number
-//JavaScript:
+//[8 kyu] Training JS #2: Basic data types--Number
 let v1=50, v2=100, v3=150, v4=200, v5=2, v6=250
 const equal1 = () => v1+v1
 const equal2 = () => v3-v1
@@ -1445,17 +1032,13 @@ const equal3 = () => v1*v5
 const equal4 = () => v4/v5
 const equal5 = () => v2%v4
 
-//8 kyu
-//Training JS #1: create your first JS function and print "Helloworld!"
-//JavaScript:
+//[8 kyu] Training JS #1: create your first JS function and print "Helloworld!"
 const helloWorld = ()=> {
   var str = 'Hello World!'
   console.log(str)
 }
 
-//8 kyu
-//Training JS #12: loop statement --for..in and for..of
-//JavaScript:
+//[8 kyu] Training JS #12: loop statement --for..in and for..of
 function giveMeFive(obj){
   fives = []
   for(key in obj){
@@ -1465,17 +1048,13 @@ function giveMeFive(obj){
   return fives
 }
 
-//8 kyu
-//Training JS #10: loop statement --for
-//JavaScript:
+//[8 kyu] Training JS #10: loop statement --for
 function pickIt(arr){
   //for(...)
   return [arr.filter(v=>v%2==1),arr.filter(v=>v%2==0)];
 }
 
-//8 kyu
-//Training JS #13: Number object and its properties
-//JavaScript:
+//[8 kyu] Training JS #13: Number object and its properties
 function whatNumberIsIt(n){
   str = 'Input number is '
   n = eval(n)
@@ -1489,59 +1068,37 @@ function whatNumberIsIt(n){
   }
 }
 
-//8 kyu
-//Training JS #14: Methods of Number object--toString() and toLocaleString()
-//JavaScript:
+//[8 kyu] Training JS #14: Methods of Number object--toString() and toLocaleString()
 const colorOf = (...rgb) => "#"+rgb.map(v=>('0'+v.toString(16)).substr(-2)).join("")
 
-function colorOf(r,g,b){
-  return "#"+[...arguments].map(v=>('0'+v.toString(16)).substr(-2)).join("")
-}
-
-//8 kyu
-//Training JS #9: loop statement --while and do..while
-//JavaScript:
+//[8 kyu] Training JS #9: loop statement --while and do..while
 const padIt = (str,n) => {
-  //while(...)
   return '*'.repeat(Math.ceil(n/2)) + str + '*'.repeat(Math.floor(n/2)) 
 }
 
-//8 kyu
-//Training JS #21: Methods of String object--trim() and the string template
-//JavaScript:
+//[8 kyu] Training JS #21: Methods of String object--trim() and the string template
 const fiveLine = s => Array.from({length:5},(_,i)=>s.trim().repeat(i+1)).join("\n")
 
-//8 kyu
-//Training JS #11: loop statement --break,continue
-//JavaScript:
+//[8 kyu] Training JS #11: loop statement --break,continue
 const grabDoll= dolls => {
   return dolls.filter(doll=>doll == "Hello Kitty" || doll == "Barbie doll").slice(0,3)
-  
 }
 
-//8 kyu
-//Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()
-//JavaScript:
+//[8 kyu] Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()
 const howManySmaller = (arr,n) => arr.filter(v=> Math.round(v * 100) / 100 < n).length
   
-//8 kyu
-//Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
-//JavaScript:
+//[8 kyu] Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
 function firstToLast(str,c){
   return str.includes(c) ? str.lastIndexOf(c) - str.indexOf(c) : -1;
 }
 
-//8 kyu
-//Training JS #16: Methods of String object--slice(), substring() and substr()
-//JavaScript:
+//[8 kyu] Training JS #16: Methods of String object--slice(), substring() and substr()
 function cutIt(arr){
   minLength = [...arr].sort((a,b)=>a.length-b.length)[0].length
   return arr.map(v=>v.substring(0,minLength))
 }
 
-//8 kyu
-//Training JS #31: methods of arrayObject---isArray() indexOf() and toString()
-//JavaScript:
+//[8 kyu] Training JS #31: methods of arrayObject---isArray() indexOf() and toString()
 function blackAndWhite(arr){
   return !Array.isArray(arr)
     ? "It's a fake array"
@@ -1550,28 +1107,21 @@ function blackAndWhite(arr){
       : "It's a white array"
 }
 
-//8 kyu
-//Not so black box
-//JavaScript:
+//[8 kyu] Not so black box
 console.log(blackBox.toString());
 JSopenSesame();
 
-//8 kyu
-//Blood-Alcohol Content
-//JavaScript:
+//[8 kyu] Blood-Alcohol Content
 function bloodAlcoholContent(drinks, weight, sex, time){
   A = drinks.ounces*drinks.abv;
   W = weight;
   r = sex == 'male' ? 0.73 : 0.66;
   H = time
-  
   BAC = (A * 5.14 / W * r) - .015 * H;
   return Math.round(BAC*10000)/10000
 }
 
-//8 kyu
-//Configure package json for a node application
-//JavaScript:
+//[8 kyu] Configure package json for a node application
 const configuration = {
   license: 'MIT',
   name: 'bla',
@@ -1579,39 +1129,27 @@ const configuration = {
   version: '0.0.1'
 }
 
-//8 kyu
-//Be Concise IV - Index of an element in an array
-//JavaScript:
+//[8 kyu] Be Concise IV - Index of an element in an array
 const find=(a,e)=>a.indexOf(e)<0?"Not found":a.indexOf(e)
 
-//8 kyu
-//SpeedCode #3 × Fun with ES6 Classes #5 - Dogs and Classes
-//JavaScript:
+//[8 kyu] SpeedCode #3 × Fun with ES6 Classes #5 - Dogs and Classes
 class Labrador extends Dog{
-    constructor(n,a,g,m){
-      super(n,a,g,"Labrador","Large",m,!0);
-    }
+  constructor(n,a,g,m){
+    super(n,a,g,"Labrador","Large",m,!0);
   }
+}
   
-//8 kyu
-//Be Concise II - I Need Squares
-//JavaScript:
+//[8 kyu] Be Concise II - I Need Squares
 const squaresOnly = arr => arr.filter(v=>Number.isInteger(Math.sqrt(v)))
 
-//8 kyu
-//Training JS #29: methods of arrayObject---concat() and join()
-//JavaScript:
+//[8 kyu] Training JS #29: methods of arrayObject---concat() and join()
 const bigToSmall = arr => [].concat(...arr).sort((a,b)=>b-a).join(">")
 
-//8 kyu
-//Training JS #34: methods of Math---pow() sqrt() and cbrt()
-//JavaScript:
+//[8 kyu] Training JS #34: methods of Math---pow() sqrt() and cbrt()
 const isIntCube = n => Number.isInteger(Math.cbrt(n))
 const cutCube = (volume, n) => isIntCube(n) && isIntCube(volume / n)
 
-//8 kyu
-//Simple Change Machine
-//JavaScript:
+//[8 kyu] Simple Change Machine
 const changeMe = moneyIn => {
   if (moneyIn === '£5') return `${'20p '.repeat(5 * 5).trim()}`
   if (moneyIn === '£2') return `${'20p '.repeat(5 * 2).trim()}`
@@ -1621,27 +1159,17 @@ const changeMe = moneyIn => {
   return moneyIn
 }
 
-//8 kyu
-//noobCode 02: TRICKY QUESTIONS ( primitives and operator precedence)
-//JavaScript:
+//[8 kyu] noobCode 02: TRICKY QUESTIONS ( primitives and operator precedence)
 const greaterThanLessThan = (a,b,c) => a<b<c
 
-//8 kyu
-//Arguments to Binary addition
-//JavaScript:
+//[8 kyu] Arguments to Binary addition
 const arr2bin = arr => arr.reduce((a,b) => a + (typeof b=='number' ? b : 0), 0).toString(2)
 
-//8 kyu
-//Circular Objects #1 - Running around in circles
-//JavaScript:
+//[8 kyu] Circular Objects #1 - Running around in circles
 const circular = { value: 'Hello World' }
 circular.self = circular
 
-//8 kyu
-//Playing with cubes II
-//JavaScript:
-// This Cube function needs help
-// change the constructor so that it can take an integer for the side or no args
+//[8 kyu] Playing with cubes II
 class Cube{
   constructor(n=0){
     this.setSide(n);
@@ -1654,47 +1182,34 @@ class Cube{
   }
 }
 
-//8 kyu
-//Localize The Barycenter of a Triangle
-//JavaScript:
+//[8 kyu] Localize The Barycenter of a Triangle
 const barTriang = ([xA, yA], [xB, yB], [xC, yC]) =>
   [[xA, xB, xC], [yA, yB, yC]].map(points =>
     Number((points.reduce((total, point) => total + point, 0) / 3).toFixed(4))
   )
 
-//8 kyu
-//Find the Slope
-//JavaScript:
-function slope(points)
-{
+//[8 kyu] Find the Slope
+function slope(points){
   const [x1,y1,x2,y2] = [...points] 
   return x1 == x2 ? 'undefined' : String((y2 - y1) / (x2 - x1))
 }
 
-//8 kyu
-//Crash Override
-//JavaScript:
+//[8 kyu] Crash Override
 function aliasGen(a, b){
   [a,b] = [a[0].toUpperCase(), b[0].toUpperCase()]
   if(!(/^[A-Z]+$/.test(a+b))) return "Your name must start with a letter from A - Z."
   return `${firstName[a]} ${surname[b]}`
 }
 
-//8 kyu
-//Remove the time
-//JavaScript:
+//[8 kyu] Remove the time
 function shortenToDate(longDate) {
   return longDate.split(",")[0]
 }
 
-//8 kyu
-//Is your period late?
-//JavaScript:
+//[8 kyu] Is your period late?
 const periodIsLate = (last, today, cycleLength) => (today-last)/(1000*60*60*24) > cycleLength
 
-//8 kyu
-//Leonardo Dicaprio and Oscars
-//JavaScript:
+//[8 kyu] Leonardo Dicaprio and Oscars
 function leo(oscar){
   switch(true){
       case (oscar==88): return "Leo finally won the oscar! Leo is happy"
@@ -1704,116 +1219,79 @@ function leo(oscar){
   }
 }
 
-//8 kyu
-//Days in the year
-//JavaScript:
+//[8 kyu] Days in the year
 const yearDays = year => `${year} has ${(year%4===0 && year%100!==0) || year==0? 366:365} days`
 
-//8 kyu
-//Fuel Calculator
-//JavaScript:
+//[8 kyu] Fuel Calculator
 function fuelPrice(litres, pricePerLitre) {
   let discount = Math.min(Math.floor(litres/2) * 0.05,0.25)
   return Math.round(litres*(pricePerLitre-discount)*100)/100
 }
 
-//8 kyu
-//Printing Array elements with Comma delimiters
-//JavaScript:
+//[8 kyu] Printing Array elements with Comma delimiters
 function printArray(array){
   return array.join(',')
 }
 
-//8 kyu
-//Formatting decimal places #0
-//JavaScript:
+//[8 kyu] Formatting decimal places #0
 function twoDecimalPlaces(n) {
   return Math.round(n*100)/100
 }
 
-//8 kyu
-//Grasshopper - Combine strings
-//JavaScript:
+//[8 kyu] Grasshopper - Combine strings
 const combineNames = (...args) => args.join(" ")
 
-//8 kyu
-//String Templates - Bug Fixing #5
-//JavaScript:
+//[8 kyu] String Templates - Bug Fixing #5
 function buildString(...template){
   return `I like ${template.join(', ')}!`;
 }
 
-//8 kyu
-//Training JS #6: Basic data types--Boolean and conditional statements if..else
-//JavaScript:
+//[8 kyu] Training JS #6: Basic data types--Boolean and conditional statements if..else
 const trueOrFalse = val => String(Boolean(val))
 
-//8 kyu
-//Simple Comparison?
-//JavaScript:
+//[8 kyu] Simple Comparison?
 function add(a, b){
   return a==b
 }
 
-//8 kyu
-//Did she say hallo?
-//JavaScript:
+//[8 kyu] Did she say hallo?
 function validateHello(greetings) {
   return /hello|ciao|salut|hallo|hola|ahoj|czesc/i.test(greetings)
 }
 
-//8 kyu
-//validate code with simple regex
-//JavaScript:
+//[8 kyu] validate code with simple regex
 const validateCode = code => /^[123]/.test(code)
 
-//8 kyu
-//Get number from string
-//JavaScript:
+//[8 kyu] Get number from string
 function getNumberFromString(s) {
   return +s.replace(/\D/g,'')
 }
 
-//8 kyu
-//Plural
-//JavaScript:
+//[8 kyu] Plural
 function plural(n) {
   return n !== 1 
 }
 
-//8 kyu
-//Chuck Norris VII - True or False? (Beginner)
-//JavaScript:
+//[8 kyu] Chuck Norris VII - True or False? (Beginner)
 const ifChuckSaysSo = () => 1==2
-  
 
-//8 kyu
-//Compare within margin
-//JavaScript:
+//[8 kyu] Compare within margin
 const closeCompare = (a, b, margin = 0) => Math.abs(a - b) <= margin ? 0 : a < b ? -1 : 1
 
-//8 kyu
-//Fix the Bugs (Syntax) - My First Kata
-//JavaScript:
+//[8 kyu] Fix the Bugs (Syntax) - My First Kata
 const myFirstKata = (a,b) => typeof a !=='number' || typeof b !=='number' ? false : a%b + b%a
 
-//8 kyu
-//ES6 string addition
-//JavaScript:
+//[8 kyu] ES6 string addition
 function joinStrings(string1, string2){
    return `${string1} ${string2}`
 }
 
-//8 kyu
-//Reversing Words in a String
-//JavaScript:
+//[8 kyu] Reversing Words in a String
 function reverse(string){
   return string.split(" ").reverse().join(" ")
 }
 
-//8 kyu
-//Sum without highest and lowest number
-//JavaScript:
+//[8 kyu] Sum without highest and lowest number
 function sumArray(array) {
   if(array == null || array.length < 2) return 0
   min = Math.min(...array);
@@ -1821,31 +1299,22 @@ function sumArray(array) {
   return array.reduce((a,b)=>a+b,0) - min - max
 }
 
-//8 kyu
-//Push a hash/an object into array
-//JavaScript:
+//[8 kyu] Push a hash/an object into array
 items = []
 items.push({a: "b", c: "d"})
 
-//8 kyu
-//To square(root) or not to square(root)
-//JavaScript:
+//[8 kyu] To square(root) or not to square(root)
 const squareOrSquareRoot = array => array.map(v=> Number.isInteger(Math.sqrt(v)) ? Math.sqrt(v) : v**2)
 
-//8 kyu
-//Enumerable Magic #1 - True for All?
-//JavaScript:
+//[8 kyu] Enumerable Magic #1 - True for All?
 const all = (array, fun) => array.every(fun)
 
-//8 kyu
-//Finish Guess the Number Game
-//JavaScript:
+//[8 kyu] Finish Guess the Number Game
 class Guesser {
   constructor(number, lives) {
     this.number = number;
     this.lives = lives;
   }
-  
   guess(n) {
     if(this.lives == 0) return error();
     if(n == this.number){
@@ -1857,17 +1326,13 @@ class Guesser {
   }
 }
 
-//8 kyu
-//Pole Vault Starting Marks
-//JavaScript:
+//[8 kyu] Pole Vault Starting Marks
 const startingMark = bodyHeight => {
   const m = (10.67 - 9.45) / (1.83 - 1.52)
   return Math.round((m * bodyHeight + 10.67 - m * 1.83) * 100) / 100
 }
 
-//8 kyu
-//How old will I be in 2099?
-//JavaScript:
+//[8 kyu] How old will I be in 2099?
 function  calculateAge(then,now) {
   age = now-then
   switch(true){
@@ -1879,75 +1344,51 @@ function  calculateAge(then,now) {
   }
 }
 
-//8 kyu
-//Duck Duck Goose
-//JavaScript:
+//[8 kyu] Duck Duck Goose
 const duckDuckGoose = (players, goose) =>
   players[(goose - 1) % players.length].name
 
-//8 kyu
-//Unfinished Loop - Bug Fixing #1
-//JavaScript:
+//[8 kyu] Unfinished Loop - Bug Fixing #1
 const createArray = n => Array.from({length:n},(_,i)=>i+1)
 
-//8 kyu
-//Simple Fun #261: Whose Move
-//JavaScript:
+//[8 kyu] Simple Fun #261: Whose Move
 const whoseMove = (lastPlayer, win) => win ? lastPlayer : {white: "black",black: "white"}[lastPlayer]
 
-//8 kyu
-//Contamination #1 -String-
-//JavaScript:
+//[8 kyu] Contamination #1 -String-
 function contamination(text, char){
   return char.repeat(text.length)
 }
 
-//8 kyu
-//Exclamation marks series #2: Remove all exclamation marks from the end of sentence
-//JavaScript:
+//[8 kyu] Exclamation marks series #2: Remove all exclamation marks from the end of sentence
 function remove(s){
   return s.replace(/!+$/,'')
 }
 
-//8 kyu
-//Power
-//JavaScript:
+//[8 kyu] Power
 const numberToPower = (number, power) => Array.from(Array(power)).reduce((s, _) => s * number, 1)
 
-//8 kyu
-//Add new item (collections are passed by reference)
-//JavaScript:
+//[8 kyu] Add new item (collections are passed by reference)
 function addExtra( listOfNumbers ){
     return [...listOfNumbers,123]
 }
 
-//8 kyu
-//Evil or Odious
-//JavaScript:
+//[8 kyu] Evil or Odious
 const evil = n => [...n.toString(2)].filter(v=>v==1).length % 2 === 0 ? "It's Evil!" : "It's Odious!"
 
-//8 kyu
-//Multiply the number
-//JavaScript:
+//[8 kyu] Multiply the number
 function multiply(number){
   return number * (5**(Math.abs(number)+'').length)
 }
 
-//8 kyu
-//repeatIt
-//JavaScript:
+//[8 kyu] repeatIt
 const repeatIt = (str, n) => typeof str== 'string' ? str.repeat(n) : "Not a string"
 
-//8 kyu
-//Name Shuffler
-//JavaScript:
+//[8 kyu] Name Shuffler
 function nameShuffler(str){
   return str.split(" ").reverse().join(" ")
 }
 
-//8 kyu
-//Rock Paper Scissors!
-//JavaScript:
+//[8 kyu] Rock Paper Scissors!
 const wins = {
   "scissors": "paper",
   "paper": "rock",
@@ -1963,9 +1404,7 @@ const rps = (p1, p2) => {
   }
 };
 
-//8 kyu
-//Grasshopper - Terminal Game Turn Function
-//JavaScript:
+//[8 kyu] Grasshopper - Terminal Game Turn Function
 function doTurn () {
   rollDice()
   move()
@@ -1975,37 +1414,28 @@ function doTurn () {
   printStatus()
 }
 
-//8 kyu
-//Welcome to the City
-//JavaScript:
+//[8 kyu] Welcome to the City
 function sayHello( name, city, state ) {
   return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`
 }
 
-//8 kyu
-//Broken Counter
-//JavaScript:
+//[8 kyu] Broken Counter
 class Counter {
   constructor() {
     this.value = 0
   }
-
   increase() {
     this.value++
   }
-
   getValue() {
     return this.value
   }
-
   reset() {
     this.value = 0
   }
 }
 
-//8 kyu
-//Grader
-//JavaScript:
+//[8 kyu] Grader
 function grader(score) {
   switch(true){
       case (score < 0.6 || score > 1):  return "F";
@@ -2016,61 +1446,46 @@ function grader(score) {
   }
 }
 
-//8 kyu
-//Object Oriented Piracy
-//JavaScript:
+//[8 kyu] Object Oriented Piracy
 class Ship {
   constructor(draft, crew) {
     this.draft = draft
     this.crew = crew
   }
-
   isWorthIt() {
     return this.draft - this.crew * 1.5 > 20
   }
 }
 
-//8 kyu
-//Character Frequency
-//JavaScript:
+//[8 kyu] Character Frequency
 function charFreq(message) {
   return [...message].reduce(function(acc,e){acc[e] = (e in acc ? acc[e]+1 : 1); return acc}, {});
 }
 
-//8 kyu
-//Add Length
-//JavaScript:
+//[8 kyu] Add Length
 function addLength(str) {
-return str.split(" ").map(v=>v+= ' '+v.length)
+  return str.split(" ").map(v=>v+= ' '+v.length)
 }
 
-//8 kyu
-//BASIC: Making Six Toast.
-//JavaScript:
+//[8 kyu] BASIC: Making Six Toast.
 function sixToast(num) {
   return Math.abs(6-num)
 }
 
-//8 kyu
-//Age Range Compatibility Equation
-//JavaScript:
+//[8 kyu] Age Range Compatibility Equation
 function datingRange(age){
   range = age<14 ? [age - 0.10 * age, age + 0.10 * age]: [age/2+7, (age-7)*2]
   return range.map(v=>Math.floor(v)).join("-")
 }
 
-//8 kyu
-//Classy Extentions
-//JavaScript:
+//[8 kyu] Classy Extentions
 class Cat extends Animal {
   speak() {
     return `${this.name} meows.`;
   }
 }
 
-//8 kyu
-//Classy Classes
-//JavaScript:
+//[8 kyu] Classy Classes
 class Person {
   constructor(name,age) {
     this.name = name;
@@ -2079,31 +1494,23 @@ class Person {
   }
 }
 
-//8 kyu
-//ASCII Total
-//JavaScript:
+//[8 kyu] ASCII Total
 const uniTotal = c => [...c].reduce((s,v)=>s+v.charCodeAt(),0)
 
-//8 kyu
-//Points of Reflection
-//JavaScript:
+//[8 kyu] Points of Reflection
 function symmetricPoint(p, q) {
   x = q[0] - (p[0]-q[0])
   y = q[1] - (p[1]-q[1])
   return [x,y]
 }
 
-//8 kyu
-//Collatz Conjecture (3n+1)
-//JavaScript:
+//[8 kyu] Collatz Conjecture (3n+1)
 const hotpo = (n, counter = 0) => 
   n == 1 
     ? counter 
     : hotpo(n%2 === 0 ? n/2 : 3*n+1, counter+1)
 
-//8 kyu
-//Grasshopper - Terminal Game #1
-//JavaScript:
+//[8 kyu] Grasshopper - Terminal Game #1
 function Hero (name='Hero') {
   this.name = name;
   this.position = '00';
@@ -2112,14 +1519,10 @@ function Hero (name='Hero') {
   this.experience = 0
 }
 
-//8 kyu
-//Find the Remainder
-//JavaScript:
+//[8 kyu] Find the Remainder
 const remainder = (a, b) => a>b? a%b : b%a
 
-//8 kyu
-//simple calculator
-//JavaScript:
+//[8 kyu] simple calculator
 function calculator(a,b,sign){
   result = 'unknown value'
   if(typeof(a*b) == "number" && '+-*/'.includes(sign)){
@@ -2128,16 +1531,12 @@ function calculator(a,b,sign){
   return result
 }
 
-//8 kyu
-//Exclamation marks series #1: Remove an exclamation mark from the end of string
-//JavaScript:
+//[8 kyu] Exclamation marks series #1: Remove an exclamation mark from the end of string
 function remove(s){
   return s.replace(/\!$/,'')
 }
 
-//8 kyu
-//Training JS #7: if..else and ternary operator
-//JavaScript:
+//[8 kyu] Training JS #7: if..else and ternary operator
 function saleHotdogs(n){
   switch(true){
       case (n<5) : return n*100;
@@ -2146,18 +1545,13 @@ function saleHotdogs(n){
   }
 }
 
-//8 kyu
-//Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
-//JavaScript:
+//[8 kyu] Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
 const remove = s => s.replace(/\!/g,'')+"!"
 
-//8 kyu
-//Grasshopper - Bug Squashing
-//JavaScript:
+//[8 kyu] Grasshopper - Bug Squashing
 var health = 100
 var position = 0
 var coins = 0
-
 function main () {
   rollDice()
   move()
@@ -2167,26 +1561,18 @@ function main () {
   printStatus()
 }
 
-//8 kyu
-//For Twins: 1. Types
-//JavaScript:
+//[8 kyu] For Twins: 1. Types
 const typeValidation = (v, t) => typeof v === t
 
-//8 kyu
-//Pirates!! Are the Cannons ready!??
-//JavaScript:
+//[8 kyu] Pirates!! Are the Cannons ready!??
 const cannonsReady = (gunners) => {
    return Object.values(gunners).filter(v => v=="nay").length > 0 ? 'Shiver me timbers!' : 'Fire!'
 }
 
-//8 kyu
-//isReallyNaN
-//JavaScript:
+//[8 kyu] isReallyNaN
 const isReallyNaN = Number.isNaN
 
-//8 kyu
-//Safen User Input Part I - htmlspecialchars
-//JavaScript:
+//[8 kyu] Safen User Input Part I - htmlspecialchars
 const chars = {
   '<': '&lt;',
   '>': '&gt;',
@@ -2195,19 +1581,14 @@ const chars = {
 }
 const htmlspecialchars = formData => formData.replace(/[<>"&]/g, c => { return chars[c] });
 
-//8 kyu
-//Heads and Legs
-//JavaScript:
+//[8 kyu] Heads and Legs
 function animals(heads, legs) {
   const cows = legs / 2 - heads;
   const chickens = heads - cows;
-  
   return (legs & 1 || chickens > heads || cows > heads) ? 'No solutions' : [chickens, cows]
 }
 
-//8 kyu
-//Fun with ES6 Classes #1 - People, people, people
-//JavaScript:
+//[8 kyu] Fun with ES6 Classes #1 - People, people, people
 class Person {
   constructor(firstName="John",lastName="Doe", age=0, gender="Male"){
     this.firstName = firstName;
@@ -2223,9 +1604,7 @@ class Person {
   }
 }
 
-//8 kyu
-//Calculate Price Excluding VAT
-//JavaScript:
+//[8 kyu] Calculate Price Excluding VAT
 //return price without vat
 function excludingVatPrice(price){
   console.log(price)
@@ -2233,44 +1612,30 @@ function excludingVatPrice(price){
   return Math.round(price / 1.15 *100)/100
 }
 
-//8 kyu
-//Is integer safe to use?
-//JavaScript:
+//[8 kyu] Is integer safe to use?
 const SafeInteger = n => n < Number.MAX_SAFE_INTEGER
 
-//8 kyu
-//Jenny's secret message
-//JavaScript:
+//[8 kyu] Jenny's secret message
 function greet(name){
   if(name == "Johnny") name = 'my love'
   return "Hello, " + name + "!";
 }
 
-//8 kyu
-//!a == a ?!
-//JavaScript:
+//[8 kyu] !a == a ?!
 const a = '0'
 
-//8 kyu
-//Potenciation
-//JavaScript:
+//[8 kyu] Potenciation
 const power = (x,y) => x**y
 
-//8 kyu
-//Geometry Basics: Circle Area in 2D
-//JavaScript:
+//[8 kyu] Geometry Basics: Circle Area in 2D
 const circleArea =({radius}) => radius**2 * Math.PI
 
-//8 kyu
-//Type of sum
-//JavaScript:
+//[8 kyu] Type of sum
 function typeOfSum(a, b) {
   return typeof (a+b);
 }
 
-//8 kyu
-//Who ate the cookie?
-//JavaScript:
+//[8 kyu] Who ate the cookie?
 function cookie(x){
   let name = 'the dog';
   if (typeof x == 'string') name = "Zach";
@@ -2278,9 +1643,7 @@ function cookie(x){
   return `Who ate the last cookie? It was ${name}!`
 }
 
-//8 kyu
-//Define a card suit
-//JavaScript:
+//[8 kyu] Define a card suit
 const suits = {
   '♣': 'clubs',
   '♦': 'diamonds',
@@ -2289,50 +1652,37 @@ const suits = {
 }
 const defineSuit = card => suits[card.substr(-1)]
 
-//8 kyu
-//Man in the west
-//JavaScript:
+//[8 kyu] Man in the west
 function checkTheBucket(bucket){
   return bucket.includes("gold")
 }
 
-//8 kyu
-//Kata Example Twist
-//JavaScript:
+//[8 kyu] Kata Example Twist
 // add the value "codewars" to the websites array 1,000 times
 var websites = Array(1000).fill('codewars')
 
-//8 kyu
-//String cleaning
-//JavaScript:
+//[8 kyu] String cleaning
 function stringClean(s){
   return s.replace(/\d/g,"")
 }
 
-//8 kyu
-//Sum of Multiples
-//JavaScript:
+//[8 kyu] Sum of Multiples
 const sumMul = (n,m) => m<=n ? "INVALID" : Math.floor(m/n)*(Math.floor(m/n)+1)*(n/2);
 
 function sumMul(n,m){
   console.log(arguments)
   if(m<1 || n<1) return "INVALID";
   return Array.from({length:Math.floor(m/n)},(_,i)=>n+n*i).reduce((sum,val)=>sum+val,0)  
-
 }
 
-//8 kyu
-//Sleigh Authentication
-//JavaScript:
+//[8 kyu] Sleigh Authentication
 function Sleigh() {}
 
 Sleigh.prototype.authenticate = function(name, password) {
   return [...arguments].join('|') == 'Santa Claus|Ho Ho Ho!'
 };
 
-//8 kyu
-//Coding 3min : Jumping Dutch act
-//JavaScript:
+//[8 kyu] Coding 3min : Jumping Dutch act
 function sc(floor){
   let string = '';
   if(floor > 1){
@@ -2342,14 +1692,10 @@ function sc(floor){
   return string
 }
 
-//8 kyu
-//Remove duplicates from list
-//JavaScript:
+//[8 kyu] Remove duplicates from list
 const distinct = a => [...new Set(a)]
 
-//8 kyu
-//Basic subclasses - Adam and Eve
-//JavaScript:
+//[8 kyu] Basic subclasses - Adam and Eve
 class God{
   static create(){
     return [new Man, new Woman];
@@ -2359,100 +1705,68 @@ class Human{}
 class Man extends Human{}
 class Woman extends Human{}
 
-//8 kyu
-//Training JS #18: Methods of String object--concat() split() and its good friend join()
-//JavaScript:
+//[8 kyu] Training JS #18: Methods of String object--concat() split() and its good friend join()
 const splitAndMerge=(str,sep)=>str.split(' ').map(w=>w.split('').join(sep)).join(' ')
 
-//8 kyu
-//Geometry Basics: Circle Circumference in 2D
-//JavaScript:
+//[8 kyu] Geometry Basics: Circle Circumference in 2D
 const circleCircumference = ({radius}) => Math.PI*(radius*2)
 
-//8 kyu
-//Determine offspring sex based on genes XX and XY chromosomes
-//JavaScript:
+//[8 kyu] Determine offspring sex based on genes XX and XY chromosomes
 function chromosomeCheck(sperm) {
   let child = "daughter"
   if(sperm.endsWith("Y")) child= "son"
   return `Congratulations! You're going to have a ${child}.`
 }
 
-//8 kyu
-//Is it a number?
-//JavaScript:
+//[8 kyu] Is it a number?
 const isDigit = s => s==parseFloat(s);
 
-//8 kyu
-//Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
-//JavaScript:
+//[8 kyu] Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
 const replace = s => s.replace(/[aeiou]/gi, '!');
 
-//8 kyu
-//easy logs
-//JavaScript:
+//[8 kyu] easy logs
 const logs = (x, a, b) => Math.log(a * b) / Math.log(x)
 
-//8 kyu
-//Thinkful - Number Drills: Pixelart planning
-//JavaScript:
+//[8 kyu] Thinkful - Number Drills: Pixelart planning
 const isDivisible = (a, b) => !(a%b)
 
-//8 kyu
-//Pillars
-//JavaScript:
+//[8 kyu] Pillars
 function pillars(num_pill, dist, width) {
   return num_pill < 2
     ? 0
     : num_pill * ((dist * 100) + width) - (width * 2) - (dist * 100);
 }
 
-//8 kyu
-//Training JS #32: methods of Math---round() ceil() and floor()
-//JavaScript:
+//[8 kyu] Training JS #32: methods of Math---round() ceil() and floor()
 function roundIt(n){
   let [int,dec] = (n+'').split(".")
-
   if(int.length>dec.length) return Math.floor(n);
   if(dec.length>int.length) return Math.ceil(n);
   return Math.round(n)
-
 }
 
-//8 kyu
-//Enumerable Magic #3 - Does My List Include This?
-//JavaScript:
+//[8 kyu] Enumerable Magic #3 - Does My List Include This?
 function include(arr, item){
   return arr.includes(item)
 }
 
-//8 kyu
-//Enumerable Magic #2 - True for Any?
-//JavaScript:
+//[8 kyu] Enumerable Magic #2 - True for Any?
 function any(arr, fun){
   return arr.some(fun)
 }
 
-//8 kyu
-//Enumerable Magic #4 - True for None?
-//JavaScript:
+//[8 kyu] Enumerable Magic #4 - True for None?
 const none = (array, fun) => !array.some(fun)
 
-//8 kyu
-//Reverse List Order
-//JavaScript:
+//[8 kyu] Reverse List Order
 const reverseList = list => list.reverse()
 
-//8 kyu
-//Training JS #5: Basic data types--Object
-//JavaScript:
+//[8 kyu] Training JS #5: Basic data types--Object
 function animal({name,legs,color}){
   return `This ${color} ${name} has ${legs} legs.`
 }
 
-//8 kyu
-//Training JS #8: Conditional statement--switch
-//JavaScript:
+//[8 kyu] Training JS #8: Conditional statement--switch
 function howManydays(month){
   var days;
   switch (true){
@@ -2462,14 +1776,10 @@ function howManydays(month){
   }
 }
 
-//8 kyu
-//Is the date today
-//JavaScript:
+//[8 kyu] Is the date today
 const isToday = date => new Date().toDateString() === date.toDateString()
 
-//8 kyu
-//They say that only the name is long enough to attract attention. They also said that only a simple Kata will have someone to solve it. This is a sadly story #1: Are they opposite?
-//JavaScript:
+//[8 kyu] They say that only the name is long enough to attract attention. They also said that only a simple Kata will have someone to solve it. This is a sadly story #1: Are they opposite?
 function isOpposite(s1,s2){
   return [...s1]
     .map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
@@ -2486,33 +1796,24 @@ function isOpposite(s1,s2){
   return str === s2;
 }
 
-//8 kyu
-//Return the day
-//JavaScript:
+//[8 kyu] Return the day
 const whatday = num => ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][num-1]||"Wrong, please enter a number between 1 and 7"
 
-//8 kyu
-//What's up next?
-//JavaScript:
+//[8 kyu] What's up next?
 const nextItem = (xs, item) => {
   let found = false
   let finalValue
-
   for (const i of xs) {
     if (found) {
       finalValue = i
       break
     }
-
     if (i === item) found = true
   }
-
   return finalValue
 }
 
-//8 kyu
-//Find the force of gravity between two objects
-//JavaScript:
+//[8 kyu] Find the force of gravity between two objects
 function solution([m1,m2,d],[um1,um2,ud]) {
   const G = 6.67e-11 ;
   const conversion = { kg:1, g:1e-3, mg:1e-6, μg:1e-9, lb:.453592
@@ -2521,140 +1822,96 @@ function solution([m1,m2,d],[um1,um2,ud]) {
   return G * m1 * conversion[um1] * m2 * conversion[um2] / ( d * conversion[ud] ) ** 2 ;
 }
 
-//8 kyu
-//Exclamation marks series #6: Remove n exclamation marks in the sentence from left to right
-//JavaScript:
+//[8 kyu] Exclamation marks series #6: Remove n exclamation marks in the sentence from left to right
 function remove(s,n){
   let input = s;
   while (n) {
-  input = input.replace(/!/, "");
-  n-=1;
+    input = input.replace(/!/, "");
+    n-=1;
   }
   return input;
 }
 
-//8 kyu
-//Who is going to pay for the wall?
-//JavaScript:
+//[8 kyu] Who is going to pay for the wall?
 function whoIsPaying(name){
   return name.length > 2 ? [name, name.substring(0,2)] : [name]
 }
 
-//8 kyu
-//Count the number of cubes with paint on
-//JavaScript:
+//[8 kyu] Count the number of cubes with paint on
 const countSquares = cuts => (cuts ? 6 * cuts**2 + 2 : 1)
 
-//8 kyu
-//Find out whether the shape is a cube
-//JavaScript:
+//[8 kyu] Find out whether the shape is a cube
 const cubeChecker = (volume, side) => side < 1 ? false : Math.pow(side,3) == volume
   
-
-//8 kyu
-//Hex to Decimal
-//JavaScript:
+//[8 kyu] Hex to Decimal
 const hexToDec = hexString => parseInt(hexString, 16);
 
-//8 kyu
-//Sentence Smash
-//JavaScript:
+//[8 kyu] Sentence Smash
 const smash = words => words.join(' ')
 
-//8 kyu
-//Find Nearest square number
-//JavaScript:
+//[8 kyu] Find Nearest square number
 const nearestSq = n => Math.round(Math.sqrt(n))**2
 
-//8 kyu
-//Basic variable assignment
-//JavaScript:
+//[8 kyu] Basic variable assignment
 var a = "code";
 var b = "wa.rs";
 var name = a + b;
 
-//8 kyu
-//If you can't sleep, just count sheep!!
-//JavaScript:
+//[8 kyu] If you can't sleep, just count sheep!!
 const countSheep = num => Array.from({length:num},(_,i)=>`${i+1} sheep...`).join('')
 
-//8 kyu
-//Palindrome Strings
-//JavaScript:
+//[8 kyu] Palindrome Strings
 function isPalindrome(line) {
   l = line+''
   return l == [...l].reverse().join('')
 }
 
-//8 kyu
-//How many stairs will Suzuki climb in 20 years?
-//JavaScript:
+//[8 kyu] How many stairs will Suzuki climb in 20 years?
 function stairsIn20(s){
   return s.reduce((s1, v1) => s1 + v1.reduce((s2, v2) => s2 + v2, 0), 0) * 20
 }
 
-//8 kyu
-//Bin to Decimal
-//JavaScript:
+//[8 kyu] Bin to Decimal
 const binToDec = bin => parseInt(bin, 2);
 
-//8 kyu
-//Decibel Scale
-//JavaScript:
+//[8 kyu] Decibel Scale
 const dBScale = intensity => 10 * Math.log10(intensity / 10 ** -12)
 
-//8 kyu
-//Count Odd Numbers below n
-//JavaScript:
+//[8 kyu] Count Odd Numbers below n
 const oddCount = n => Math.floor(n/2) ;
 
-//8 kyu
-//Count by X
-//JavaScript:
+//[8 kyu] Count by X
 function countBy(x, n) {
   return Array.from({length:n},(_,i)=>x+x*i)
 }
 
-//8 kyu
-//Simple multiplication
-//JavaScript:
+//[8 kyu] Simple multiplication
 function simpleMultiplication(n) {
     return n%2 ? n*9 : n*8
 }
 
-//8 kyu
-//Is it a palindrome?
-//JavaScript:
+//[8 kyu] Is it a palindrome?
 function isPalindrome(x) {
   x=x.toLowerCase()
   return x === [...x].reverse().join('')
 }
 
-//8 kyu
-//Basic Mathematical Operations
-//JavaScript:
+//[8 kyu] Basic Mathematical Operations
 const ops = {
   '+': (v1,v2) => v1+v2,
   '-': (v1,v2) => v1-v2,
   '*': (v1,v2) => v1*v2,
   '/': (v1,v2) => v1/v2,
 }
-
 const basicOp = (o, v1, v2) => ops[o](v1,v2)
 
-//8 kyu
-//Closest elevator
-//JavaScript:
+//[8 kyu] Closest elevator
 const elevator = (left, right, call) => Math.abs(call-left) < Math.abs(call-right) ? 'left' : 'right'
 
-//8 kyu
-//Grasshopper - Terminal game combat function
-//JavaScript:
+//[8 kyu] Grasshopper - Terminal game combat function
 const combat = (health, damage) => damage>health? 0: health-damage
 
-//8 kyu
-//Student's Final Grade
-//JavaScript:
+//[8 kyu] Student's Final Grade
 function finalGrade (exam, projects) {
   if (exam > 90 || projects > 10) return 100;
   if (exam > 75 && projects >= 5) return 90;
@@ -2662,59 +1919,40 @@ function finalGrade (exam, projects) {
   return 0
 }
 
-//8 kyu
-//Correct the mistakes of the character recognition software
-//JavaScript:
+//[8 kyu] Correct the mistakes of the character recognition software
 
-function correct(str)
-{
+function correct(str){
   str = str.replace(/5/g,'S')
   str = str.replace(/0/g,'O')
   return str.replace(/1/g,'I')
 }
 
-//8 kyu
-//Wilson primes
-//JavaScript:
+//[8 kyu] Wilson primes
 const factorial = number => {
   if (number < 0) return -1
   if (number === 0) return 1
-
   return number * factorial(number - 1)
 }
-
 const amIWilson = p => Number.isInteger((factorial(p - 1) + 1) / (p * p))
 
-//8 kyu
-//A Needle in the Haystack
-//JavaScript:
+//[8 kyu] A Needle in the Haystack
 const findNeedle = haystack => "found the needle at position "+haystack.indexOf('needle')
 
-//8 kyu
-//Even or Odd
-//JavaScript:
+//[8 kyu] Even or Odd
 const even_or_odd = n => n%2?"Odd":"Even"
 
-//8 kyu
-//Simple Fun #1: Seats in Theater
-//JavaScript:
+//[8 kyu] Simple Fun #1: Seats in Theater
 const seatsInTheater = (nCols, nRows, col, row) => (nCols-col+1)*(nRows-row)
 
-//8 kyu
-//Convert a String to a Number!
-//JavaScript:
+//[8 kyu] Convert a String to a Number!
 const stringToNumber = str => +str
 
-//8 kyu
-//Third Angle of a Triangle
-//JavaScript:
+//[8 kyu] Third Angle of a Triangle
 function otherAngle(a, b) {
   return 180-a-b;
 }
 
-//8 kyu
-//8kyu interpreters: HQ9+
-//JavaScript:
+//[8 kyu] 8kyu interpreters: HQ9+
 function HQ9(code) {
   const t = {
   'H': 'Hello World!',
@@ -2724,49 +1962,33 @@ function HQ9(code) {
   return t[code] || undefined
 }
 
-//8 kyu
-//A Strange Trip to the Market
-//JavaScript:
+//[8 kyu] A Strange Trip to the Market
 const t = ['tree fiddy','3.50','three fifty']
 const isLockNessMonster = s => new RegExp(t.join("|")).test(s)
 
-//8 kyu
-//Surface Area and Volume of a Box
-//JavaScript:
+//[8 kyu] Surface Area and Volume of a Box
 const getSize = (l,w,h) => [2*l*w+2*l*h+2*w*h, l*w*h]
 
-//8 kyu
-//Find the Integral
-//JavaScript:
+//[8 kyu] Find the Integral
 const integrate = (c, e) => `${c/++e}x^${e}`
 
-//8 kyu
-//Be Concise I - The Ternary Operator
-//JavaScript:
+//[8 kyu] Be Concise I - The Ternary Operator
 describeAge=a=>"You're a(n) "+(a<=12?"kid":a<18?"teenager":a<65?"adult":"elderly")
 
-//8 kyu
-//Simple validation of a username with regex
-//JavaScript:
+//[8 kyu] Simple validation of a username with regex
 function validateUsr(username) {
   return /^[a-z0-9_]{4,16}$/.test(username)
 }
 
-//8 kyu
-//Multiple of index
-//JavaScript:
+//[8 kyu] Multiple of index
 function multipleOfIndex(array) {
   return array.filter((v,i)=>v%i==0)
 }
 
-//8 kyu
-//Area of a Square
-//JavaScript:
+//[8 kyu] Area of a Square
 const squareArea = A => Number(((2 * A / 3.1416)**2).toFixed(2))
 
-//8 kyu
-//For UFC Fans (Total Beginners): Conor McGregor vs George Saint Pierre
-//JavaScript:
+//[8 kyu] For UFC Fans (Total Beginners): Conor McGregor vs George Saint Pierre
 const quote = fighter => {
   let t = {
     'george saint pierre': 'I am not impressed by your performance.', 
@@ -2775,27 +1997,18 @@ const quote = fighter => {
   return t[fighter.toLowerCase()]
 }
 
-//8 kyu
-//5 without numbers !!
-//JavaScript:
+//[8 kyu] 5 without numbers !!
 const unusualFive = () => '_____'.length
 
-//8 kyu
-//Regexp Basics - is it a digit?
-//JavaScript:
+//[8 kyu] Regexp Basics - is it a digit?
 String.prototype.digit = function() {
   return /^\d$/.test(this);
 };
 
-//8 kyu
-//The 'if' function
-//JavaScript:
+//[8 kyu] The 'if' function
 const _if = (bool, func1, func2) => (bool ? func1() : func2())
 
-//8 kyu
-//Well of Ideas - Easy Version
-//JavaScript:
-
+//[8 kyu] Well of Ideas - Easy Version
 function well(x){
   let count = x.filter(r=>r=='good').length;
   switch(true){
@@ -2805,17 +2018,13 @@ function well(x){
   }
 }
 
-//8 kyu
-//Draw stairs
-//JavaScript:
+//[8 kyu] Draw stairs
 function drawStairs(n) {
   let arr = Array.from({length:n}, (_,i)=>' '.repeat(i)+"I");
   return arr.join('\n')
 }
 
-//8 kyu
-//Tip Calculator
-//JavaScript:
+//[8 kyu] Tip Calculator
 let tips = {
   poor:5,
   good:10,
@@ -2827,50 +2036,36 @@ function calculateTip(amount, rating) {
   return Math.ceil(amount/100*tips[rating.toLowerCase()]) || 'Rating not recognised'
 }
 
-//8 kyu
-//Count the Monkeys!
-//JavaScript:
+//[8 kyu] Count the Monkeys!
 const monkeyCount = n => Array.from({length: n}, (_, i) => i+1)
 
-//8 kyu
-//Classic Hello World
-//JavaScript:
+//[8 kyu] Classic Hello World
 class Solution {
   static main() {
     console.log('Hello World!')
   }
 }
 
-//8 kyu
-//Grasshopper - Check for factor
-//JavaScript:
+//[8 kyu] Grasshopper - Check for factor
 const checkForFactor = (base, factor) => !(base%factor)
 
-//8 kyu
-//noobCode 01: SUPERSIZE ME.... or rather, this integer!
-//JavaScript:
+//[8 kyu] noobCode 01: SUPERSIZE ME.... or rather, this integer!
 function superSize(num){
   let sorted = [...num.toString()].sort((a,b)=>b-a).join('')
   return +sorted
 }
 
-//8 kyu
-//No Loops 2 - You only need one
-//JavaScript:
+//[8 kyu] No Loops 2 - You only need one
 const check = (a,x) => a.includes(x)
 
-//8 kyu
-//Volume of a Cuboid
-//JavaScript:
+//[8 kyu] Volume of a Cuboid
 class Kata {
   static getVolumeOfCuboid(length, width, height) {
     return length*width*height
   }
 }
 
-//8 kyu
-//Simple Fun #352: Reagent Formula
-//JavaScript:
+//[8 kyu] Simple Fun #352: Reagent Formula
 function isValid(f){
   if(f.includes(1) && f.includes(2))return false;
   if(f.includes(3) && f.includes(4))return false;
@@ -2880,78 +2075,51 @@ function isValid(f){
   return false
 }
 
-//8 kyu
-//What's the real floor?
-//JavaScript:
+//[8 kyu] What's the real floor?
 function getRealFloor(n) {
   if(n > 13) return n-2;
   if(n < 1) return n
   return n-1
 }
 
-//8 kyu
-//Opposite number
-//JavaScript:
+//[8 kyu] Opposite number
 const opposite = n => -n
 
-//8 kyu
-//Grasshopper - Messi goals function
-//JavaScript:
+//[8 kyu] Grasshopper - Messi goals function
 const goals = (a, b, c) => a+b+c
   
-
-//8 kyu
-//How good are you really?
-//JavaScript:
+//[8 kyu] How good are you really?
 const betterThanAverage = (c, y) => y > c.reduce((a,b)=>a+b,0) / c.length;
   
-
-//8 kyu
-//Exclusive "or" (xor) Logical Operator
-//JavaScript:
+//[8 kyu] Exclusive "or" (xor) Logical Operator
 const xor = (a, b) => a!=b
 
-//8 kyu
-//No zeros for heros
-//JavaScript:
-
+//[8 kyu] No zeros for heros
 function noBoringZeros(n) {
   if(n!==0 && n%10 == 0) n = noBoringZeros(n/10);
   return n
 }
 
-//8 kyu
-//Thinkful - Number Drills: Blue and red marbles
-//JavaScript:
+//[8 kyu] Thinkful - Number Drills: Blue and red marbles
 function guessBlue(blueStart, redStart, bluePulled, redPulled) {
   return (blueStart-bluePulled)/(blueStart-bluePulled+redStart-redPulled)
 }
 
-//8 kyu
-//Triple Trouble
-//JavaScript:
+//[8 kyu] Triple Trouble
 function tripleTrouble(one, two, three){
   return [...one].map((c,i)=>c+two[i]+three[i]).join('')
  }
 
-//Retired
-//Watermelon
-//JavaScript:
+//[etired] Watermelon
 const divide = weight => weight == 2 ? false : !(weight%2)
 
-//8 kyu
-//get ascii value of character
-//JavaScript:
+//[8 kyu] get ascii value of character
 const getASCII = c => c.charCodeAt()
 
-//Retired
-//Number toString
-//JavaScript:
+//[retired] Number toString
 var a = 123+'';
 
-//8 kyu
-//Removing Elements
-//JavaScript:
+//[8 kyu] Removing Elements
 function removeEveryOther(arr){
   for(i=1;i<=arr.length-1;i++){
     arr.splice(i,1)
@@ -2959,28 +2127,20 @@ function removeEveryOther(arr){
   return arr
 }
 
-//8 kyu
-//Find the Difference in Age between Oldest and Youngest Family Members
-//JavaScript:
+//[8 kyu] Find the Difference in Age between Oldest and Youngest Family Members
 function differenceInAges(ages){
   return [Math.min(...ages), Math.max(...ages), Math.max(...ages)-Math.min(...ages)]
 }
 
-//8 kyu
-//Is it even?
-//JavaScript:
+//[8 kyu] Is it even?
 const testEven = n => !(n%2)
 
-//8 kyu
-//All Star Code Challenge #18
-//JavaScript:
+//[8 kyu] All Star Code Challenge #18
 function strCount(str, letter){  
   return str.split(letter).length - 1
 }
 
-//8 kyu
-//Polish alphabet
-//JavaScript:
+//[8 kyu] Polish alphabet
 const chars = {
   "ą":"a",
   "ć":"c",
@@ -2992,34 +2152,23 @@ const chars = {
   "ź":"z",
   "ż":"z"
 }
-
 const correctPolishLetters = string => [...string].map(c=>chars[c] || c).join('')
 
-//8 kyu
-//Is the string uppercase?
-//JavaScript:
+//[8 kyu] Is the string uppercase?
 String.prototype.isUpperCase = function() {
   return this == this.toUpperCase()
 }
 
-//8 kyu
-//SpeedCode #2 - Array Madness
-//JavaScript:
+//[8 kyu] SpeedCode #2 - Array Madness
 const sumPowedArray = (arr,pow) => arr.reduce((sum,n)=>sum+(n**pow),0)
-
 const arrayMadness = (a, b) => sumPowedArray(a,2)>sumPowedArray(b,3)
 
-//8 kyu
-//altERnaTIng cAsE <=> ALTerNAtiNG CaSe
-//JavaScript:
-
+//[8 kyu] altERnaTIng cAsE <=> ALTerNAtiNG CaSe
 String.prototype.toAlternatingCase = function () {
   return this.split("").map(c => c === c.toUpperCase()? c.toLowerCase(): c.toUpperCase()).join('');
 }
 
-//8 kyu
-//Total amount of points
-//JavaScript:
+//[8 kyu] Total amount of points
 const getResult = g => {
   let result = g.split(":")
   if(result[0]>result[1]) return 3;
@@ -3028,18 +2177,12 @@ const getResult = g => {
 }
 const points = games => games.reduce((a,b)=>a+getResult(b),0)
 
-//8 kyu
-//Expressions Matter
-//JavaScript:
+//[8 kyu] Expressions Matter
 const expressionMatter = (a, b, c) => Math.max(a + b + c, a * b * c, (a + b) * c, a * (b + c))
 
-//8 kyu
-//Subtract the Sum
-//JavaScript:
+//[8 kyu] Subtract the Sum
 const fruits = ['kiwi','pear','kiwi','banana','melon','banana','melon','pineapple','apple','pineapple','cucumber','pineapple','cucumber','orange','grape','orange','grape','apple','grape','cherry','pear','cherry','pear','kiwi','banana','kiwi','apple','melon','banana','melon','pineapple','melon','pineapple','cucumber','orange','apple','orange','grape','orange','grape','cherry','pear','cherry','pear','apple','pear','kiwi','banana','kiwi','banana','melon','pineapple','melon','apple','cucumber','pineapple','cucumber','orange','cucumber','orange','grape','cherry','apple','cherry','pear','cherry','pear','kiwi','pear','kiwi','banana','apple','banana','melon','pineapple','melon','pineapple','cucumber','pineapple','cucumber','apple','grape','orange','grape','cherry','grape','cherry','pear','cherry','apple','kiwi','banana','kiwi','banana','melon','banana','melon','pineapple','apple','pineapple']
 const sum = n => n - [...n.toString()].reduce((a,b)=>+a + +b)
-
-
 function SubtractSum(n){
   let lookup = sum(n)
   result = false;
@@ -3049,15 +2192,11 @@ function SubtractSum(n){
   return result
 }
 
-//8 kyu
-//Get Planet Name By ID
-//JavaScript:
+//[8 kyu] Get Planet Name By ID
 const planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
 const getPlanetName = id => planets[id-1] || undefined
 
-//8 kyu
-//Welcome!
-//JavaScript:
+//[8 kyu] Welcome!
 const greetings = {
   english: 'Welcome',
   czech: 'Vitejte',
@@ -3079,10 +2218,7 @@ const greetings = {
 }
 const greet = language => greetings[language] || "Welcome"
 
-//8 kyu
-//Grasshopper - Create the rooms
-//JavaScript:
-// Add rooms here
+//[8 kyu] Grasshopper - Create the rooms
 var rooms = {
   room1:{
     name:'name1',
@@ -3101,24 +2237,16 @@ var rooms = {
   }
 }
 
-//8 kyu
-//Find Multiples of a Number
-//JavaScript:
+//[8 kyu] Find Multiples of a Number
 const findMultiples = (integer, limit) => Array.from({length: Math.floor(limit/integer)}, (_,i) => ++i*integer)
 
-//8 kyu
-//Is n divisible by x and y?
-//JavaScript:
+//[8 kyu] Is n divisible by x and y?
 const isDivisible = (n, x, y) => !(n%x||n%y)
 
-//8 kyu
-//Coefficients of the Quadratic Equation
-//JavaScript:
+//[8 kyu] Coefficients of the Quadratic Equation
 const quadratic = (x1, x2) => [1, -(x1+x2), x1*x2]
 
-//8 kyu
-//Short Long Short
-//JavaScript:
+//[8 kyu] Short Long Short
 function solution(a,b){
   arr = [a,b].sort((a,b)=>a.length - b.length)
   arr.push(arr[0]);
@@ -3129,99 +2257,59 @@ function solution(a, b){
   return a.length > b.length ? b+a+b : a+b+a
 }
 
-//8 kyu
-//Parse float
-//JavaScript:
+//[8 kyu] Parse float
 const parseF = s => (Number.isNaN(parseFloat(s)) ? null : parseFloat(s))
 
-//8 kyu
-//Grasshopper - Messi Goals
-//JavaScript:
+//[8 kyu] Grasshopper - Messi Goals
 let laLigaGoals = 43
 let championsLeagueGoals = 10
 let copaDelReyGoals = 5
-
 let totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals
 
-//8 kyu
-//Grasshopper - Debug
-//JavaScript:
+//[8 kyu] Grasshopper - Debug
+const convert = temp => (temp - 32) * (5/9)
 function weatherInfo (temp) {
   return `${convert(temp)} is ${convert(temp) > 0 ? 'above ':''}freezing temperature`
 }
-  
-function convert (temp) {
-  var celsius = (temp - 32) * (5/9)
-  return celsius
-}
 
-//8 kyu
-//Capitalization and Mutability
-//JavaScript:
+//[8 kyu] Capitalization and Mutability
 const capitalizeWord = word => word[0].toUpperCase()+word.slice(1).toLowerCase()
 
-//8 kyu
-//Grasshopper - Debug sayHello
-//JavaScript:
+//[8 kyu] Grasshopper - Debug sayHello
 const sayHello = name => 'Hello, '+name
 
-//8 kyu
-//Grasshopper - Function syntax debugging
-//JavaScript:
+//[8 kyu] Grasshopper - Function syntax debugging
 const main = (verb, noun) => verb+noun
-  
 
-//8 kyu
-//Grasshopper - If/else syntax debug
-//JavaScript:
+//[8 kyu] Grasshopper - If/else syntax debug
 const checkAlive = health => health>0
 
-//8 kyu
-//Hello, Name or World!
-//JavaScript:
+//[8 kyu] Hello, Name or World!
 const hello = n => 'Hello, '+ (n && n!==""? n[0].toUpperCase() + n.slice(1).toLowerCase() : 'World') +"!"
 
-//8 kyu
-//The falling speed of petals
-//JavaScript:
+//[8 kyu] The falling speed of petals
 const sakuraFall = v => v <= 0 ? 0 : 400 / v
 
-//8 kyu
-//Are You Playing Banjo?
-//JavaScript:
+//[8 kyu] Are You Playing Banjo?
 const areYouPlayingBanjo = name => `${name} ${name[0].toLowerCase() == 'r' ? 'plays': 'does not play'} banjo`
 
-//8 kyu
-//Array plus array
-//JavaScript:
+//[8 kyu] Array plus array
 const arrayPlusArray = (arr1, arr2) => arr1.concat(arr2).reduce((a,b)=>a+b)
 
-//8 kyu
-//L1: Set Alarm
-//JavaScript:
+//[8 kyu] L1: Set Alarm
 const setAlarm = (e, v) => e>v
 
-const setAlarm = (employed, vacation) => employed && !vacation
-
-//8 kyu
-//Square(n) Sum
-//JavaScript:
+//[8 kyu] Square(n) Sum
 const squareSum = (numbers) => numbers.reduce((a,b)=>b*b+a,0)
 
-//8 kyu
-//Keep Hydrated!
-//JavaScript:
+//[8 kyu] Keep Hydrated!
 const litres = t => Math.floor(t/2)
 
-//8 kyu
-//Switch it Up!
-//JavaScript:
+//[8 kyu] Switch it Up!
 const nums = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine']
 const switchItUp = n => nums[n]
 
-//7 kyu
-//Check the exam
-//JavaScript:
+//[7 kyu] Check the exam
 function checkExam(array1, array2) {
   console.log
   let score = 0;
@@ -3233,86 +2321,58 @@ function checkExam(array1, array2) {
   return score > 0 ? score : 0
 }
 
-//8 kyu
-//Multiplication table for number
-//JavaScript:
+//[8 kyu] Multiplication table for number
 function multiTable(n) {
   return Array.from({length:10},(_,i)=>`${i+1} * ${n} = ${(i+1)*n}`).join('\n')
 }
 
-//8 kyu
-//Sum Arrays
-//JavaScript:
+//[8 kyu] Sum Arrays
 const sum = n => n.reduce((a,b)=>a+b,0)
 
-//8 kyu
-//Multiply
-//JavaScript:
+//[8 kyu] Multiply
 const multiply = (a, b) => a * b
 
-//8 kyu
-//Holiday VI - Shark Pontoon
-//JavaScript:
+//[8 kyu] Holiday VI - Shark Pontoon
 function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
   let me = pontoonDistance / youSpeed;
   let shark = sharkDistance / (sharkSpeed / (dolphin ? 2 : 1));
   return me >= shark ? 'Shark Bait!': 'Alive!'
 }
 
-//8 kyu
-//Beginner Series #2 Clock
-//JavaScript:
+//[8 kyu] Beginner Series #2 Clock
 function past(h, m, s){
   return ((h*3600)+(m*60)+s)*1000
 }
 
-//8 kyu
-//Dollars and Cents
-//JavaScript:
+//[8 kyu] Dollars and Cents
 function formatMoney(amount){
   return '$'+amount.toFixed(2)
 }
 
-//8 kyu
-//Function 2 - squaring an argument
-//JavaScript:
+//[8 kyu] Function 2 - squaring an argument
 const square = n => n*n
 
-//8 kyu
-//Take the Derivative
-//JavaScript:
+//[8 kyu] Take the Derivative
 const derive = (c,e) => `${c*e}x^${e-1}`
 
-//8 kyu
-//Convert to Binary
-//JavaScript:
+//[8 kyu] Convert to Binary
 let toBinary = n => +n.toString(2)
 
-//8 kyu
-//For Twins: 2. Math operations
-//JavaScript:
+//[8 kyu] For Twins: 2. Math operations
 function iceBrickVolume(radius, bottleLength, rimLength) {
  return (bottleLength - rimLength) * radius * 2 * radius;
 }
 
-//8 kyu
-//Sum The Strings
-//JavaScript:
+//[8 kyu] Sum The Strings
 const sumStr = (a,b) => ''+((+a)+(+b))
 
-//8 kyu
-//USD => CNY
-//JavaScript:
+//[8 kyu] USD => CNY
 const usdcny = usd => (usd*6.75).toFixed(2) + ' Chinese Yuan'
 
-//8 kyu
-//Filling an array (part 1)
-//JavaScript:
+//[8 kyu] Filling an array (part 1)
 const arr = N => N?[...Array(N).keys()]:[]
 
-//8 kyu
-//How much water do I need?
-//JavaScript:
+//[8 kyu] How much water do I need?
 const howMuchWater = (water, load, clothes) =>
   clothes > 2 * load
     ? 'Too much clothes'
@@ -3320,9 +2380,7 @@ const howMuchWater = (water, load, clothes) =>
        ? 'Not enough clothes' 
        : Number((water * 1.1 ** (clothes - load)).toFixed(2))
 
-//8 kyu
-//Sum of differences in array
-//JavaScript:
+//[8 kyu] Sum of differences in array
 function sumOfDifferences(arr) {
   let sum = 0;
   arr.sort((a,b)=>b-a)
@@ -3332,54 +2390,34 @@ function sumOfDifferences(arr) {
   return sum
 }
 
-//8 kyu
-//Find the position!
-//JavaScript:
+//[8 kyu] Find the position!
 const position = letter=> 'Position of alphabet: '+(letter.charCodeAt()-96)
 
-//8 kyu
-//NBA full 48 minutes average
-//JavaScript:
+//[8 kyu] NBA full 48 minutes average
 const pointsPer48 = (ppg, mpg) => Math.round(ppg/mpg*48*10)/10 || 0
 
-//8 kyu
-//Grasshopper - Basic Function Fixer
-//JavaScript:
+//[8 kyu] Grasshopper - Basic Function Fixer
 const addFive = num => num+5
 
-//8 kyu
-//Aspect Ratio Cropping - Part 1
-//JavaScript:
+//[8 kyu] Aspect Ratio Cropping - Part 1
 const aspectRatio = (x,y) => [Math.ceil(y/9*16),y]
 
-//8 kyu
-//N-th Power
-//JavaScript:
+//[8 kyu] N-th Power
 const index = (array, n) => array[n]**n || -1
 
-//8 kyu
-//CSV representation of array
-//JavaScript:
+//[8 kyu] CSV representation of array
 const toCsvText = array => array.join("\n")
 
-//8 kyu
-//Parse nice int from char problem
-//JavaScript:
+//[8 kyu] Parse nice int from char problem
 const getAge = s => +s[0]
 
-//8 kyu
-//Are arrow functions odd?
-//JavaScript:
+//[8 kyu] Are arrow functions odd?
 const odds = values => values.filter(x=>x%2==1)
 
-//8 kyu
-//Super Duper Easy
-//JavaScript:
+//[8 kyu] Super Duper Easy
 const problem = x => typeof x === 'number' ? x*50+6 : "Error"
 
-//8 kyu
-//Smallest unused ID
-//JavaScript:
+//[8 kyu] Smallest unused ID
 const nextId = ids => {
   ids = [...new Set(ids)].sort((a,b)=>a-b)
   if(ids[0] !== 0) return 0;
@@ -3389,14 +2427,10 @@ const nextId = ids => {
   return ids.length
 }
 
-//8 kyu
-//Gravity Flip
-//JavaScript:
+//[8 kyu] Gravity Flip
 const flip=(d, a)=> a.sort((a,b)=>d=="L"?b-a:a-b)
 
-//8 kyu
-//L1: Bartender, drinks!
-//JavaScript:
+//[8 kyu] L1: Bartender, drinks!
 const drinks = {
   "jabroni":"Patron Tequila",
   "school counselor":"Anything with Alcohol",
@@ -3405,17 +2439,12 @@ const drinks = {
   "politician":"Your tax dollars",
   "rapper":"Cristal",
 }
-
 const getDrinkByProfession = param => drinks[param.toLowerCase()] || 'Beer'
 
-//8 kyu
-//get character from ASCII Value
-//JavaScript:
+//[8 kyu] get character from ASCII Value
 const getChar = c => String.fromCharCode(c)
 
-//8 kyu
-//Find the first non-consecutive number
-//JavaScript:
+//[8 kyu] Find the first non-consecutive number
 function firstNonConsecutive (arr) {
   for(i=1;i<arr.length;i++){
     if(arr[i] - arr[i-1] > 1) return arr[i]
@@ -3423,49 +2452,32 @@ function firstNonConsecutive (arr) {
   return null
 }
 
-//8 kyu
-//Incorrect division method
-//JavaScript:
+//[8 kyu] Incorrect division method
 const solve = (x, y) => x/y
 
-//8 kyu
-//Do I get a bonus?
-//JavaScript:
+//[8 kyu] Do I get a bonus?
 function bonusTime(salary, bonus) {
 return '£' + (salary * (bonus?10:1))
 }
 
-//8 kyu
-//Grasshopper - Variable Assignment Debug
-//JavaScript:
+//[8 kyu] Grasshopper - Variable Assignment Debug
 const a = "dev"
 const b = "Lab"
-
 const name = a + b
 
-//8 kyu
-//Function 3 - multiplying two numbers
-//JavaScript:
+//[8 kyu] Function 3 - multiplying two numbers
 const multiply = (a,b) => a*b
 
-//8 kyu
-//Century From Year
-//JavaScript:
+//[8 kyu] Century From Year
 const century = year => Math.ceil(year/100)
 
-//8 kyu
-//Beginner - Lost Without a Map
-//JavaScript:
+//[8 kyu] Beginner - Lost Without a Map
 maps = x => x.map(n=>n*2)
 
-//8 kyu
-//Beginner - Reduce but Grow
-//JavaScript:
+//[8 kyu] Beginner - Reduce but Grow
 const grow = x => x.reduce((a,b)=>a*b)
 
-//8 kyu
-//Grasshopper - Grade book
-//JavaScript:
+//[8 kyu] Grasshopper - Grade book
 function getGrade (s1, s2, s3) {
   avg = (s1+s2+s3)/3
   switch(true){
@@ -3477,9 +2489,7 @@ function getGrade (s1, s2, s3) {
   }
 }
 
-//8 kyu
-//UEFA EURO 2016
-//JavaScript:
+//[8 kyu] UEFA EURO 2016
 function uefaEuro2016(t, s){
   result = ''
   if(s[0] == s[1]){
@@ -3490,76 +2500,48 @@ function uefaEuro2016(t, s){
     result = t[1] + ' won!'
   }
   return `At match ${t[0]} - ${t[1]}, ${result}`
-  
 }
 
-//8 kyu
-//Function 1 - hello world
-//JavaScript:
+//[8 kyu] Function 1 - hello world
 const greet = () => 'hello world!'
 
-//8 kyu
-//Total pressure calculation
-//JavaScript:
+//[8 kyu] Total pressure calculation
 const solution = (m1, m2, M1, M2, v, t) => (M1/m1+M2/m2)*0.082*(t+273.15)/v 
 
-//8 kyu
-//Sum of positive
-//JavaScript:
+//[8 kyu] Sum of positive
 const positiveSum = arr => arr.reduce((a,b)=>a+(b>0?b:0),0)
 
-//8 kyu
-//Grasshopper - Summation
-//JavaScript:
+//[8 kyu] Grasshopper - Summation
 const summation = n => (n*(n+1))/2
 
-//8 kyu
-//Is he gonna survive?
-//JavaScript:
+//[8 kyu] Is he gonna survive?
 const hero = (b,d) => b>=d*2
 
-//8 kyu
-//Reversed Strings
-//JavaScript:
+//[8 kyu] Reversed Strings
 const solution = s => [...s].reverse().join('')
 
-//8 kyu
-//Grasshopper - Terminal game move function
-//JavaScript:
+//[8 kyu] Grasshopper - Terminal game move function
 const move = (p, r) => p+r*2
 
-//8 kyu
-//Reversed Words
-//JavaScript:
+//[8 kyu] Reversed Words
 const reverseWords = str => str.split(" ").reverse().join(" ")
 
-//8 kyu
-//Return Negative
-//JavaScript:
+//[8 kyu] Return Negative
 const makeNegative = num => -Math.abs(num)
 
-//8 kyu
-//Convert a Number to a String!
-//JavaScript:
+//[8 kyu] Convert a Number to a String!
 const numberToString = num => num+''
 
-//8 kyu
-//The Feast of Many Beasts
-//JavaScript:
+//[8 kyu] The Feast of Many Beasts
 const firstLast = str => str[0]+[...str].pop()
-
 const feast = (beast, dish) => firstLast(beast) === firstLast(dish)
 
-//8 kyu
-//Convert a Boolean to a String
-//JavaScript:
+//[8 kyu] Convert a Boolean to a String
 function booleanToString(b){
   return b+''
 }
 
-//8 kyu
-//A wolf in sheep's clothing
-//JavaScript:
+//[8 kyu] A wolf in sheep's clothing
 function warnTheSheep(queue) {
   sheep_nr = queue.length-queue.indexOf("wolf")-1
   return sheep_nr>0
@@ -3567,16 +2549,12 @@ function warnTheSheep(queue) {
     : `Pls go away and stop eating my sheep`
 }
 
-//8 kyu
-//Regular Ball Super Ball
-//JavaScript:
+//[8 kyu] Regular Ball Super Ball
 var Ball = function(ballType="regular") {
   this.ballType = ballType
 };
 
-//8 kyu
-//Stringy Strings
-//JavaScript:
+//[8 kyu] Stringy Strings
 function stringy(size) {
   str='1'  
   for(let i = 1; i <size; i++){
@@ -3585,30 +2563,22 @@ function stringy(size) {
   return str
 }
 
-//8 kyu
-//Difference of Volumes of Cuboids
-//JavaScript:
+//[8 kyu] Difference of Volumes of Cuboids
 function findDifference(a, b) {
   return Math.abs(a.reduce((a,b)=>a*b) - b.reduce((a,b)=>a*b))
 }
 
-//8 kyu
-//Merge two sorted arrays into one
-//JavaScript:
+//[8 kyu] Merge two sorted arrays into one
 function mergeArrays(arr1, arr2) {
   return [...new Set(arr1.concat(arr2).sort((a,b)=>a-b))]
 }
 
-//8 kyu
-//Remove String Spaces
-//JavaScript:
+//[8 kyu] Remove String Spaces
 function noSpace(x){
   return x.replace(/ /g,"")
 }
 
-//8 kyu
-//Count of positives / sum of negatives
-//JavaScript:
+//[8 kyu] Count of positives / sum of negatives
 function countPositivesSumNegatives(input) {
   if(!input || input.length == 0) return [];
   sums = [0,0]
@@ -3616,67 +2586,45 @@ function countPositivesSumNegatives(input) {
   return sums 
 }
 
-//8 kyu
-//Find Maximum and Minimum Values of a List
-//JavaScript:
+//[8 kyu] Find Maximum and Minimum Values of a List
 min = l => Math.min(...l)
 max = l => Math.max(...l)
 
-//8 kyu
-//Can we divide it?
-//JavaScript:
+//[8 kyu] Can we divide it?
 isDivideBy = (n, a, b) => n%a == 0 && n%b == 0
 
-//8 kyu
-//Convert a string to an array
-//JavaScript:
+//[8 kyu] Convert a string to an array
 stringToArray = s => s.split(" ")
 
-//8 kyu
-//I love you, a little , a lot, passionately ... not at all
-//JavaScript:
+//[8 kyu] I love you, a little , a lot, passionately ... not at all
 t = ['I love you','a little','a lot','passionately','madly','not at all']
 howMuchILoveYou = n => t[--n%t.length]
 
-//8 kyu
-//Find numbers which are divisible by given number
-//JavaScript:
+//[8 kyu] Find numbers which are divisible by given number
 function divisibleBy(numbers, divisor){
   return numbers.filter(n=>n%divisor==0)
 }
 
-//8 kyu
-//Invert values
-//JavaScript:
+//[8 kyu] Invert values
 function invert(array) {
    return array.map(n=>n*-1)
 }
 
-//8 kyu
-//Beginner Series #4 Cockroach
-//JavaScript:
+//[8 kyu] Beginner Series #4 Cockroach
 function cockroachSpeed(s) {
   return Math.floor(s*27.778)
 }
 
-//8 kyu
-//Transportation on vacation
-//JavaScript:
+//[8 kyu] Transportation on vacation
 rentalCarCost = d => d*40 - (d > 6 ? 50 : d > 2 ? 20 : 0)
 
-//8 kyu
-//Opposites Attract
-//JavaScript:
+//[8 kyu] Opposites Attract
 lovefunc = (f1, f2) => (f1-f2)%2 !== 0
 
-//8 kyu
-//DNA to RNA Conversion
-//JavaScript:
+//[8 kyu] DNA to RNA Conversion
 DNAtoRNA = dna => dna.replace(/T/g,'U')
 
-//8 kyu
-//What is between?
-//JavaScript:
+//[8 kyu] What is between?
 function between(a, b) {
   arr=[]
   for(i=a; i<=b;i++){
@@ -3685,47 +2633,28 @@ function between(a, b) {
   return arr
 }
 
-//8 kyu
-//Get Nth Even Number
-//JavaScript:
+//[8 kyu] Get Nth Even Number
 nthEven = n => n*2-2
 
-//8 kyu
-//My head is at the wrong end!
-//JavaScript:
+//[8 kyu] My head is at the wrong end!
 fixTheMeerkat = arr => arr.reverse()
 
-//8 kyu
-//Fake Binary
-//JavaScript:
+//[8 kyu] Fake Binary
 fakeBin = x => [...x].map(n=>Math.round(n*.1)).join("")
 
-//8 kyu
-//Is this my tail?
-//JavaScript:
+//[8 kyu] Is this my tail?
 correctTail = (b, t) => [...b].pop() === t
   
-
-//8 kyu
-//Sum Mixed Array
-//JavaScript:
+//[8 kyu] Sum Mixed Array
 const sumMix = a => a.reduce((a,b)=>+b+a,0)
 
-const sumMix = x => x.reduce((a,b=0) => (+a)+(+b) )
-
-//8 kyu
-//You only need one - Beginner
-//JavaScript:
+//[8 kyu] You only need one - Beginner
 const check = (a, x) => a.includes(x)
 
-//8 kyu
-//Squash the bugs
-//JavaScript:
+//[8 kyu] Squash the bugs
 const findLongest = str => str.split(" ").map(w=>w.length).sort((a,b)=>b-a)[0]
 
-//8 kyu
-//101 Dalmatians - squash the bugs, not the dogs!
-//JavaScript:
+//[8 kyu] 101 Dalmatians - squash the bugs, not the dogs!
 const dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
 const howManyDalmatians = number => {
   switch(true){
@@ -3736,40 +2665,28 @@ const howManyDalmatians = number => {
   }
 }
 
-//8 kyu
-//Is there a vowel in there?
-//JavaScript:
+//[8 kyu] Is there a vowel in there?
 isVow = a =>a.map(c=>[97,101,105,111,117].includes(c)?String.fromCharCode(c):c)
 
-//8 kyu
-//Sort and Star
-//JavaScript:
+//[8 kyu] Sort and Star
 const twoSort = s => s.sort()[0].split("").join("***")
 
-//8 kyu
-//Grasshopper - Personalized Message
-//JavaScript:
+//[8 kyu] Grasshopper - Personalized Message
 function greet (name, owner) {
   return 'Hello '+ (name === owner ? 'boss' : 'guest')
 }
 
-//8 kyu
-//You Can't Code Under Pressure #1
-//JavaScript:
+//[8 kyu] You Can't Code Under Pressure #1
 doubleInteger = i => i*2
 
-//8 kyu
-//Find the smallest integer in the array
-//JavaScript:
+//[8 kyu] Find the smallest integer in the array
 class SmallestIntegerFinder {
   findSmallestInt(args) {
     return Math.min(...args)
   }
 }
 
-//8 kyu
-//Lario and Muigi Pipe Problem
-//JavaScript:
+//[8 kyu] Lario and Muigi Pipe Problem
 function pipeFix(n){
   let arr = []
   for(i = n[0]; i<=n[n.length-1];i++){
@@ -3778,38 +2695,26 @@ function pipeFix(n){
   return arr
 }
 
-//8 kyu
-//Logical calculator
-//JavaScript:
+//[8 kyu] Logical calculator
 function logicalCalc(array, op){
   if(op == 'AND') return !array.includes(false)
   if(op == 'OR') return array.reduce((a,b) => a || b);
   if(op == 'XOR') return array.reduce((a,b) => a != b);
 }
 
-//8 kyu
-//Template Strings
-//JavaScript:
+//[8 kyu] Template Strings
 const TempleStrings = (obj, feature) => `${obj} are ${feature}`
 
-//8 kyu
-//Convert number to reversed array of digits
-//JavaScript:
+//[8 kyu] Convert number to reversed array of digits
 const digitize = n => [...n+''].map(Number).reverse();
 
-//8 kyu
-//Remove exclamation marks
-//JavaScript:
+//[8 kyu] Remove exclamation marks
 const removeExclamationMarks = s => s.replace(/\!/g,"")
 
-//8 kyu
-//Reversed sequence
-//JavaScript:
+//[8 kyu] Reversed sequence
 const reverseSeq = n => [...Array(n)].map(() => n--)
 
-//8 kyu
-//Cat years, Dog years
-//JavaScript:
+//[8 kyu] Cat years, Dog years
 var humanYearsCatYearsDogYears = function(humanYears) {
   let human = humanYears;
   let cat = 0;
@@ -3831,41 +2736,29 @@ var humanYearsCatYearsDogYears = function(humanYears) {
   return [humanYears,cat,dog]
 }
 
-//8 kyu
-//FIXME: Replace all dots
-//JavaScript:
+//[8 kyu] FIXME: Replace all dots
 var replaceDots = str => str.replace(/\./g, '-');
 
-//8 kyu
-//Miles per gallon to kilometers per liter
-//JavaScript:
+//[8 kyu] Miles per gallon to kilometers per liter
 function converter (mpg) {
   return Number((1.609344 / 4.54609188 * mpg).toFixed(2));
 }
 
-//8 kyu
-//Quarter of the year
-//JavaScript:
+//[8 kyu] Quarter of the year
 const quarterOf = (month) => {
   return Math.ceil(month/3)
   
 }
 
-//8 kyu
-//Counting sheep...
-//JavaScript:
+//[8 kyu] Counting sheep...
 const countSheeps = a => a.filter(s => s).length;
 
-//8 kyu
-//The Wide-Mouthed frog!
-//JavaScript:
+//[8 kyu] The Wide-Mouthed frog!
 function mouthSize(animal) {
   return animal.toLowerCase() == 'alligator' ? "small" : "wide"
 }
 
-//8 kyu
-//Generate range of integers
-//JavaScript:
+//[8 kyu] Generate range of integers
 function generateRange(min, max, step){
   let range = []
   for(i=min; i<=max; i+=step){
@@ -3874,9 +2767,7 @@ function generateRange(min, max, step){
   return range
 }
 
-//8 kyu
-//Filter out the geese
-//JavaScript:
+//[8 kyu] Filter out the geese
 function gooseFilter (birds) {
   var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
   newBirds = []
@@ -3887,29 +2778,19 @@ function gooseFilter (birds) {
   // return an array containing all of the strings in the input array except those that match strings in geese
 };
 
-//8 kyu
-//Swap Values
-//JavaScript:
+//[8 kyu] Swap Values
 const swapValues = array => array.reverse()
 
-//8 kyu
-//Price of Mangoes
-//JavaScript:
+//[8 kyu] Price of Mangoes
 const mango = (quantity, price) => (quantity - Math.floor(quantity / 3)) * price
 
-//8 kyu
-//Pre-FizzBuzz Workout #1
-//JavaScript:
+//[8 kyu] Pre-FizzBuzz Workout #1
 const preFizz = n => [...Array(n)].map((_, i) => i+1)
 
-//8 kyu
-//Holiday VIII - Duty Free
-//JavaScript:
+//[8 kyu] Holiday VIII - Duty Free
 const dutyFree = (normPrice, discount, hol) => Math.floor(hol / normPrice / discount * 100)
 
-//8 kyu
-//Drink about
-//JavaScript:
+//[8 kyu] Drink about
 function peopleWithAgeDrink(old) {
   switch(true){
       case(old<14): return 'drink toddy';
@@ -3919,9 +2800,7 @@ function peopleWithAgeDrink(old) {
   }
 };
 
-//8 kyu
-//Powers of 2
-//JavaScript:
+//[8 kyu] Powers of 2
 function powersOfTwo(n){
   powers = []
   for(i=0; i<=n; i++){
@@ -3930,77 +2809,49 @@ function powersOfTwo(n){
   return powers
 }
 
-//8 kyu
-//Will there be enough space?
-//JavaScript:
+//[8 kyu] Will there be enough space?
 const enough = (cap, on, wait) => cap-on >= wait ? 0 : wait-cap+on
 
-//8 kyu
-//Thinkful - Logic Drills: Traffic light
-//JavaScript:
+//[8 kyu] Thinkful - Logic Drills: Traffic light
 const colors = ['green','yellow','red'];
 const updateLight = current => colors[(colors.indexOf(current)+1)%colors.length]
 
-//8 kyu
-//MakeUpperCase
-//JavaScript:
+//[8 kyu] MakeUpperCase
 const makeUpperCase = str => str.toUpperCase()
 
-//8 kyu
-//Beginner Series #1 School Paperwork
-//JavaScript:
+//[8 kyu] Beginner Series #1 School Paperwork
 const paperwork = (n, m) =>  (n < 0 || m < 0) ? 0 : n * m
 
-//8 kyu
-//Keep up the hoop
-//JavaScript:
+//[8 kyu] Keep up the hoop
 const hoopCount = n => n >= 10 ? 'Great, now move on to tricks' : 'Keep at it until you get it'
 
-//8 kyu
-//pick a set of first elements
-//JavaScript:
+//[8 kyu] pick a set of first elements
 const first = (arr, n=1) => arr.slice(0,n)
 
-//8 kyu
-//Calculate average
-//JavaScript:
+//[8 kyu] Calculate average
 const find_average = arr => arr.reduce((a, b) => a + b, 0) / arr.length
 
-//8 kyu
-//Do you speak "English"?
-//JavaScript:
+//[8 kyu] Do you speak "English"?
 const spEng = sentence => sentence.toLowerCase().includes("english")
 
-//8 kyu
-//Remove First and Last Character
-//JavaScript:
+//[8 kyu] Remove First and Last Character
 const removeChar = str => str.slice(1,-1)
 
-//8 kyu
-//Abbreviate a Two Word Name
-//JavaScript:
+//[8 kyu] Abbreviate a Two Word Name
 const abbrevName = name => name.split(' ').map(n => n[0].toUpperCase()).join('.')
 
-//8 kyu
-//Returning Strings
-//JavaScript:
+//[8 kyu] Returning Strings
 const greet = name => `Hello, ${name} how are you doing today?`;
 
-//8 kyu
-//Twice as old
-//JavaScript:
+//[8 kyu] Twice as old
 function twiceAsOld(dad, son) {
   return Math.abs(dad - son*2)
 }
 
-//8 kyu
-//Enumerable Magic #25 - Take the First N Elements
-//JavaScript:
+//[8 kyu] Enumerable Magic #25 - Take the First N Elements
 let take = (arr,n) => arr.slice(0,n);
 
-//8 kyu
-//Calculate BMI
-//JavaScript:
+//[8 kyu] Calculate BMI
 function bmi(weight, height) {
   let bmi = weight/height**2;
   switch(true){
@@ -4011,59 +2862,43 @@ function bmi(weight, height) {
   }
 }
 
-//8 kyu
-//Will you make it?
-//JavaScript:
+//[8 kyu] Will you make it?
 const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
   return fuelLeft * mpg >= distanceToPump
 };
 
-//8 kyu
-//String repeat
-//JavaScript:
+//[8 kyu] String repeat
 function repeatStr (n, s) {
   return s.repeat(n);
 }
 
-//8 kyu
-//Geometry Basics: Distance between points in 2D
-//JavaScript:
+//[8 kyu] Geometry Basics: Distance between points in 2D
 function distanceBetweenPoints(a, b) {
   return Math.hypot(a.x - b.x, a.y - b.y)
 }
 
-//8 kyu
-//Area or Perimeter
-//JavaScript:
+//[8 kyu] Area or Perimeter
 const areaOrPerimeter = function(l , w) {
   return (l==w) ? l*w : (l+w)*2
 };
 
-//8 kyu
-//How many lightsabers do you own?
-//JavaScript:
+//[8 kyu] How many lightsabers do you own?
 function howManyLightsabersDoYouOwn(name) {
   return name === 'Zach' ? 18 : 0
 }
 
-//8 kyu
-//Convert boolean values to strings 'Yes' or 'No'.
-//JavaScript:
+//[8 kyu] Convert boolean values to strings 'Yes' or 'No'.
 function boolToWord( bool ){
   return ["No","Yes"][bool*1]
 }
 
-//8 kyu
-//Alan Partridge II - Apple Turnover
-//JavaScript:
+//[8 kyu] Alan Partridge II - Apple Turnover
 function apple(x){
  if(x**2 > 1000) return 'It\'s hotter than the sun!!';
   return 'Help yourself to a honeycomb Yorkie for the glovebox.'
 }
 
-//4 kyu
-//Snail
-//JavaScript:
+//[4 kyu] Snail
 function snail(array){
   const sorted = []
   while(array.length){
@@ -4079,9 +2914,7 @@ function snail(array){
   return sorted
 }
 
-//5 kyu
-//Human Readable Time
-//JavaScript:
+//[5 kyu] Human Readable Time
 function humanReadable(seconds) {
   hrs = Math.floor(seconds / 3600);
   min = Math.floor((seconds - (hrs*3600)) / 60)
@@ -4094,9 +2927,7 @@ function leadingZero(nr){
   return nr;
 }
 
-//5 kyu
-//Simple Pig Latin
-//JavaScript:
+//[5 kyu] Simple Pig Latin
 function pigIt(str){
   let words = str.split(" ")
   let punctuation = [".", ",", ":", "!", "?"]
@@ -4111,9 +2942,7 @@ function pigIt(str){
   return newwords.join(" ")
 }
 
-//5 kyu
-//Moving Zeros To The End
-//JavaScript:
+//[5 kyu] Moving Zeros To The End
 var moveZeros = function (arr) {
   let length = arr.length;
   let zeroes = 0;
@@ -4129,16 +2958,12 @@ var moveZeros = function (arr) {
   return newArray
 }
 
-//5 kyu
-//Extract the domain name from a URL
-//JavaScript:
+//[5 kyu] Extract the domain name from a URL
 function domainName(str){
   return str.replace(/http:|https:|\/\/|www.|/gi,"").split(".")[0]
 }
 
-//6 kyu
-//Find the missing letter
-//JavaScript:
+//[6 kyu] Find the missing letter
 function findMissingLetter(array)
 {
   for(let i = 0; i<array.length-1; i++){
@@ -4148,9 +2973,7 @@ function findMissingLetter(array)
   }
 }
 
-//5 kyu
-//Weight for weight
-//JavaScript:
+//[5 kyu] Weight for weight
 function orderWeight(str) {
   let table = []
   let weights = str.trim().split(" ");
@@ -4164,14 +2987,10 @@ function orderWeight(str) {
   table.sort((a,b) => {
     return a[1] - b[1] || a[0].localeCompare(b[0]);
   })
-  
   return table.map(r =>{ return r[0]}).join(" ");
-
 }
 
-//6 kyu
-//Delete occurrences of an element if it occurs more than n times
-//JavaScript:
+//[6 kyu] Delete occurrences of an element if it occurs more than n times
 function deleteNth(arr,n){
   let res = [];
   for(let i = 0; i<arr.length; i++){
@@ -4180,9 +2999,7 @@ function deleteNth(arr,n){
   return res
 }
 
-//6 kyu
-//Convert string to camel case
-//JavaScript:
+//[6 kyu] Convert string to camel case
 function toCamelCase(str){
   let returnString = '';
   for(let i = 0; i<str.length; i++){
@@ -4196,9 +3013,7 @@ function toCamelCase(str){
   return returnString;
 }
 
-//6 kyu
-//Split Strings
-//JavaScript:
+//[6 kyu] Split Strings
 function solution(str){
   let arr=[]
   if(str.length % 2 == 1) str+='_'
@@ -4208,9 +3023,7 @@ function solution(str){
   return arr;
 }
 
-//6 kyu
-//Counting Duplicates
-//JavaScript:
+//[6 kyu] Counting Duplicates
 function duplicateCount(text) {
   let unique = [...new Set([...text.toLowerCase()])];
   let count = 0;
@@ -4220,9 +3033,7 @@ function duplicateCount(text) {
   return count;
 }
 
-//6 kyu
-//Does my number look big in this?
-//JavaScript:
+//[6 kyu] Does my number look big in this?
 function narcissistic(value) {
   let numbers = [...value.toString()], sum = 0;
   numbers.forEach((n) => {
@@ -4231,19 +3042,14 @@ function narcissistic(value) {
   return sum == value;
 }
 
-//6 kyu
-//Is a number prime?
-//JavaScript:
-
+//[6 kyu] Is a number prime?
 function isPrime(num) {
   for(let i = 2, s = Math.sqrt(num); i <= s; i++)
         if(num % i === 0) return false; 
     return num > 1;
 }
 
-//6 kyu
-//Create Phone Number
-//JavaScript:
+//[6 kyu] Create Phone Number
 function createPhoneNumber(numbers){
   numbers.splice(6, 0,"-")
   numbers.splice(3, 0,") ")
@@ -4251,9 +3057,7 @@ function createPhoneNumber(numbers){
   return numbers.join("");
 }
 
-//6 kyu
-//Take a Ten Minute Walk
-//JavaScript:
+//[6 kyu] Take a Ten Minute Walk
 function isValidWalk(walk) {
   return (
     walk.length == 10 &&
@@ -4262,21 +3066,15 @@ function isValidWalk(walk) {
   );
 }
 
-//7 kyu
-//List Filtering
-//JavaScript:
+//[7 kyu] List Filtering
 let filter_list = (l) => {
   return l.filter((n) => n === parseInt(n) && n >= 0);
 };
 
-//6 kyu
-//Bit Counting
-//JavaScript:
+//[6 kyu] Bit Counting
 countBits=(n)=>{return[...n.toString(2),0].reduce((a,b)=>a*1+b*1)}
 
-//8 kyu
-//Get the mean of an array
-//JavaScript:
+//[8 kyu] Get the mean of an array
 function getAverage(marks){
   return (Math.floor(marks.reduce((a, b) => a + b) / marks.length));
 }
