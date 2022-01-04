@@ -1,0 +1,4282 @@
+//7 kyu
+//Moves in squared strings (I)
+//JavaScript:
+const vertMirror = lines => lines.map(l => l.split``.reverse().join``).join('\n')
+const horMirror = lines => lines.reverse().join('\n')
+const oper = (fct, s) => fct(s.split('\n'))
+
+//7 kyu
+//Scaling Squared Strings
+//JavaScript:
+function scale(str, k, n) {
+  if(str.length == 0) return '';
+  lines = str.split('\n');
+  output = [];
+  for(let i = 0; i < lines.length; i++){
+    for(let j = 0; j < n; j++){
+      output.push([...lines[i]].map(c => c.repeat(k)).join(''))
+    }
+  }
+  return output.join('\n')
+}
+
+//7 kyu
+//Sort the Bytes
+//JavaScript:
+function sortBytes(uint32) {
+  bytes = (uint32 >>> 0).toString(2).padStart(32, '0').match(/.{1,8}/g)
+  return parseInt(bytes.sort((a,b)=>Number(b) - Number(a)).join(''),2)
+}
+
+//7 kyu
+//Bumps in the Road
+//JavaScript:
+const bump = x => (x.match(/n/g)||[]).length > 15 ? 'Car Dead' : 'Woohoo!'
+
+//7 kyu
+//Birthday I - Cake
+//JavaScript:
+const cake = (x,y) => x*0.7>[...y].reduce((a,b,i)=>a+(i%2==0?b.charCodeAt(0):b.charCodeAt(0)-96),0)?'That was close!':'Fire!'
+
+//7 kyu
+//Birthday II - Presents
+//JavaScript:
+function present(x, y){
+  console.log([x,y]);
+  if(x == 'badpresent') return 'Take this back!';
+  if(x == 'goodpresent') return String.fromCharCode(...[...x].map(v=>v.charCodeAt(0) + y));
+  if(['crap','empty'].includes(x)) return [...x].sort((a,b)=>a.charCodeAt(0)-b.charCodeAt(0)).join('');
+  if(x == 'bang') return [...x].map(v => v.charCodeAt(0) - y).reduce((a,b)=>a+b,0);
+  return `pass out from excitement ${y} times`
+}
+
+//7 kyu
+//Char Code Calculation
+//JavaScript:
+function calc(x){
+  const strSum = s => [...s].reduce((a,b)=>a+Number(b), 0);
+  const total1 = [...x].map(v=>v.charCodeAt(0)).join('');
+  const total2 = total1.replace(/7/g,'1');
+  return strSum(total1) - strSum(total2);
+}
+
+//7 kyu
+//Largest Square Inside A Circle
+//JavaScript:
+const areaLargestSquare = r => 2 * r**2
+
+//7 kyu
+//Perimeter sequence
+//JavaScript:
+const perimeterSequence = (a,n) => a*n*4
+
+//7 kyu
+//Peak array index
+//JavaScript:
+function peak(arr){
+  const sum = a => a.reduce((sum,val)=>sum+val,0);
+  for(let index = 1; index < arr.length-1; index+=1){
+    if(sum(arr.slice(0,index)) == sum(arr.slice(index+1))) return index
+  }
+  return -1
+}
+
+//7 kyu
+//Easy wallpaper
+//JavaScript:
+const wallpaper = (l, w, h) => [l,w,h].includes(0) ? numbers[0] : numbers[Math.ceil((l+w)*2*h*1.15 / 5.2)]
+
+//7 kyu
+//Chicken Sexing
+//JavaScript:
+const correctness = (b, e) => b.reduce((p,v,i) => p += v == e[i] ? 1 : [v,e[i]].includes('?') ? 0.5 : 0 , 0)
+
+//7 kyu
+//Driving School Series #2
+//JavaScript:
+function cost (mins) { 
+  if(mins <= 60) return 30
+  return Math.ceil((mins - 65) / 30) * 10 + 30
+} 
+
+//7 kyu
+//Stanton measure
+//JavaScript:
+const stantonMeasure = arr => {
+  const n = arr.filter(v => v == 1).length;
+  return arr.filter(v => v == n).length;
+}
+
+//7 kyu
+//Double Trouble
+//JavaScript:
+function trouble(x, t){
+  const returnArr = [];
+  for(let i = 0; i<x.length; i++){
+    if(returnArr[returnArr.length-1] + x[i] !== t) returnArr.push(x[i]);
+  }
+  return returnArr
+}
+
+//7 kyu
+//Next Prime
+//JavaScript:
+const isPrime = num => {
+    for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+        if(num % i === 0) return false; 
+    return num > 1;
+}
+
+const nextPrime = num => {
+   while(!isPrime(++num)){};
+   return num;
+};
+
+//7 kyu
+//Printer Errors
+//JavaScript:
+const printerError = s => s.length - s.match(/[a-m]/g).length + '/' + s.length;
+
+//7 kyu
+//A Rule of Divisibility by 7
+//JavaScript:
+const seven = m => {
+  let times = 0
+  let number = m
+  while (String(number).length > 2) {
+    times++
+    number = Math.floor(number / 10) - (number % 10) * 2
+  }
+  return [number, times]
+}
+
+//7 kyu
+//Ones and Zeros
+//JavaScript:
+const binaryArrayToNumber = arr => Number.parseInt(arr.join(''), 2)
+
+//7 kyu
+//Maximum Product
+//JavaScript:
+function adjacentElementsProduct(array) {
+  const products = [];
+  for(let i = 0; i < array.length - 1; i++){
+    products.push(array[i] * array[i+1]);
+  }
+  return Math.max(...products)
+}
+
+//7 kyu
+//Single digit
+//JavaScript:
+const singleDigit = n => n < 10 ? n : singleDigit(n.toString(2).match(/1/g).length)
+
+//7 kyu
+//Coprime Validator
+//JavaScript:
+function isCoprime(x, y) {
+  for(let i = Math.max(x,y); i>1; i--){
+    if(x%i == 0 && y%i == 0) return false
+  }
+  return true
+}
+
+//7 kyu
+//16+18=214
+//JavaScript:
+function add(...nums) {
+  let str = []
+  let numA = nums.map((n)=>[...''+n].reverse());
+  for(let i = 0; i<Math.max(...nums).toString().length; i++){
+    str.push((parseInt(numA[0][i]) || 0) + (parseInt(numA[1][i]) || 0))
+  }
+  return parseInt(str.reverse().join(''))
+}
+
+//7 kyu
+//Simple Fun #8: Kill K-th Bit
+//JavaScript:
+function killKthBit(n, k) {
+  bits = [...n.toString(2)]
+  bits[bits.length-k] = 0;
+  return parseInt(bits.join(''),2)
+}
+
+//7 kyu
+//Is this a triangle?
+//JavaScript:
+const isTriangle = (...arg) => arg.sort((a,b)=>b-a).reduce((a,b)=>a-b) < 0
+
+//7 kyu
+//The fusc function -- Part 1
+//JavaScript:
+const fusc = n => n<2 ? n : n%2==0 ? fusc(n/2) : fusc((n-1) / 2) + fusc((n+1) / 2)
+
+//7 kyu
+//Round up to the next multiple of 5
+//JavaScript:
+const roundToNext5 = n => Math.ceil(n/5) * 5
+
+//7 kyu
+//Count the Digit
+//JavaScript:
+function nbDig(n, d) {
+    const str = Array.from({length: n+1},(_,i)=> i**2).join('');
+    return str.match(new RegExp(d, 'g')).length;
+}
+
+//7 kyu
+//Consecutive Ducks
+//JavaScript:
+const consecutiveDucks = num => !Number.isInteger(Math.log2(num, 2))
+
+//7 kyu
+//Count the divisors of a number
+//JavaScript:
+const getDivisorsCnt = (n) => [...Array(n + 1).keys()].slice(1).filter((i) => n % i === 0).length
+
+//7 kyu
+//Breaking chocolate problem
+//JavaScript:
+const breakChocolate = (n,m) => Math.max(n * m - 1, 0)
+
+
+//7 kyu
+//Friends
+//JavaScript:
+const friends =n => ~~Math.log2(n-1);
+
+//7 kyu
+//Jumping Number (Special Numbers Series #4)
+//JavaScript:
+function jumpingNumber(n){
+  const arr = [...''+n]
+  for(let i = 1; i< arr.length; i++){
+    if(Math.abs(+arr[i-1] - arr[i]) !== 1) return 'Not!!'
+  }
+  return  'Jumping!!'
+}
+
+//7 kyu
+//Disarium Number (Special Numbers Series #3)
+//JavaScript:
+const disariumNumber = n => n == [...''+n].reduce((a,b,i)=> a + b**++i, 0) ? 'Disarium !!' : 'Not !!'
+
+//7 kyu
+//Jaden Casing Strings
+//JavaScript:
+String.prototype.toJadenCase = function () {
+  return this.replace(/(^|\s)[a-z]/g, x => x.toUpperCase());
+};
+
+//7 kyu
+//Looking for a benefactor
+//JavaScript:
+function newAvg(arr, newavg) {
+    let goal = (arr.length + 1) * newavg;
+    let curr = arr.reduce((sum,val) => sum + val, 0);
+    let diff = Math.ceil(goal - curr);
+    
+    if(diff <= 0) throw 'ValueError';
+    return diff;
+}
+
+//7 kyu
+//Beginner Series #3 Sum of Numbers
+//JavaScript:
+function getSum(...a) {
+  const [min,max] = a.sort((a,b)=>a-b);
+  let total = 0;
+  
+  for(let i = min; i <= max; i++){
+    total+=i
+  }
+  return total || min
+}
+
+//7 kyu
+//Find Screen Size
+//JavaScript:
+function findScreenHeight(width, ratio) {
+  const [ratioW,ratioH] = ratio.split(":");
+  return `${width}x${width/ratioW*ratioH}`
+}
+
+//7 kyu
+//Sort with a sorting array
+//JavaScript:
+function sort(initialArray, sortingArray) {
+  const arr = [];
+  for(let i=0; i<sortingArray.length;i++){
+    arr[sortingArray[i]] = initialArray[i];
+  }
+  return arr;
+}
+
+//7 kyu
+//Boiled Eggs
+//JavaScript:
+const cookingTime = eggs => Math.ceil(eggs/8)*5
+
+//7 kyu
+//Find the divisors!
+//JavaScript:
+function divisors(integer) {
+  const devisors = []
+  for(let i = 2; i <= integer/2; i++){
+    if(integer%i==0)devisors.push(i)
+  }
+  return devisors.length > 0 ? devisors : `${integer} is prime`
+};
+
+//7 kyu
+//Partial Word Searching
+//JavaScript:
+function wordSearch(query, seq){
+  const res = seq.filter(v => v.toLowerCase().includes(query.toLowerCase()))
+  return res.length > 0 ? res : ['Empty']
+}
+
+//7 kyu
+//Thinkful - Number Drills: Rømer temperature
+//JavaScript:
+const celsiusToRomer = t => t * 0.525 + 7.5
+
+//7 kyu
+//Understanding closures - the basics
+//JavaScript:
+const buildFun = n => Array.from({length: n},(_,i) => ()=> i)
+
+//7 kyu
+//Interactive Dictionary
+//JavaScript:
+class Dictionary {
+  constructor() {
+    this.dictionary = new Map()
+  }
+
+  newEntry(key, value) {
+    this.dictionary.set(key, value)
+  }
+
+  look(key) {
+    return this.dictionary.has(key) ? this.dictionary.get(key) : `Can't find entry for ${key}`
+  }
+}
+
+//7 kyu
+//Complementary DNA
+//JavaScript:
+function DNAStrand(dna){
+  const d = { A: "T", T: 'A', C: 'G', G: 'C' }
+  return [...dna].map(v => d[v]).join('')
+}
+
+//7 kyu
+//Descending Order
+//JavaScript:
+const descendingOrder = n => +[...''+n].sort().reverse().join('')
+
+//7 kyu
+//Functional Addition
+//JavaScript:
+const add = n => m => n+m
+
+//7 kyu
+//Monotone travel
+//JavaScript:
+const isMonotone = arr => {
+  for(let i = 1; i< arr.length; i++){
+    if(arr[i-1] > arr[i]) return false
+  }
+  return true;
+}
+
+//7 kyu
+//String prefix and suffix
+//JavaScript:
+const solve = s => {
+  for (let i = ~~(s.length / 2); i > 0; i--) {
+    if (s.slice(0, i) == s.slice(-i)) return i
+  }
+  return 0;
+}
+
+//7 kyu
+//Number of Divisions
+//JavaScript:
+const divisions = (n, divisor) => {
+  let count = 0;
+  while(n >= divisor){
+    n = Math.floor(n/divisor);
+    count++
+  }
+  return count
+};
+
+//7 kyu
+//Rearrange Number to Get its Maximum
+//JavaScript:
+const maxRedigit = n => (n = ''+n).length !==3  ? null : +[...n].sort().reverse().join('')
+
+//7 kyu
+//Digitize
+//JavaScript:
+const digitize = n => [...''+n].map(Number)
+
+//7 kyu
+//All Star Code Challenge #3
+//JavaScript:
+const removeVowels = str => str.replace(/[aeoiu]/gi,'')
+
+//7 kyu
+//Factorial
+//JavaScript:
+function factorial(n){
+  let fac = 1;
+  for(let i = 1; i<=n; i++){
+    fac *= i
+  }
+  return fac
+}
+
+//7 kyu
+//Convert an array of strings to array of numbers
+//JavaScript:
+const toNumberArray = arr => arr.map(v=>+v);
+
+//7 kyu
+//Get the integers between two numbers
+//JavaScript:
+const range = (s, e) => Array.from({length : e - s - 1}, (_,i) => s + i + 1)
+  
+
+//7 kyu
+//Waiting room
+//JavaScript:
+const lastChair = N => N - 1
+
+//7 kyu
+//Drying Potatoes
+//JavaScript:
+const potatoes = (p0, w0, p1) => ~~(w0 * (100 - p0) / (100 - p1))
+
+//7 kyu
+//Ninja vs Samurai: Strike
+//JavaScript:
+class Warrior {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+  }
+  
+  strike(enemy, swings) {
+    enemy.health = Math.max(0, enemy.health - (swings * 10));   
+  }
+}
+
+//7 kyu
+//Sort Numbers
+//JavaScript:
+const solution = nums => nums ? nums.sort((a,b)=>a-b) : []
+
+//7 kyu
+//Refactored Greeting
+//JavaScript:
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet(name){
+    return `Hello ${name}, my name is ${this.name}`
+  }
+  name(){
+    return this.name;
+  }
+}
+
+//7 kyu
+//Largest 5 digit number in a series
+//JavaScript:
+const solution = digits =>{
+  let num = 0;
+  for (let i=0; i<digits.length-4; i++){
+    let n = +digits.substr(i, 5)
+    if(n > num) num = n;
+  }
+  return num;
+}
+
+//7 kyu
+//Two Oldest Ages
+//JavaScript:
+const twoOldestAges = ages => ages.sort((a,b)=>a-b).slice(-2)
+
+//7 kyu
+//getNames()
+//JavaScript:
+const getNames = data => data.map(a=>a.name)
+
+//7 kyu
+//Square Every Digit
+//JavaScript:
+const squareDigits = num => +[...''+num].map(v=>v**2).join('')
+
+
+//7 kyu
+//Search for letters
+//JavaScript:
+const change = string => [...'abcdefghijklmnopqrstuvwxyz'].map((v,i)=>[...string.toLowerCase()].includes(v)? 1: 0).join('')
+
+//7 kyu
+//Binary Pyramid 101
+//JavaScript:
+const BinaryPyramid = (m,n) => Array.from({length: n-m+1},((_,i)=>(m+i).toString(2))).reduce((a,b)=>a+b*1,0).toString(2)
+
+//7 kyu
+//Ones' Complement
+//JavaScript:
+const onesComplement = n => [...n].map(v => +(v == 0)).join('');
+
+//7 kyu
+//Flatten and sort an array
+//JavaScript:
+const flattenAndSort = a => [].concat(...a).sort((a,b)=>a-b)
+
+//7 kyu
+//Bits Battle
+//JavaScript:
+function bitsBattle(numbers) {
+  bits = numbers.map(v=>v.toString(2));
+  odds = bits.filter(v => v.charAt(v.length-1) ==  1).join('').replace(/0/g,'').length;
+  evens = bits.filter(v => v.charAt(v.length-1) ==  0).join('').replace(/1/g,'').length;
+  return odds > evens ? 'odds win' : evens > odds ? 'evens win' : 'tie'
+}
+
+//7 kyu
+//The Pony Express
+//JavaScript:
+const riders = s => s.reduce(([a, r], d) => a + d <= 100 ? [a+d, r] : [d, r+1], [0,1])[1]
+
+//7 kyu
+//Balanced Number (Special Numbers Series #1 )
+//JavaScript:
+const balancedNum = number => {
+  const stringNumber = String(number)
+  const numbers = Array.from(
+    { length: (stringNumber.length - 1) / 2 },
+    (_, index) => stringNumber[index] - stringNumber[stringNumber.length - 1 - index]
+  )
+
+  return numbers.reduce((total, number) => total + number, 0) === 0 ? 'Balanced' : 'Not Balanced'
+}
+
+//7 kyu
+//EZ code golf #2 : 8 -> 10
+//JavaScript:
+f=n=>+('0o'+n)
+
+//7 kyu
+//Sort the Vowels!
+//JavaScript:
+const sortVowels = s => typeof s === 'string' ? [...s].map(v=>'aeiouAEIOU'.indexOf(v) > -1 ? '|' + v : v + '|').join('\n') : '';
+
+//7 kyu
+//Series of integers from m to n
+//JavaScript:
+const generateIntegers = (m, n) => Array.from({length: n-m+1},((v,i)=>m+i))
+
+//7 kyu
+//Series of integers from 0 to n
+//JavaScript:
+const generateIntegers = n => Array.from({length: n + 1}, ((v, i) => i))
+
+//7 kyu
+//Basic JS - Calculating averages
+//JavaScript:
+Calculator.average = (...args) => args.reduce((a,b)=>a+b,0) / args.length || 0
+
+//7 kyu
+//Pairs of integers from 0 to n
+//JavaScript:
+function generatePairs(n) {
+  const arr= [];
+  for (let i=0;i<=n;i++){
+    for (let j=i;j<=n;j++){
+      arr.push([i,j])
+    }
+  }
+  return arr
+}
+
+//7 kyu
+//last digits of a number
+//JavaScript:
+function lastDigit(n, d) {
+  if(d>n.length) return n;
+  if(d<= 0) return [];
+  return [...n+''].slice(-d).map(v=>v*1);
+}
+
+//7 kyu
+//TV Remote
+//JavaScript:
+var tvRemote = function(word) {
+  const keys = {
+    a: [0,0], b: [0,1], c: [0,2], d: [0,3], e: [0,4], 1: [0,5], 2: [0,6], 3: [0,7],
+    f: [1,0], g: [1,1], h: [1,2], i: [1,3], j: [1,4], 4: [1,5], 5: [1,6], 6: [1,7],
+    k: [2,0], l: [2,1], m: [2,2], n: [2,3], o: [2,4], 7: [2,5], 8: [2,6], 9: [2,7],
+    p: [3,0], q: [3,1], r: [3,2], s: [3,3], t: [3,4], ".": [3,5], "@": [3,6], 0: [3,7],
+    u: [4,0], v: [4,1], w: [4,2], x: [4,3], y: [4,4], z: [4,5], _:[4,6], "/": [4,7]
+  }
+  let currentPos = [0,0];
+  let count = 0;
+  for(let i = 0; i< word.length; i++){
+    let letter = word[i];
+    let hor = Math.abs(currentPos[0] - keys[letter][0]);
+    let ver = Math.abs(currentPos[1] - keys[letter][1]);
+    currentPos = keys[letter]
+    count += hor + ver + 1
+  }
+  return count
+}
+
+//7 kyu
+//Shortest Word
+//JavaScript:
+const findShort = s => Math.min(...s.split(' ').map(v => v.length))
+
+
+//7 kyu
+//Thinking & Testing: A and B?
+//JavaScript:
+const testit = (a,b) => a | b
+
+//7 kyu
+//SevenAte9
+//JavaScript:
+const sevenAte9 = s => s.replace(/79(?=7)/g, '7')
+
+//7 kyu
+//Merge two arrays
+//JavaScript:
+function mergeArrays(a, b) {
+  arr = []
+  for(let i = 0; i < Math.max(a.length, b.length); i++){
+    if(a[i]) arr.push(a[i]);
+    if(b[i]) arr.push(b[i]);
+  }
+  return arr
+}
+
+//7 kyu
+//Queue time counter
+//JavaScript:
+function queue(queuers, pos){
+    let count=0
+    for (let i=0;queuers[pos];i++){
+      for (let j=0;j<queuers.length;j++){
+        if (queuers[pos]===0){break}
+        else {
+          if (queuers[j]>0){
+              count++
+              queuers[j]--
+          }
+          if (queuers[pos]===0){break}
+        }
+      }
+    }
+    return count
+}
+
+//7 kyu
+//Character Counter
+//JavaScript:
+const validateWord = s => !(s.length % new Set(s.toLowerCase()).size)
+
+function validateWord(s)
+{
+  counts = Object.values([...s.toLowerCase()].reduce((acc, val) => (acc[val] ? (acc[val]++) : (acc[val]=1), acc),{}));
+  return Math.min(...counts) == Math.max(...counts)
+}
+
+//7 kyu
+//Decoding a message
+//JavaScript:
+function decode(message){
+  const a = 'abcdefghijklmnopqrstuvwxyz'
+  const rev = [...a].reverse().join('');
+  return [...message].map(v => v === ' ' ? ' ' : rev[a.indexOf(v)]).join('')
+}
+
+//7 kyu
+//Larger Product or Sum
+//JavaScript:
+
+function sumOrProduct(array, n) {
+  const sorted = array.sort((a,b)=> b-a);
+  const sum = sorted.slice(0,n).reduce((a,b)=>a+b)
+  const product = sorted.slice(-n).reduce((a,b)=>a*b)
+  return sum > product ? 'sum' : sum < product ? 'product' : 'same';
+}
+
+//7 kyu
+//Build a square
+//JavaScript:
+const generateShape = int => new Array(int).fill("+".repeat(int)).join('\n');
+
+//7 kyu
+//Even numbers in an array
+//JavaScript:
+const evenNumbers = (a,n) => a.filter(v => !(v%2)).slice(-n)
+
+//7 kyu
+//Highest and Lowest
+//JavaScript:
+const highAndLow = num => [Math.max(...n = num.split` `.map(v => v*1)),Math.min(...n)].join` `
+
+
+//7 kyu
+//Computer problem series #1: Fill the Hard Disk Drive
+//JavaScript:
+function save(sizes, hd) {
+  let size = 0;
+  for(let i = 0; i<sizes.length;i++){
+    size += sizes[i];
+    if(size > hd ) return i
+  }
+  return sizes.length;
+}
+
+//7 kyu
+//Exclamation marks series #3: Remove all exclamation marks from sentence except at the end
+//JavaScript:
+const remove = s => s.split('!').join('') + (s.match(/!+$/) || []).join('')
+
+//7 kyu
+//Testing 1-2-3
+//JavaScript:
+const number = arr => arr.map((v,i)=>`${i+1}: ${v}`)
+
+//7 kyu
+//Exclamation marks series #8: Move all exclamation marks to the end of the sentence
+//JavaScript:
+function remove(s){
+  return s.split('!').join('') + (s.match(/\!/g)||[]).join('')
+}
+
+//7 kyu
+//Alphabet symmetry
+//JavaScript:
+function solve(arr){
+  returnArr = [];
+  arr.forEach(w=>{
+    count = [...w].filter((c,i)=> c.toUpperCase().charCodeAt(0) == 65+i).length
+    returnArr.push(count)
+  })
+  return returnArr
+};
+
+//7 kyu
+//Consecutive letters
+//JavaScript:
+const solve = ([...s]) => {
+  console.log(s);
+  const cc = s.map(c => c.charCodeAt(0));
+  return Math.max(...cc) - Math.min(...cc) == s.length -1;
+}
+
+//7 kyu
+//Split In Parts
+//JavaScript:
+const splitInParts = (s, l) => s.match(new RegExp('.{1,' + l + '}', 'g')).join` `;
+
+//7 kyu
+//Thinking & Testing : How many "word"?
+//JavaScript:
+const testit = s => (s.match(/w.*?o.*?r.*?d/ig) || []).length;
+
+//7 kyu
+//Difference between biggest 2 numbers
+//JavaScript:
+function diffBig2(arr) {
+  first = arr.splice(arr.indexOf(Math.max(...arr)),1);
+  second = arr.splice(arr.indexOf(Math.max(...arr)),1);
+  return first - second;
+}
+
+//7 kyu
+//Longest vowel chain
+//JavaScript:
+const solve = s => s.split(/[^aeiou]+/).sort((a,b)=>b.length - a.length)[0].length
+
+//7 kyu
+//All Star Code Challenge #14 - Find the median
+//JavaScript:
+const median = arr => {
+  const a = arr.sort((a,b)=>a-b);
+  const m = Math.floor(a.length /2);
+  return a.length % 2 ? a[m] : (a[m] + a[m - 1]) / 2
+}
+
+//7 kyu
+//Fix string case
+//JavaScript:
+const solve = str => str.replace(/[a-z]/g, '').length > str.length / 2
+   ? str.toUpperCase()
+   : str.toLowerCase()
+
+//7 kyu
+//Simple equation reversal
+//JavaScript:
+const solve = eq =>  eq.split(/([*+-/])/).reverse().join('');
+
+//7 kyu
+//Hello World - Without Strings
+//JavaScript:
+const helloWorld = () => String.fromCharCode(72,101,108,108,111,44,32,87,111,114,108,100,33);
+
+//7 kyu
+//Alan Partridge I - Partridge Watch
+//JavaScript:
+const lookup = ['Partridge','PearTree','Chat','Dan','Toblerone','Lynn','AlphaPapa','Nomad']
+function part(x){
+  let found = '';
+  for(let i = 0; i < x.length; i++){
+    if(lookup.includes(x[i])) found+='!'
+  }
+  return found.length > 0 ? `Mine\'s a Pint${found}` : "Lynn, I've pierced my foot on a spike!!";
+}
+
+//7 kyu
+//Invisible cubes
+//JavaScript:
+const notVisibleCubes = n => n < 3 ? 0 : (n-2) ** 3
+
+//7 kyu
+//For the sake of argument
+//JavaScript:
+const numbers = (...arg) => !arg.filter(a=>typeof a !== 'number').length > 0;
+
+//7 kyu
+//Sort by Last Char
+//JavaScript:
+const lc = s => s.substr(-1);
+const last = x => x.split` `.sort((a,b)=> lc(a).localeCompare(lc(b)));
+
+//7 kyu
+//The wheat/rice and chessboard problem
+//JavaScript:
+function squaresNeeded(grains){
+  if(grains == 0) return 0;
+  total = 0;
+  square = 1;
+  while(total < grains){
+    squareGrains = 2 ** (square - 1);
+    total+= squareGrains;
+    square += 1
+  }
+  return square-1
+}
+
+//7 kyu
+//sPoNgEbOb MeMe
+//JavaScript:
+const spongeMeme = s => [...s].map((c,i)=> i%2 ? c.toLowerCase(): c.toUpperCase()).join``
+
+//7 kyu
+//Grains
+//JavaScript:
+const square = n => 2 ** (n-1)
+
+//7 kyu
+//Triangle area
+//JavaScript:
+const tArea = s => ( h = s.split('\n').length - 3) * h / 2
+
+//7 kyu
+//Adding remainders to a list
+//JavaScript:
+const solve = (nums, div) => nums.map( n => n += n % div)
+
+//7 kyu
+//Simple Fun #69: Are Equally Strong?
+//JavaScript:
+function areEquallyStrong(yl, yr, fl, fr) {
+  return Math.max(yl,yr) == Math.max(fl,fr) && Math.min(yl,yr) == Math.min(fl,fr);
+}
+
+//7 kyu
+//Credit Card Mask
+//JavaScript:
+function maskify(cc) {
+  const endString = cc.slice(-4);
+  const startString = cc.length > 4 ? cc.slice(0,cc.length-4).replace(/./g,'#') : '';
+  return startString+endString
+}
+
+//7 kyu
+//Sum of Triangular Numbers
+//JavaScript:
+function sumTriangularNumbers(n) {
+  return n <=0 ? 0 : (n*(n+1)*(n+2))/6
+}
+
+//7 kyu
+//Disemvowel Trolls
+//JavaScript:
+function disemvowel(str) {
+  return str.replace(/[aeiou]/ig,'');
+}
+
+//7 kyu
+//Return String of First Characters
+//JavaScript:
+function makeString(s){
+  string = '';
+  s.split(' ').forEach(word =>{
+    string+=word[0]
+  })
+  return string 
+}
+
+//7 kyu
+//Filter the number
+//JavaScript:
+const FilterString = value => value.replace(/\D/g,'') * 1;
+
+//7 kyu
+//Vowel Count
+//JavaScript:
+const getCount = str => [...str].filter(v=>[...'aeiou'].includes(v)).length
+
+//7 kyu
+//Coding 3min : Remove screws I
+//JavaScript:
+function sc(screws){
+  let total = 1;
+  for (let i=1; i<screws.length; i++){
+    total+=2 //move and remove
+    if(screws[i] !== screws[i-1]) total+=5; //switch
+  }
+  console.log(total);
+  return total;
+                        
+}
+
+//7 kyu
+//Thinkful - String Drills: Quotable
+//JavaScript:
+const quotable = (name, quote) => `${name} said: "${quote}"`
+
+//7 kyu
+//Number of Rectangles in a Grid
+//JavaScript:
+const numberOfRectangles = (m, n) => m * (m+1) * n * (n+1) / 4 
+
+//7 kyu
+//Elevator Distance
+//JavaScript:
+function elevatorDistance(array) {
+  let diff = 0;
+  for(let i = 0; i < array.length -1; i++){
+    diff += Math.abs(array[i] - array[i+1])
+  }
+  return diff;
+}
+
+//7 kyu
+//Greet Me
+//JavaScript:
+const greet = name => `Hello ${name[0].toUpperCase()+name.slice(1).toLowerCase()}!`
+
+//7 kyu
+//JavaScript Array Filter
+//JavaScript:
+const getEvenNumbers = arr => arr.filter(v => !(v%2));
+
+//7 kyu
+//Kooka-Counter
+//JavaScript:
+const kookaCounter = laughing => {
+  let count = 0;
+  let curr = ''
+  for(let i = 0; i < laughing.length; i += 2){
+    laughing[i] !== curr ? count++ : '';
+    curr = laughing[i];
+  }
+  return count;
+}
+
+//7 kyu
+//Valid number to 2 decimal places
+//JavaScript:
+const validNumber = n => /^[+-]?\d*\.\d{2}$/.test(n)
+
+//7 kyu
+//Pairs of integers from m to n
+//JavaScript:
+const generatePairs = (m, n, r=[]) =>{
+  for(let i = m; i<=n; i++){
+    b = i;
+    while(b<=n){
+      r.push([i,b++])
+    }
+  }
+  return r;
+}
+
+//7 kyu
+//You're a square!
+//JavaScript:
+const isSquare = n => Math.floor(X = Math.sqrt(n)) == X
+
+//7 kyu
+//Number of People in the Bus
+//JavaScript:
+const number = stops => stops.reduce((peeps, [on, off]) => peeps + on - off, 0);
+
+const number = busStops =>{
+  let result = 0;
+  busStops.forEach(busStop => {
+    result += busStop[0] - busStop[1];  
+  })
+  return result;
+}
+
+//8 kyu
+//Return Two Highest Values in List
+//JavaScript:
+const twoHighest = arr => [...new Set(arr)].sort((a,b)=>b-a).splice(0,2)
+
+//7 kyu
+//Convert Decimal Degrees to Degrees, Minutes, Seconds
+//JavaScript:
+const convert = (degrees)  => {
+  const d  = parseInt(degrees);
+  const m  = parseInt(degrees % 1 * 60);
+  const s = Math.round(degrees % 1 * 60 % 1 * 60);
+  return s ? [d,m,s] : m ? [d,m] : [d];
+}
+
+//7 kyu
+//Which section did you scroll to?
+//JavaScript:
+function getSectionIdFromScroll(scrollY,sizes){
+  let currPos = 0;
+   for(let i = 0; i < sizes.length; i++){
+     currPos+=sizes[i];
+     if(scrollY >= currPos) continue;
+     return i;
+   }
+  return -1;
+}
+
+//7 kyu
+//Deodorant Evaporator
+//JavaScript:
+const evaporator = (c, e, t, d = 0, p = 100) => {
+  while (p > t) {
+    p -= p * e / 100;
+    d += 1;
+  }
+  return d;
+}
+
+//8 kyu
+//Fundamentals: Return
+//JavaScript:
+const add = (a,b) => a+b
+const divide = (a,b) => a/b
+const multiply = (a,b)=> a*b
+const mod = (a,b) => a%b
+const exponent = (a,b) => a**b
+const subt = (a,b) => a-b
+
+//8 kyu
+//Ensure question
+//JavaScript:
+const ensureQuestion = s => s.replace('?','')+'?'
+
+//5 kyu
+//Buddy Pairs
+//JavaScript:
+const sumDivisors = (num) => {
+    let sum = 0;
+    for(let i = 2; i <= Math.sqrt(num); i++){
+      if(num % i === 0){
+       sum += i + num/i;
+      }
+    }
+    return sum;
+  }
+
+function buddy(start,limit) {
+  for(let i = start; i <= limit; i++) {
+    let sd = sumDivisors(i)
+    if(i < sd && i === sumDivisors(sd)) return [i,sd];
+  }
+  return "Nothing";
+}
+
+//8 kyu
+//Mr. Freeze
+//JavaScript:
+Object.freeze(MrFreeze)
+
+//8 kyu
+//Shifty Closures
+//JavaScript:
+const greet_abe = () => greet('Abe')
+const greet_ben = () => greet('Ben')
+const greet = name => `Hello, ${name}!`
+
+
+
+
+var greet_abe = function() {
+  var name = 'Abe';
+  return "Hello, " + name + '!';
+};
+
+var greet_ben = function() {
+  var name = 'Ben';
+  return "Hello, " + name + '!';
+};
+
+//8 kyu
+//Basic Training: Add item to an Array
+//JavaScript:
+websites.push("codewars")
+
+//8 kyu
+//Return to Sanity
+//JavaScript:
+const mystery = () => ({sanity: 'Hello'})
+
+//8 kyu
+//Semi-Optional
+//JavaScript:
+const wrap = value => ({value})
+
+//8 kyu
+//Max Headroom and JavaScript style
+//JavaScript:
+const obj = {name: 'Max Headroom'}
+const getMax1 = () => obj;
+const getMax2 = () => obj;
+
+//8 kyu
+//Color Ghost
+//JavaScript:
+class Ghost {
+  constructor(){
+    this.color = ['white','yellow','purple','red'][Math.floor(Math.random()*4)]
+  }
+}
+
+//8 kyu
+//Hello Happy Codevarrior!
+//JavaScript:
+function Warrior(n){
+let name = n;  
+  this.name = function(n){
+    if(n) name = n;
+    return name;
+  }
+}
+  
+Warrior.prototype.toString = function(){
+    return "Hi! my name's "+this.name();
+}
+
+//8 kyu
+//"this" is a problem
+//JavaScript:
+function NameMe(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    this.name = this.firstName + ' ' + this.lastName;
+}
+
+//8 kyu
+//Barking mad
+//JavaScript:
+function Dog (breed) {
+  this.breed = breed;
+  this.bark = () => "Woof"
+}
+
+var snoopy = new Dog("Beagle");
+var scoobydoo = new Dog("Great Dane");
+
+//8 kyu
+//Vowel remover
+//JavaScript:
+const shortcut = str => str.replace(/[aeiou]/g,'')
+
+//8 kyu
+//Online RPG: player to qualifying stage?
+//JavaScript:
+function playerRankUp (points) {
+  let str = 'Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up.'
+  return points >= 100 ? str : false
+}
+
+//8 kyu
+//Take an Arrow to the knee, Functionally
+//JavaScript:
+const ArrowFunc = arr => arr.map(nr => String.fromCharCode(nr)).join('')
+
+//8 kyu
+//Are there any arrows left?
+//JavaScript:
+const anyArrows = arrows => arrows.some(arrow => !arrow.damaged)
+
+//8 kyu
+//Lexical this
+//JavaScript:
+const Person = () => {
+  const person = {
+    _name: 'Leroy',
+    _friends: [],
+    fillFriends: function(f) {
+      this._friends.push(...f)
+    },
+  }
+  return person
+}
+
+//8 kyu
+//Switch/Case - Bug Fixing #6
+//JavaScript:
+const evalObject = ({a, b, operation}) => eval(a+operation.replace('^','**')+b)
+
+//8 kyu
+//Grasshopper - Array Mean
+//JavaScript:
+const findAverage = nums => nums.reduce((a, b) => a + b) / nums.length
+
+//8 kyu
+//Invalid Login - Bug Fixing #11
+//JavaScript:
+const validate = (un, pw) => new Database().login(un, encodeURI(pw))
+
+//8 kyu
+//Find variable which breaks strict comparison!
+//JavaScript:
+const findStrangeValue = () => -"a"
+
+//8 kyu
+//Grasshopper - Order of operations
+//JavaScript:
+const orderOperations = () => (2 + 2) * (2 + 2) * 2
+
+//8 kyu
+//Unexpected parsing
+//JavaScript:
+const getStatus = isBusy => {
+  return {status: (isBusy ? "busy" : "available")}
+}
+
+//8 kyu
+//A bugs trilogy: Episode 1 - "Let Math.Random(); decide your future"
+//JavaScript:
+const yourFutureCareer = (career = Math.random()) => 
+  career <= .32 ? 'FrontEnd Developer' : career <= 0.65 ? 'BackEnd Developer' : 'Full-Stack Developer'
+
+
+
+yourFutureCareer();
+
+//8 kyu
+//Regex count lowercase letters
+//JavaScript:
+const lowercaseCount = str => (str.match(/[a-z]/g) || []).length
+
+//8 kyu
+//Job Matching #1
+//JavaScript:
+const match = ({minSalary}, {maxSalary}) => minSalary && maxSalary ? minSalary * .9 <= maxSalary : error()
+
+//8 kyu
+//Improving Math.round(x)
+//JavaScript:
+Math.roundTo = (n, dec)  => Math.round(n * 10**dec) / 10**dec
+
+//8 kyu
+//Grasshopper - Object syntax debug
+//JavaScript:
+var rooms = {
+  first: {
+    description: 'This is the first room',
+    items: {
+      chair: 'The old chair looks comfortable',
+      lamp: 'This lamp looks ancient'
+    }
+  },
+  second: {
+    description: 'This is the second room',
+    items: {
+      couch: 'This couch looks like it would hurt your back',
+      table: 'On the table there is an unopened bottle of water'
+    }
+  }
+}
+
+//8 kyu
+//Double Char
+//JavaScript:
+const doubleChar = str => [...str].map(c=>c+c).join('')
+
+//8 kyu
+//Do something "n.times" (Simplifying "for" loops)
+//JavaScript:
+Number.prototype.times = function (f) {
+  let i=0;
+  while(i<this) {
+    f(i);
+    i++
+  }
+}
+
+//8 kyu
+//Be Concise III - Sum Squares
+//JavaScript:
+const sumSquares = arr => arr.reduce((sum, val) => val**2 + sum, 0)
+
+//8 kyu
+//Remove First and Last Character Part Two
+//JavaScript:
+function array(arr){
+  let _arr =  arr.split(",").slice(1,-1).join(" ")
+  return _arr.length > 0 ? _arr : null
+}
+
+//8 kyu
+//Generate user links
+//JavaScript:
+const generateLink = user => `http://www.codewars.com/users/${encodeURIComponent(user)}`
+
+//8 kyu
+//Count words
+//JavaScript:
+const countWords = str => str.split(/\s/g).filter(Boolean).length
+
+//8 kyu
+//Fix your code before the garden dies!
+//JavaScript:
+const rainAmount = mm =>
+    mm < 40
+      ? "You need to give your plant " + (40 - mm) + "mm of water"
+      : "Your plant has had more than enough water for today!"
+
+//8 kyu
+//Freudian translator
+//JavaScript:
+const toFreud = str => str.replace(/[^ ]+/g,'sex')
+
+//8 kyu
+//Implement Array.prototype.filter()
+//JavaScript:
+Array.prototype.filter = function (func) {
+  const newArray = []
+
+  for (let i = 0; i < this.length; i++) {
+    if (func(this[i])) newArray.push(this[i])
+  }
+
+  return newArray
+}
+
+//8 kyu
+//Name on billboard
+//JavaScript:
+const billboard = (name, price = 30) => [...name].reduce(sum=>sum+price,0)
+
+//8 kyu
+//Training JS #4: Basic data types--Array
+//JavaScript:
+const getLength = arr => arr.length
+const getFirst = arr => arr[0]
+const getLast = arr => arr.pop()
+const pushElement = arr => {
+  arr.push(1)
+  return arr
+}
+const popElement = arr => {
+  arr.pop()
+  return arr
+}
+  
+
+//8 kyu
+//Training JS #3: Basic data types--String
+//JavaScript:
+var a1="A",a2="a",b1="B",b2="b",c1="C",c2="c",d1="D",d2="d",e1="E",e2="e",n1="N",n2="n"
+
+const overAbundant = ([...fnName]) => fnName.map(v=>eval(v.toLowerCase()+(v===v.toUpperCase()?'1':'2'))).join('')
+
+function Dad(){ return overAbundant(arguments.callee.name) }
+function Bee(){ return overAbundant(arguments.callee.name) }
+function banana(){ return overAbundant(arguments.callee.name) }
+
+const answer1 = () => 'no';
+const answer2 = () => 'no';
+const answer3 = () => 'yes';
+
+let a1="A", a2="a", b1="B", b2="b", c1="C", c2="c", d1="D", d2="d", e1="E", e2="e", n1="N", n2="n"
+
+const Dad = () => d1+a2+d2;
+const Bee = () => b1+e2+e2;
+const banana = () => b2+a2+n2+a2+n2+a2;
+
+const answer1 = () => 'no'
+const answer2 = () => 'no'
+const answer3 = () => 'yes'
+
+//8 kyu
+//Training JS #2: Basic data types--Number
+//JavaScript:
+let v1=50, v2=100, v3=150, v4=200, v5=2, v6=250
+const equal1 = () => v1+v1
+const equal2 = () => v3-v1
+const equal3 = () => v1*v5
+const equal4 = () => v4/v5
+const equal5 = () => v2%v4
+
+//8 kyu
+//Training JS #1: create your first JS function and print "Helloworld!"
+//JavaScript:
+const helloWorld = ()=> {
+  var str = 'Hello World!'
+  console.log(str)
+}
+
+//8 kyu
+//Training JS #12: loop statement --for..in and for..of
+//JavaScript:
+function giveMeFive(obj){
+  fives = []
+  for(key in obj){
+    key.length == 5 ? fives.push(key) : ''
+    obj[key].length == 5? fives.push(obj[key]): ''
+  }
+  return fives
+}
+
+//8 kyu
+//Training JS #10: loop statement --for
+//JavaScript:
+function pickIt(arr){
+  //for(...)
+  return [arr.filter(v=>v%2==1),arr.filter(v=>v%2==0)];
+}
+
+//8 kyu
+//Training JS #13: Number object and its properties
+//JavaScript:
+function whatNumberIsIt(n){
+  str = 'Input number is '
+  n = eval(n)
+  switch(true){
+      case (n == Number.MAX_VALUE): return str+'Number.MAX_VALUE'
+      case (n == Number.MIN_VALUE): return str+'Number.MIN_VALUE'
+      case (Number.isNaN(n)): return str+'Number.NaN'
+      case (n == Number.NEGATIVE_INFINITY): return str+'Number.NEGATIVE_INFINITY'
+      case (n == Number.POSITIVE_INFINITY): return str+'Number.POSITIVE_INFINITY'
+      default: return str+n 
+  }
+}
+
+//8 kyu
+//Training JS #14: Methods of Number object--toString() and toLocaleString()
+//JavaScript:
+const colorOf = (...rgb) => "#"+rgb.map(v=>('0'+v.toString(16)).substr(-2)).join("")
+
+function colorOf(r,g,b){
+  return "#"+[...arguments].map(v=>('0'+v.toString(16)).substr(-2)).join("")
+}
+
+//8 kyu
+//Training JS #9: loop statement --while and do..while
+//JavaScript:
+const padIt = (str,n) => {
+  //while(...)
+  return '*'.repeat(Math.ceil(n/2)) + str + '*'.repeat(Math.floor(n/2)) 
+}
+
+//8 kyu
+//Training JS #21: Methods of String object--trim() and the string template
+//JavaScript:
+const fiveLine = s => Array.from({length:5},(_,i)=>s.trim().repeat(i+1)).join("\n")
+
+//8 kyu
+//Training JS #11: loop statement --break,continue
+//JavaScript:
+const grabDoll= dolls => {
+  return dolls.filter(doll=>doll == "Hello Kitty" || doll == "Barbie doll").slice(0,3)
+  
+}
+
+//8 kyu
+//Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()
+//JavaScript:
+const howManySmaller = (arr,n) => arr.filter(v=> Math.round(v * 100) / 100 < n).length
+  
+//8 kyu
+//Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
+//JavaScript:
+function firstToLast(str,c){
+  return str.includes(c) ? str.lastIndexOf(c) - str.indexOf(c) : -1;
+}
+
+//8 kyu
+//Training JS #16: Methods of String object--slice(), substring() and substr()
+//JavaScript:
+function cutIt(arr){
+  minLength = [...arr].sort((a,b)=>a.length-b.length)[0].length
+  return arr.map(v=>v.substring(0,minLength))
+}
+
+//8 kyu
+//Training JS #31: methods of arrayObject---isArray() indexOf() and toString()
+//JavaScript:
+function blackAndWhite(arr){
+  return !Array.isArray(arr)
+    ? "It's a fake array"
+    : arr.includes(5) && arr.includes(13)
+      ? "It's a black array"
+      : "It's a white array"
+}
+
+//8 kyu
+//Not so black box
+//JavaScript:
+console.log(blackBox.toString());
+JSopenSesame();
+
+//8 kyu
+//Blood-Alcohol Content
+//JavaScript:
+function bloodAlcoholContent(drinks, weight, sex, time){
+  A = drinks.ounces*drinks.abv;
+  W = weight;
+  r = sex == 'male' ? 0.73 : 0.66;
+  H = time
+  
+  BAC = (A * 5.14 / W * r) - .015 * H;
+  return Math.round(BAC*10000)/10000
+}
+
+//8 kyu
+//Configure package json for a node application
+//JavaScript:
+const configuration = {
+  license: 'MIT',
+  name: 'bla',
+  description: 'bla',
+  version: '0.0.1'
+}
+
+//8 kyu
+//Be Concise IV - Index of an element in an array
+//JavaScript:
+const find=(a,e)=>a.indexOf(e)<0?"Not found":a.indexOf(e)
+
+//8 kyu
+//SpeedCode #3 × Fun with ES6 Classes #5 - Dogs and Classes
+//JavaScript:
+class Labrador extends Dog{
+    constructor(n,a,g,m){
+      super(n,a,g,"Labrador","Large",m,!0);
+    }
+  }
+  
+//8 kyu
+//Be Concise II - I Need Squares
+//JavaScript:
+const squaresOnly = arr => arr.filter(v=>Number.isInteger(Math.sqrt(v)))
+
+//8 kyu
+//Training JS #29: methods of arrayObject---concat() and join()
+//JavaScript:
+const bigToSmall = arr => [].concat(...arr).sort((a,b)=>b-a).join(">")
+
+//8 kyu
+//Training JS #34: methods of Math---pow() sqrt() and cbrt()
+//JavaScript:
+const isIntCube = n => Number.isInteger(Math.cbrt(n))
+const cutCube = (volume, n) => isIntCube(n) && isIntCube(volume / n)
+
+//8 kyu
+//Simple Change Machine
+//JavaScript:
+const changeMe = moneyIn => {
+  if (moneyIn === '£5') return `${'20p '.repeat(5 * 5).trim()}`
+  if (moneyIn === '£2') return `${'20p '.repeat(5 * 2).trim()}`
+  if (moneyIn === '£1') return `${'20p '.repeat(5 * 1).trim()}`
+  if (moneyIn === '50p') return `${'20p '.repeat(2).trim()} 10p`
+  if (moneyIn === '20p') return `${'10p '.repeat(2).trim()}`
+  return moneyIn
+}
+
+//8 kyu
+//noobCode 02: TRICKY QUESTIONS ( primitives and operator precedence)
+//JavaScript:
+const greaterThanLessThan = (a,b,c) => a<b<c
+
+//8 kyu
+//Arguments to Binary addition
+//JavaScript:
+const arr2bin = arr => arr.reduce((a,b) => a + (typeof b=='number' ? b : 0), 0).toString(2)
+
+//8 kyu
+//Circular Objects #1 - Running around in circles
+//JavaScript:
+const circular = { value: 'Hello World' }
+circular.self = circular
+
+//8 kyu
+//Playing with cubes II
+//JavaScript:
+// This Cube function needs help
+// change the constructor so that it can take an integer for the side or no args
+class Cube{
+  constructor(n=0){
+    this.setSide(n);
+  }
+  setSide(n=0){
+    this.side = Math.abs(n);
+  }
+  getSide(){
+    return this.side
+  }
+}
+
+//8 kyu
+//Localize The Barycenter of a Triangle
+//JavaScript:
+const barTriang = ([xA, yA], [xB, yB], [xC, yC]) =>
+  [[xA, xB, xC], [yA, yB, yC]].map(points =>
+    Number((points.reduce((total, point) => total + point, 0) / 3).toFixed(4))
+  )
+
+//8 kyu
+//Find the Slope
+//JavaScript:
+function slope(points)
+{
+  const [x1,y1,x2,y2] = [...points] 
+  return x1 == x2 ? 'undefined' : String((y2 - y1) / (x2 - x1))
+}
+
+//8 kyu
+//Crash Override
+//JavaScript:
+function aliasGen(a, b){
+  [a,b] = [a[0].toUpperCase(), b[0].toUpperCase()]
+  if(!(/^[A-Z]+$/.test(a+b))) return "Your name must start with a letter from A - Z."
+  return `${firstName[a]} ${surname[b]}`
+}
+
+//8 kyu
+//Remove the time
+//JavaScript:
+function shortenToDate(longDate) {
+  return longDate.split(",")[0]
+}
+
+//8 kyu
+//Is your period late?
+//JavaScript:
+const periodIsLate = (last, today, cycleLength) => (today-last)/(1000*60*60*24) > cycleLength
+
+//8 kyu
+//Leonardo Dicaprio and Oscars
+//JavaScript:
+function leo(oscar){
+  switch(true){
+      case (oscar==88): return "Leo finally won the oscar! Leo is happy"
+      case (oscar==86): return "Not even for Wolf of wallstreet?!"
+      case (oscar<88): return "When will you give Leo an Oscar?"
+      default: return "Leo got one already!"
+  }
+}
+
+//8 kyu
+//Days in the year
+//JavaScript:
+const yearDays = year => `${year} has ${(year%4===0 && year%100!==0) || year==0? 366:365} days`
+
+//8 kyu
+//Fuel Calculator
+//JavaScript:
+function fuelPrice(litres, pricePerLitre) {
+  let discount = Math.min(Math.floor(litres/2) * 0.05,0.25)
+  return Math.round(litres*(pricePerLitre-discount)*100)/100
+}
+
+//8 kyu
+//Printing Array elements with Comma delimiters
+//JavaScript:
+function printArray(array){
+  return array.join(',')
+}
+
+//8 kyu
+//Formatting decimal places #0
+//JavaScript:
+function twoDecimalPlaces(n) {
+  return Math.round(n*100)/100
+}
+
+//8 kyu
+//Grasshopper - Combine strings
+//JavaScript:
+const combineNames = (...args) => args.join(" ")
+
+//8 kyu
+//String Templates - Bug Fixing #5
+//JavaScript:
+function buildString(...template){
+  return `I like ${template.join(', ')}!`;
+}
+
+//8 kyu
+//Training JS #6: Basic data types--Boolean and conditional statements if..else
+//JavaScript:
+const trueOrFalse = val => String(Boolean(val))
+
+//8 kyu
+//Simple Comparison?
+//JavaScript:
+function add(a, b){
+  return a==b
+}
+
+//8 kyu
+//Did she say hallo?
+//JavaScript:
+function validateHello(greetings) {
+  return /hello|ciao|salut|hallo|hola|ahoj|czesc/i.test(greetings)
+}
+
+//8 kyu
+//validate code with simple regex
+//JavaScript:
+const validateCode = code => /^[123]/.test(code)
+
+//8 kyu
+//Get number from string
+//JavaScript:
+function getNumberFromString(s) {
+  return +s.replace(/\D/g,'')
+}
+
+//8 kyu
+//Plural
+//JavaScript:
+function plural(n) {
+  return n !== 1 
+}
+
+//8 kyu
+//Chuck Norris VII - True or False? (Beginner)
+//JavaScript:
+const ifChuckSaysSo = () => 1==2
+  
+
+//8 kyu
+//Compare within margin
+//JavaScript:
+const closeCompare = (a, b, margin = 0) => Math.abs(a - b) <= margin ? 0 : a < b ? -1 : 1
+
+//8 kyu
+//Fix the Bugs (Syntax) - My First Kata
+//JavaScript:
+const myFirstKata = (a,b) => typeof a !=='number' || typeof b !=='number' ? false : a%b + b%a
+
+//8 kyu
+//ES6 string addition
+//JavaScript:
+function joinStrings(string1, string2){
+   return `${string1} ${string2}`
+}
+
+//8 kyu
+//Reversing Words in a String
+//JavaScript:
+function reverse(string){
+  return string.split(" ").reverse().join(" ")
+}
+
+//8 kyu
+//Sum without highest and lowest number
+//JavaScript:
+function sumArray(array) {
+  if(array == null || array.length < 2) return 0
+  min = Math.min(...array);
+  max = Math.max(...array);
+  return array.reduce((a,b)=>a+b,0) - min - max
+}
+
+//8 kyu
+//Push a hash/an object into array
+//JavaScript:
+items = []
+items.push({a: "b", c: "d"})
+
+//8 kyu
+//To square(root) or not to square(root)
+//JavaScript:
+const squareOrSquareRoot = array => array.map(v=> Number.isInteger(Math.sqrt(v)) ? Math.sqrt(v) : v**2)
+
+//8 kyu
+//Enumerable Magic #1 - True for All?
+//JavaScript:
+const all = (array, fun) => array.every(fun)
+
+//8 kyu
+//Finish Guess the Number Game
+//JavaScript:
+class Guesser {
+  constructor(number, lives) {
+    this.number = number;
+    this.lives = lives;
+  }
+  
+  guess(n) {
+    if(this.lives == 0) return error();
+    if(n == this.number){
+      return true
+    } else {
+      this.lives -= 1;
+      return false
+    }
+  }
+}
+
+//8 kyu
+//Pole Vault Starting Marks
+//JavaScript:
+const startingMark = bodyHeight => {
+  const m = (10.67 - 9.45) / (1.83 - 1.52)
+  return Math.round((m * bodyHeight + 10.67 - m * 1.83) * 100) / 100
+}
+
+//8 kyu
+//How old will I be in 2099?
+//JavaScript:
+function  calculateAge(then,now) {
+  age = now-then
+  switch(true){
+      case (age < -1): return `You will be born in ${Math.abs(age)} years.`
+      case (age == -1): return `You will be born in 1 year.`
+      case (age == 0): return `You were born this very year!`
+      case (age == 1): return `You are 1 year old.`
+      default: return `You are ${age} years old.`
+  }
+}
+
+//8 kyu
+//Duck Duck Goose
+//JavaScript:
+const duckDuckGoose = (players, goose) =>
+  players[(goose - 1) % players.length].name
+
+//8 kyu
+//Unfinished Loop - Bug Fixing #1
+//JavaScript:
+const createArray = n => Array.from({length:n},(_,i)=>i+1)
+
+//8 kyu
+//Simple Fun #261: Whose Move
+//JavaScript:
+const whoseMove = (lastPlayer, win) => win ? lastPlayer : {white: "black",black: "white"}[lastPlayer]
+
+//8 kyu
+//Contamination #1 -String-
+//JavaScript:
+function contamination(text, char){
+  return char.repeat(text.length)
+}
+
+//8 kyu
+//Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+//JavaScript:
+function remove(s){
+  return s.replace(/!+$/,'')
+}
+
+//8 kyu
+//Power
+//JavaScript:
+const numberToPower = (number, power) => Array.from(Array(power)).reduce((s, _) => s * number, 1)
+
+//8 kyu
+//Add new item (collections are passed by reference)
+//JavaScript:
+function addExtra( listOfNumbers ){
+    return [...listOfNumbers,123]
+}
+
+//8 kyu
+//Evil or Odious
+//JavaScript:
+const evil = n => [...n.toString(2)].filter(v=>v==1).length % 2 === 0 ? "It's Evil!" : "It's Odious!"
+
+//8 kyu
+//Multiply the number
+//JavaScript:
+function multiply(number){
+  return number * (5**(Math.abs(number)+'').length)
+}
+
+//8 kyu
+//repeatIt
+//JavaScript:
+const repeatIt = (str, n) => typeof str== 'string' ? str.repeat(n) : "Not a string"
+
+//8 kyu
+//Name Shuffler
+//JavaScript:
+function nameShuffler(str){
+  return str.split(" ").reverse().join(" ")
+}
+
+//8 kyu
+//Rock Paper Scissors!
+//JavaScript:
+const wins = {
+  "scissors": "paper",
+  "paper": "rock",
+  "rock": "scissors"
+}
+const rps = (p1, p2) => {
+  if (p1 === p2) {
+    return 'Draw!'
+  } else if (p2 == wins[p1]){
+    return 'Player 1 won!'
+  } else {
+    return 'Player 2 won!'
+  }
+};
+
+//8 kyu
+//Grasshopper - Terminal Game Turn Function
+//JavaScript:
+function doTurn () {
+  rollDice()
+  move()
+  combat()
+  getCoins()
+  buyHealth()
+  printStatus()
+}
+
+//8 kyu
+//Welcome to the City
+//JavaScript:
+function sayHello( name, city, state ) {
+  return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`
+}
+
+//8 kyu
+//Broken Counter
+//JavaScript:
+class Counter {
+  constructor() {
+    this.value = 0
+  }
+
+  increase() {
+    this.value++
+  }
+
+  getValue() {
+    return this.value
+  }
+
+  reset() {
+    this.value = 0
+  }
+}
+
+//8 kyu
+//Grader
+//JavaScript:
+function grader(score) {
+  switch(true){
+      case (score < 0.6 || score > 1):  return "F";
+      case (score >= 0.9): return "A";
+      case (score >= 0.8): return "B";
+      case (score >= 0.7): return "C";
+      case (score >= 0.6): return "D";
+  }
+}
+
+//8 kyu
+//Object Oriented Piracy
+//JavaScript:
+class Ship {
+  constructor(draft, crew) {
+    this.draft = draft
+    this.crew = crew
+  }
+
+  isWorthIt() {
+    return this.draft - this.crew * 1.5 > 20
+  }
+}
+
+//8 kyu
+//Character Frequency
+//JavaScript:
+function charFreq(message) {
+  return [...message].reduce(function(acc,e){acc[e] = (e in acc ? acc[e]+1 : 1); return acc}, {});
+}
+
+//8 kyu
+//Add Length
+//JavaScript:
+function addLength(str) {
+return str.split(" ").map(v=>v+= ' '+v.length)
+}
+
+//8 kyu
+//BASIC: Making Six Toast.
+//JavaScript:
+function sixToast(num) {
+  return Math.abs(6-num)
+}
+
+//8 kyu
+//Age Range Compatibility Equation
+//JavaScript:
+function datingRange(age){
+  range = age<14 ? [age - 0.10 * age, age + 0.10 * age]: [age/2+7, (age-7)*2]
+  return range.map(v=>Math.floor(v)).join("-")
+}
+
+//8 kyu
+//Classy Extentions
+//JavaScript:
+class Cat extends Animal {
+  speak() {
+    return `${this.name} meows.`;
+  }
+}
+
+//8 kyu
+//Classy Classes
+//JavaScript:
+class Person {
+  constructor(name,age) {
+    this.name = name;
+    this.age = age;
+    this.info = `${this.name}s age is ${this.age}`
+  }
+}
+
+//8 kyu
+//ASCII Total
+//JavaScript:
+const uniTotal = c => [...c].reduce((s,v)=>s+v.charCodeAt(),0)
+
+//8 kyu
+//Points of Reflection
+//JavaScript:
+function symmetricPoint(p, q) {
+  x = q[0] - (p[0]-q[0])
+  y = q[1] - (p[1]-q[1])
+  return [x,y]
+}
+
+//8 kyu
+//Collatz Conjecture (3n+1)
+//JavaScript:
+const hotpo = (n, counter = 0) => 
+  n == 1 
+    ? counter 
+    : hotpo(n%2 === 0 ? n/2 : 3*n+1, counter+1)
+
+//8 kyu
+//Grasshopper - Terminal Game #1
+//JavaScript:
+function Hero (name='Hero') {
+  this.name = name;
+  this.position = '00';
+  this.health = 100;
+  this.damage = 5;
+  this.experience = 0
+}
+
+//8 kyu
+//Find the Remainder
+//JavaScript:
+const remainder = (a, b) => a>b? a%b : b%a
+
+//8 kyu
+//simple calculator
+//JavaScript:
+function calculator(a,b,sign){
+  result = 'unknown value'
+  if(typeof(a*b) == "number" && '+-*/'.includes(sign)){
+  result = eval(a+sign+b);  
+  }
+  return result
+}
+
+//8 kyu
+//Exclamation marks series #1: Remove an exclamation mark from the end of string
+//JavaScript:
+function remove(s){
+  return s.replace(/\!$/,'')
+}
+
+//8 kyu
+//Training JS #7: if..else and ternary operator
+//JavaScript:
+function saleHotdogs(n){
+  switch(true){
+      case (n<5) : return n*100;
+      case (n<10) : return n*95;
+      default: return n*90
+  }
+}
+
+//8 kyu
+//Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+//JavaScript:
+const remove = s => s.replace(/\!/g,'')+"!"
+
+//8 kyu
+//Grasshopper - Bug Squashing
+//JavaScript:
+var health = 100
+var position = 0
+var coins = 0
+
+function main () {
+  rollDice()
+  move()
+  combat()
+  getCoins()
+  buyHealth()
+  printStatus()
+}
+
+//8 kyu
+//For Twins: 1. Types
+//JavaScript:
+const typeValidation = (v, t) => typeof v === t
+
+//8 kyu
+//Pirates!! Are the Cannons ready!??
+//JavaScript:
+const cannonsReady = (gunners) => {
+   return Object.values(gunners).filter(v => v=="nay").length > 0 ? 'Shiver me timbers!' : 'Fire!'
+}
+
+//8 kyu
+//isReallyNaN
+//JavaScript:
+const isReallyNaN = Number.isNaN
+
+//8 kyu
+//Safen User Input Part I - htmlspecialchars
+//JavaScript:
+const chars = {
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  '&': '&amp;',
+}
+const htmlspecialchars = formData => formData.replace(/[<>"&]/g, c => { return chars[c] });
+
+//8 kyu
+//Heads and Legs
+//JavaScript:
+function animals(heads, legs) {
+  const cows = legs / 2 - heads;
+  const chickens = heads - cows;
+  
+  return (legs & 1 || chickens > heads || cows > heads) ? 'No solutions' : [chickens, cows]
+}
+
+//8 kyu
+//Fun with ES6 Classes #1 - People, people, people
+//JavaScript:
+class Person {
+  constructor(firstName="John",lastName="Doe", age=0, gender="Male"){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+  sayFullName(){
+    return `${this.firstName} ${this.lastName}`
+  }
+  static greetExtraTerrestrials(raceName){
+    return `Welcome to Planet Earth ${raceName}`
+  }
+}
+
+//8 kyu
+//Calculate Price Excluding VAT
+//JavaScript:
+//return price without vat
+function excludingVatPrice(price){
+  console.log(price)
+  if (price == null) return -1
+  return Math.round(price / 1.15 *100)/100
+}
+
+//8 kyu
+//Is integer safe to use?
+//JavaScript:
+const SafeInteger = n => n < Number.MAX_SAFE_INTEGER
+
+//8 kyu
+//Jenny's secret message
+//JavaScript:
+function greet(name){
+  if(name == "Johnny") name = 'my love'
+  return "Hello, " + name + "!";
+}
+
+//8 kyu
+//!a == a ?!
+//JavaScript:
+const a = '0'
+
+//8 kyu
+//Potenciation
+//JavaScript:
+const power = (x,y) => x**y
+
+//8 kyu
+//Geometry Basics: Circle Area in 2D
+//JavaScript:
+const circleArea =({radius}) => radius**2 * Math.PI
+
+//8 kyu
+//Type of sum
+//JavaScript:
+function typeOfSum(a, b) {
+  return typeof (a+b);
+}
+
+//8 kyu
+//Who ate the cookie?
+//JavaScript:
+function cookie(x){
+  let name = 'the dog';
+  if (typeof x == 'string') name = "Zach";
+  if (typeof x == 'number') name = "Monica";
+  return `Who ate the last cookie? It was ${name}!`
+}
+
+//8 kyu
+//Define a card suit
+//JavaScript:
+const suits = {
+  '♣': 'clubs',
+  '♦': 'diamonds',
+  '♥': 'hearts',
+  '♠': 'spades'
+}
+const defineSuit = card => suits[card.substr(-1)]
+
+//8 kyu
+//Man in the west
+//JavaScript:
+function checkTheBucket(bucket){
+  return bucket.includes("gold")
+}
+
+//8 kyu
+//Kata Example Twist
+//JavaScript:
+// add the value "codewars" to the websites array 1,000 times
+var websites = Array(1000).fill('codewars')
+
+//8 kyu
+//String cleaning
+//JavaScript:
+function stringClean(s){
+  return s.replace(/\d/g,"")
+}
+
+//8 kyu
+//Sum of Multiples
+//JavaScript:
+const sumMul = (n,m) => m<=n ? "INVALID" : Math.floor(m/n)*(Math.floor(m/n)+1)*(n/2);
+
+function sumMul(n,m){
+  console.log(arguments)
+  if(m<1 || n<1) return "INVALID";
+  return Array.from({length:Math.floor(m/n)},(_,i)=>n+n*i).reduce((sum,val)=>sum+val,0)  
+
+}
+
+//8 kyu
+//Sleigh Authentication
+//JavaScript:
+function Sleigh() {}
+
+Sleigh.prototype.authenticate = function(name, password) {
+  return [...arguments].join('|') == 'Santa Claus|Ho Ho Ho!'
+};
+
+//8 kyu
+//Coding 3min : Jumping Dutch act
+//JavaScript:
+function sc(floor){
+  let string = '';
+  if(floor > 1){
+    string+= 'Aa~ '.repeat(floor-1) + 'Pa!'
+    if(floor < 7) string+=" Aa!"
+  }
+  return string
+}
+
+//8 kyu
+//Remove duplicates from list
+//JavaScript:
+const distinct = a => [...new Set(a)]
+
+//8 kyu
+//Basic subclasses - Adam and Eve
+//JavaScript:
+class God{
+  static create(){
+    return [new Man, new Woman];
+  }
+}
+class Human{}
+class Man extends Human{}
+class Woman extends Human{}
+
+//8 kyu
+//Training JS #18: Methods of String object--concat() split() and its good friend join()
+//JavaScript:
+const splitAndMerge=(str,sep)=>str.split(' ').map(w=>w.split('').join(sep)).join(' ')
+
+//8 kyu
+//Geometry Basics: Circle Circumference in 2D
+//JavaScript:
+const circleCircumference = ({radius}) => Math.PI*(radius*2)
+
+//8 kyu
+//Determine offspring sex based on genes XX and XY chromosomes
+//JavaScript:
+function chromosomeCheck(sperm) {
+  let child = "daughter"
+  if(sperm.endsWith("Y")) child= "son"
+  return `Congratulations! You're going to have a ${child}.`
+}
+
+//8 kyu
+//Is it a number?
+//JavaScript:
+const isDigit = s => s==parseFloat(s);
+
+//8 kyu
+//Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
+//JavaScript:
+const replace = s => s.replace(/[aeiou]/gi, '!');
+
+//8 kyu
+//easy logs
+//JavaScript:
+const logs = (x, a, b) => Math.log(a * b) / Math.log(x)
+
+//8 kyu
+//Thinkful - Number Drills: Pixelart planning
+//JavaScript:
+const isDivisible = (a, b) => !(a%b)
+
+//8 kyu
+//Pillars
+//JavaScript:
+function pillars(num_pill, dist, width) {
+  return num_pill < 2
+    ? 0
+    : num_pill * ((dist * 100) + width) - (width * 2) - (dist * 100);
+}
+
+//8 kyu
+//Training JS #32: methods of Math---round() ceil() and floor()
+//JavaScript:
+function roundIt(n){
+  let [int,dec] = (n+'').split(".")
+
+  if(int.length>dec.length) return Math.floor(n);
+  if(dec.length>int.length) return Math.ceil(n);
+  return Math.round(n)
+
+}
+
+//8 kyu
+//Enumerable Magic #3 - Does My List Include This?
+//JavaScript:
+function include(arr, item){
+  return arr.includes(item)
+}
+
+//8 kyu
+//Enumerable Magic #2 - True for Any?
+//JavaScript:
+function any(arr, fun){
+  return arr.some(fun)
+}
+
+//8 kyu
+//Enumerable Magic #4 - True for None?
+//JavaScript:
+const none = (array, fun) => !array.some(fun)
+
+//8 kyu
+//Reverse List Order
+//JavaScript:
+const reverseList = list => list.reverse()
+
+//8 kyu
+//Training JS #5: Basic data types--Object
+//JavaScript:
+function animal({name,legs,color}){
+  return `This ${color} ${name} has ${legs} legs.`
+}
+
+//8 kyu
+//Training JS #8: Conditional statement--switch
+//JavaScript:
+function howManydays(month){
+  var days;
+  switch (true){
+    case (month == 2):return 28
+    case ([1,3,5,7,8,10,12].includes(month)): return 31;
+    default: return 30;
+  }
+}
+
+//8 kyu
+//Is the date today
+//JavaScript:
+const isToday = date => new Date().toDateString() === date.toDateString()
+
+//8 kyu
+//They say that only the name is long enough to attract attention. They also said that only a simple Kata will have someone to solve it. This is a sadly story #1: Are they opposite?
+//JavaScript:
+function isOpposite(s1,s2){
+  return [...s1]
+    .map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
+    .join('') === s2 && s1 !== '';
+  
+}
+
+function isOpposite(s1,s2){
+  let str = '';
+  if(s1.length != s2.length || s1.length == 0 || s2.length == 0) return false;
+  for(let i = 0; i < s1.length; i++){
+    s1[i] === s1[i].toUpperCase() ? str += s1[i].toLowerCase() : str += s1[i].toUpperCase(); 
+  }
+  return str === s2;
+}
+
+//8 kyu
+//Return the day
+//JavaScript:
+const whatday = num => ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][num-1]||"Wrong, please enter a number between 1 and 7"
+
+//8 kyu
+//What's up next?
+//JavaScript:
+const nextItem = (xs, item) => {
+  let found = false
+  let finalValue
+
+  for (const i of xs) {
+    if (found) {
+      finalValue = i
+      break
+    }
+
+    if (i === item) found = true
+  }
+
+  return finalValue
+}
+
+//8 kyu
+//Find the force of gravity between two objects
+//JavaScript:
+function solution([m1,m2,d],[um1,um2,ud]) {
+  const G = 6.67e-11 ;
+  const conversion = { kg:1, g:1e-3, mg:1e-6, μg:1e-9, lb:.453592
+                     , m:1, cm:1e-2, mm:1e-3, μm:1e-6, ft:.3048
+                     } ;
+  return G * m1 * conversion[um1] * m2 * conversion[um2] / ( d * conversion[ud] ) ** 2 ;
+}
+
+//8 kyu
+//Exclamation marks series #6: Remove n exclamation marks in the sentence from left to right
+//JavaScript:
+function remove(s,n){
+  let input = s;
+  while (n) {
+  input = input.replace(/!/, "");
+  n-=1;
+  }
+  return input;
+}
+
+//8 kyu
+//Who is going to pay for the wall?
+//JavaScript:
+function whoIsPaying(name){
+  return name.length > 2 ? [name, name.substring(0,2)] : [name]
+}
+
+//8 kyu
+//Count the number of cubes with paint on
+//JavaScript:
+const countSquares = cuts => (cuts ? 6 * cuts**2 + 2 : 1)
+
+//8 kyu
+//Find out whether the shape is a cube
+//JavaScript:
+const cubeChecker = (volume, side) => side < 1 ? false : Math.pow(side,3) == volume
+  
+
+//8 kyu
+//Hex to Decimal
+//JavaScript:
+const hexToDec = hexString => parseInt(hexString, 16);
+
+//8 kyu
+//Sentence Smash
+//JavaScript:
+const smash = words => words.join(' ')
+
+//8 kyu
+//Find Nearest square number
+//JavaScript:
+const nearestSq = n => Math.round(Math.sqrt(n))**2
+
+//8 kyu
+//Basic variable assignment
+//JavaScript:
+var a = "code";
+var b = "wa.rs";
+var name = a + b;
+
+//8 kyu
+//If you can't sleep, just count sheep!!
+//JavaScript:
+const countSheep = num => Array.from({length:num},(_,i)=>`${i+1} sheep...`).join('')
+
+//8 kyu
+//Palindrome Strings
+//JavaScript:
+function isPalindrome(line) {
+  l = line+''
+  return l == [...l].reverse().join('')
+}
+
+//8 kyu
+//How many stairs will Suzuki climb in 20 years?
+//JavaScript:
+function stairsIn20(s){
+  return s.reduce((s1, v1) => s1 + v1.reduce((s2, v2) => s2 + v2, 0), 0) * 20
+}
+
+//8 kyu
+//Bin to Decimal
+//JavaScript:
+const binToDec = bin => parseInt(bin, 2);
+
+//8 kyu
+//Decibel Scale
+//JavaScript:
+const dBScale = intensity => 10 * Math.log10(intensity / 10 ** -12)
+
+//8 kyu
+//Count Odd Numbers below n
+//JavaScript:
+const oddCount = n => Math.floor(n/2) ;
+
+//8 kyu
+//Count by X
+//JavaScript:
+function countBy(x, n) {
+  return Array.from({length:n},(_,i)=>x+x*i)
+}
+
+//8 kyu
+//Simple multiplication
+//JavaScript:
+function simpleMultiplication(n) {
+    return n%2 ? n*9 : n*8
+}
+
+//8 kyu
+//Is it a palindrome?
+//JavaScript:
+function isPalindrome(x) {
+  x=x.toLowerCase()
+  return x === [...x].reverse().join('')
+}
+
+//8 kyu
+//Basic Mathematical Operations
+//JavaScript:
+const ops = {
+  '+': (v1,v2) => v1+v2,
+  '-': (v1,v2) => v1-v2,
+  '*': (v1,v2) => v1*v2,
+  '/': (v1,v2) => v1/v2,
+}
+
+const basicOp = (o, v1, v2) => ops[o](v1,v2)
+
+//8 kyu
+//Closest elevator
+//JavaScript:
+const elevator = (left, right, call) => Math.abs(call-left) < Math.abs(call-right) ? 'left' : 'right'
+
+//8 kyu
+//Grasshopper - Terminal game combat function
+//JavaScript:
+const combat = (health, damage) => damage>health? 0: health-damage
+
+//8 kyu
+//Student's Final Grade
+//JavaScript:
+function finalGrade (exam, projects) {
+  if (exam > 90 || projects > 10) return 100;
+  if (exam > 75 && projects >= 5) return 90;
+  if (exam > 50 && projects >= 2) return 75;
+  return 0
+}
+
+//8 kyu
+//Correct the mistakes of the character recognition software
+//JavaScript:
+
+function correct(str)
+{
+  str = str.replace(/5/g,'S')
+  str = str.replace(/0/g,'O')
+  return str.replace(/1/g,'I')
+}
+
+//8 kyu
+//Wilson primes
+//JavaScript:
+const factorial = number => {
+  if (number < 0) return -1
+  if (number === 0) return 1
+
+  return number * factorial(number - 1)
+}
+
+const amIWilson = p => Number.isInteger((factorial(p - 1) + 1) / (p * p))
+
+//8 kyu
+//A Needle in the Haystack
+//JavaScript:
+const findNeedle = haystack => "found the needle at position "+haystack.indexOf('needle')
+
+//8 kyu
+//Even or Odd
+//JavaScript:
+const even_or_odd = n => n%2?"Odd":"Even"
+
+//8 kyu
+//Simple Fun #1: Seats in Theater
+//JavaScript:
+const seatsInTheater = (nCols, nRows, col, row) => (nCols-col+1)*(nRows-row)
+
+//8 kyu
+//Convert a String to a Number!
+//JavaScript:
+const stringToNumber = str => +str
+
+//8 kyu
+//Third Angle of a Triangle
+//JavaScript:
+function otherAngle(a, b) {
+  return 180-a-b;
+}
+
+//8 kyu
+//8kyu interpreters: HQ9+
+//JavaScript:
+function HQ9(code) {
+  const t = {
+  'H': 'Hello World!',
+  'Q': code,
+  '9': "99 bottles of beer on the wall, 99 bottles of beer.\nTake one down and pass it around, 98 bottles of beer on the wall.\n98 bottles of beer on the wall, 98 bottles of beer.\nTake one down and pass it around, 97 bottles of beer on the wall.\n97 bottles of beer on the wall, 97 bottles of beer.\nTake one down and pass it around, 96 bottles of beer on the wall.\n96 bottles of beer on the wall, 96 bottles of beer.\nTake one down and pass it around, 95 bottles of beer on the wall.\n95 bottles of beer on the wall, 95 bottles of beer.\nTake one down and pass it around, 94 bottles of beer on the wall.\n94 bottles of beer on the wall, 94 bottles of beer.\nTake one down and pass it around, 93 bottles of beer on the wall.\n93 bottles of beer on the wall, 93 bottles of beer.\nTake one down and pass it around, 92 bottles of beer on the wall.\n92 bottles of beer on the wall, 92 bottles of beer.\nTake one down and pass it around, 91 bottles of beer on the wall.\n91 bottles of beer on the wall, 91 bottles of beer.\nTake one down and pass it around, 90 bottles of beer on the wall.\n90 bottles of beer on the wall, 90 bottles of beer.\nTake one down and pass it around, 89 bottles of beer on the wall.\n89 bottles of beer on the wall, 89 bottles of beer.\nTake one down and pass it around, 88 bottles of beer on the wall.\n88 bottles of beer on the wall, 88 bottles of beer.\nTake one down and pass it around, 87 bottles of beer on the wall.\n87 bottles of beer on the wall, 87 bottles of beer.\nTake one down and pass it around, 86 bottles of beer on the wall.\n86 bottles of beer on the wall, 86 bottles of beer.\nTake one down and pass it around, 85 bottles of beer on the wall.\n85 bottles of beer on the wall, 85 bottles of beer.\nTake one down and pass it around, 84 bottles of beer on the wall.\n84 bottles of beer on the wall, 84 bottles of beer.\nTake one down and pass it around, 83 bottles of beer on the wall.\n83 bottles of beer on the wall, 83 bottles of beer.\nTake one down and pass it around, 82 bottles of beer on the wall.\n82 bottles of beer on the wall, 82 bottles of beer.\nTake one down and pass it around, 81 bottles of beer on the wall.\n81 bottles of beer on the wall, 81 bottles of beer.\nTake one down and pass it around, 80 bottles of beer on the wall.\n80 bottles of beer on the wall, 80 bottles of beer.\nTake one down and pass it around, 79 bottles of beer on the wall.\n79 bottles of beer on the wall, 79 bottles of beer.\nTake one down and pass it around, 78 bottles of beer on the wall.\n78 bottles of beer on the wall, 78 bottles of beer.\nTake one down and pass it around, 77 bottles of beer on the wall.\n77 bottles of beer on the wall, 77 bottles of beer.\nTake one down and pass it around, 76 bottles of beer on the wall.\n76 bottles of beer on the wall, 76 bottles of beer.\nTake one down and pass it around, 75 bottles of beer on the wall.\n75 bottles of beer on the wall, 75 bottles of beer.\nTake one down and pass it around, 74 bottles of beer on the wall.\n74 bottles of beer on the wall, 74 bottles of beer.\nTake one down and pass it around, 73 bottles of beer on the wall.\n73 bottles of beer on the wall, 73 bottles of beer.\nTake one down and pass it around, 72 bottles of beer on the wall.\n72 bottles of beer on the wall, 72 bottles of beer.\nTake one down and pass it around, 71 bottles of beer on the wall.\n71 bottles of beer on the wall, 71 bottles of beer.\nTake one down and pass it around, 70 bottles of beer on the wall.\n70 bottles of beer on the wall, 70 bottles of beer.\nTake one down and pass it around, 69 bottles of beer on the wall.\n69 bottles of beer on the wall, 69 bottles of beer.\nTake one down and pass it around, 68 bottles of beer on the wall.\n68 bottles of beer on the wall, 68 bottles of beer.\nTake one down and pass it around, 67 bottles of beer on the wall.\n67 bottles of beer on the wall, 67 bottles of beer.\nTake one down and pass it around, 66 bottles of beer on the wall.\n66 bottles of beer on the wall, 66 bottles of beer.\nTake one down and pass it around, 65 bottles of beer on the wall.\n65 bottles of beer on the wall, 65 bottles of beer.\nTake one down and pass it around, 64 bottles of beer on the wall.\n64 bottles of beer on the wall, 64 bottles of beer.\nTake one down and pass it around, 63 bottles of beer on the wall.\n63 bottles of beer on the wall, 63 bottles of beer.\nTake one down and pass it around, 62 bottles of beer on the wall.\n62 bottles of beer on the wall, 62 bottles of beer.\nTake one down and pass it around, 61 bottles of beer on the wall.\n61 bottles of beer on the wall, 61 bottles of beer.\nTake one down and pass it around, 60 bottles of beer on the wall.\n60 bottles of beer on the wall, 60 bottles of beer.\nTake one down and pass it around, 59 bottles of beer on the wall.\n59 bottles of beer on the wall, 59 bottles of beer.\nTake one down and pass it around, 58 bottles of beer on the wall.\n58 bottles of beer on the wall, 58 bottles of beer.\nTake one down and pass it around, 57 bottles of beer on the wall.\n57 bottles of beer on the wall, 57 bottles of beer.\nTake one down and pass it around, 56 bottles of beer on the wall.\n56 bottles of beer on the wall, 56 bottles of beer.\nTake one down and pass it around, 55 bottles of beer on the wall.\n55 bottles of beer on the wall, 55 bottles of beer.\nTake one down and pass it around, 54 bottles of beer on the wall.\n54 bottles of beer on the wall, 54 bottles of beer.\nTake one down and pass it around, 53 bottles of beer on the wall.\n53 bottles of beer on the wall, 53 bottles of beer.\nTake one down and pass it around, 52 bottles of beer on the wall.\n52 bottles of beer on the wall, 52 bottles of beer.\nTake one down and pass it around, 51 bottles of beer on the wall.\n51 bottles of beer on the wall, 51 bottles of beer.\nTake one down and pass it around, 50 bottles of beer on the wall.\n50 bottles of beer on the wall, 50 bottles of beer.\nTake one down and pass it around, 49 bottles of beer on the wall.\n49 bottles of beer on the wall, 49 bottles of beer.\nTake one down and pass it around, 48 bottles of beer on the wall.\n48 bottles of beer on the wall, 48 bottles of beer.\nTake one down and pass it around, 47 bottles of beer on the wall.\n47 bottles of beer on the wall, 47 bottles of beer.\nTake one down and pass it around, 46 bottles of beer on the wall.\n46 bottles of beer on the wall, 46 bottles of beer.\nTake one down and pass it around, 45 bottles of beer on the wall.\n45 bottles of beer on the wall, 45 bottles of beer.\nTake one down and pass it around, 44 bottles of beer on the wall.\n44 bottles of beer on the wall, 44 bottles of beer.\nTake one down and pass it around, 43 bottles of beer on the wall.\n43 bottles of beer on the wall, 43 bottles of beer.\nTake one down and pass it around, 42 bottles of beer on the wall.\n42 bottles of beer on the wall, 42 bottles of beer.\nTake one down and pass it around, 41 bottles of beer on the wall.\n41 bottles of beer on the wall, 41 bottles of beer.\nTake one down and pass it around, 40 bottles of beer on the wall.\n40 bottles of beer on the wall, 40 bottles of beer.\nTake one down and pass it around, 39 bottles of beer on the wall.\n39 bottles of beer on the wall, 39 bottles of beer.\nTake one down and pass it around, 38 bottles of beer on the wall.\n38 bottles of beer on the wall, 38 bottles of beer.\nTake one down and pass it around, 37 bottles of beer on the wall.\n37 bottles of beer on the wall, 37 bottles of beer.\nTake one down and pass it around, 36 bottles of beer on the wall.\n36 bottles of beer on the wall, 36 bottles of beer.\nTake one down and pass it around, 35 bottles of beer on the wall.\n35 bottles of beer on the wall, 35 bottles of beer.\nTake one down and pass it around, 34 bottles of beer on the wall.\n34 bottles of beer on the wall, 34 bottles of beer.\nTake one down and pass it around, 33 bottles of beer on the wall.\n33 bottles of beer on the wall, 33 bottles of beer.\nTake one down and pass it around, 32 bottles of beer on the wall.\n32 bottles of beer on the wall, 32 bottles of beer.\nTake one down and pass it around, 31 bottles of beer on the wall.\n31 bottles of beer on the wall, 31 bottles of beer.\nTake one down and pass it around, 30 bottles of beer on the wall.\n30 bottles of beer on the wall, 30 bottles of beer.\nTake one down and pass it around, 29 bottles of beer on the wall.\n29 bottles of beer on the wall, 29 bottles of beer.\nTake one down and pass it around, 28 bottles of beer on the wall.\n28 bottles of beer on the wall, 28 bottles of beer.\nTake one down and pass it around, 27 bottles of beer on the wall.\n27 bottles of beer on the wall, 27 bottles of beer.\nTake one down and pass it around, 26 bottles of beer on the wall.\n26 bottles of beer on the wall, 26 bottles of beer.\nTake one down and pass it around, 25 bottles of beer on the wall.\n25 bottles of beer on the wall, 25 bottles of beer.\nTake one down and pass it around, 24 bottles of beer on the wall.\n24 bottles of beer on the wall, 24 bottles of beer.\nTake one down and pass it around, 23 bottles of beer on the wall.\n23 bottles of beer on the wall, 23 bottles of beer.\nTake one down and pass it around, 22 bottles of beer on the wall.\n22 bottles of beer on the wall, 22 bottles of beer.\nTake one down and pass it around, 21 bottles of beer on the wall.\n21 bottles of beer on the wall, 21 bottles of beer.\nTake one down and pass it around, 20 bottles of beer on the wall.\n20 bottles of beer on the wall, 20 bottles of beer.\nTake one down and pass it around, 19 bottles of beer on the wall.\n19 bottles of beer on the wall, 19 bottles of beer.\nTake one down and pass it around, 18 bottles of beer on the wall.\n18 bottles of beer on the wall, 18 bottles of beer.\nTake one down and pass it around, 17 bottles of beer on the wall.\n17 bottles of beer on the wall, 17 bottles of beer.\nTake one down and pass it around, 16 bottles of beer on the wall.\n16 bottles of beer on the wall, 16 bottles of beer.\nTake one down and pass it around, 15 bottles of beer on the wall.\n15 bottles of beer on the wall, 15 bottles of beer.\nTake one down and pass it around, 14 bottles of beer on the wall.\n14 bottles of beer on the wall, 14 bottles of beer.\nTake one down and pass it around, 13 bottles of beer on the wall.\n13 bottles of beer on the wall, 13 bottles of beer.\nTake one down and pass it around, 12 bottles of beer on the wall.\n12 bottles of beer on the wall, 12 bottles of beer.\nTake one down and pass it around, 11 bottles of beer on the wall.\n11 bottles of beer on the wall, 11 bottles of beer.\nTake one down and pass it around, 10 bottles of beer on the wall.\n10 bottles of beer on the wall, 10 bottles of beer.\nTake one down and pass it around, 9 bottles of beer on the wall.\n9 bottles of beer on the wall, 9 bottles of beer.\nTake one down and pass it around, 8 bottles of beer on the wall.\n8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 6 bottles of beer on the wall.\n6 bottles of beer on the wall, 6 bottles of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n5 bottles of beer on the wall, 5 bottles of beer.\nTake one down and pass it around, 4 bottles of beer on the wall.\n4 bottles of beer on the wall, 4 bottles of beer.\nTake one down and pass it around, 3 bottles of beer on the wall.\n3 bottles of beer on the wall, 3 bottles of beer.\nTake one down and pass it around, 2 bottles of beer on the wall.\n2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
+  }
+  return t[code] || undefined
+}
+
+//8 kyu
+//A Strange Trip to the Market
+//JavaScript:
+const t = ['tree fiddy','3.50','three fifty']
+const isLockNessMonster = s => new RegExp(t.join("|")).test(s)
+
+//8 kyu
+//Surface Area and Volume of a Box
+//JavaScript:
+const getSize = (l,w,h) => [2*l*w+2*l*h+2*w*h, l*w*h]
+
+//8 kyu
+//Find the Integral
+//JavaScript:
+const integrate = (c, e) => `${c/++e}x^${e}`
+
+//8 kyu
+//Be Concise I - The Ternary Operator
+//JavaScript:
+describeAge=a=>"You're a(n) "+(a<=12?"kid":a<18?"teenager":a<65?"adult":"elderly")
+
+//8 kyu
+//Simple validation of a username with regex
+//JavaScript:
+function validateUsr(username) {
+  return /^[a-z0-9_]{4,16}$/.test(username)
+}
+
+//8 kyu
+//Multiple of index
+//JavaScript:
+function multipleOfIndex(array) {
+  return array.filter((v,i)=>v%i==0)
+}
+
+//8 kyu
+//Area of a Square
+//JavaScript:
+const squareArea = A => Number(((2 * A / 3.1416)**2).toFixed(2))
+
+//8 kyu
+//For UFC Fans (Total Beginners): Conor McGregor vs George Saint Pierre
+//JavaScript:
+const quote = fighter => {
+  let t = {
+    'george saint pierre': 'I am not impressed by your performance.', 
+    'conor mcgregor':'I\'d like to take this chance to apologize.. To absolutely NOBODY!'
+  }
+  return t[fighter.toLowerCase()]
+}
+
+//8 kyu
+//5 without numbers !!
+//JavaScript:
+const unusualFive = () => '_____'.length
+
+//8 kyu
+//Regexp Basics - is it a digit?
+//JavaScript:
+String.prototype.digit = function() {
+  return /^\d$/.test(this);
+};
+
+//8 kyu
+//The 'if' function
+//JavaScript:
+const _if = (bool, func1, func2) => (bool ? func1() : func2())
+
+//8 kyu
+//Well of Ideas - Easy Version
+//JavaScript:
+
+function well(x){
+  let count = x.filter(r=>r=='good').length;
+  switch(true){
+      case (count<1): return 'Fail!';
+      case (count<3): return 'Publish!';
+      default: return 'I smell a series!'
+  }
+}
+
+//8 kyu
+//Draw stairs
+//JavaScript:
+function drawStairs(n) {
+  let arr = Array.from({length:n}, (_,i)=>' '.repeat(i)+"I");
+  return arr.join('\n')
+}
+
+//8 kyu
+//Tip Calculator
+//JavaScript:
+let tips = {
+  poor:5,
+  good:10,
+  great:15,
+  excellent:20
+}
+function calculateTip(amount, rating) {
+  if(rating.toLowerCase()=='terrible') return 0;
+  return Math.ceil(amount/100*tips[rating.toLowerCase()]) || 'Rating not recognised'
+}
+
+//8 kyu
+//Count the Monkeys!
+//JavaScript:
+const monkeyCount = n => Array.from({length: n}, (_, i) => i+1)
+
+//8 kyu
+//Classic Hello World
+//JavaScript:
+class Solution {
+  static main() {
+    console.log('Hello World!')
+  }
+}
+
+//8 kyu
+//Grasshopper - Check for factor
+//JavaScript:
+const checkForFactor = (base, factor) => !(base%factor)
+
+//8 kyu
+//noobCode 01: SUPERSIZE ME.... or rather, this integer!
+//JavaScript:
+function superSize(num){
+  let sorted = [...num.toString()].sort((a,b)=>b-a).join('')
+  return +sorted
+}
+
+//8 kyu
+//No Loops 2 - You only need one
+//JavaScript:
+const check = (a,x) => a.includes(x)
+
+//8 kyu
+//Volume of a Cuboid
+//JavaScript:
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length*width*height
+  }
+}
+
+//8 kyu
+//Simple Fun #352: Reagent Formula
+//JavaScript:
+function isValid(f){
+  if(f.includes(1) && f.includes(2))return false;
+  if(f.includes(3) && f.includes(4))return false;
+  if(f.includes(5) && !f.includes(6)) return false
+  if(f.includes(6) && !f.includes(5)) return false
+  if((f.includes(7) || f.includes(8))) return true
+  return false
+}
+
+//8 kyu
+//What's the real floor?
+//JavaScript:
+function getRealFloor(n) {
+  if(n > 13) return n-2;
+  if(n < 1) return n
+  return n-1
+}
+
+//8 kyu
+//Opposite number
+//JavaScript:
+const opposite = n => -n
+
+//8 kyu
+//Grasshopper - Messi goals function
+//JavaScript:
+const goals = (a, b, c) => a+b+c
+  
+
+//8 kyu
+//How good are you really?
+//JavaScript:
+const betterThanAverage = (c, y) => y > c.reduce((a,b)=>a+b,0) / c.length;
+  
+
+//8 kyu
+//Exclusive "or" (xor) Logical Operator
+//JavaScript:
+const xor = (a, b) => a!=b
+
+//8 kyu
+//No zeros for heros
+//JavaScript:
+
+function noBoringZeros(n) {
+  if(n!==0 && n%10 == 0) n = noBoringZeros(n/10);
+  return n
+}
+
+//8 kyu
+//Thinkful - Number Drills: Blue and red marbles
+//JavaScript:
+function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  return (blueStart-bluePulled)/(blueStart-bluePulled+redStart-redPulled)
+}
+
+//8 kyu
+//Triple Trouble
+//JavaScript:
+function tripleTrouble(one, two, three){
+  return [...one].map((c,i)=>c+two[i]+three[i]).join('')
+ }
+
+//Retired
+//Watermelon
+//JavaScript:
+const divide = weight => weight == 2 ? false : !(weight%2)
+
+//8 kyu
+//get ascii value of character
+//JavaScript:
+const getASCII = c => c.charCodeAt()
+
+//Retired
+//Number toString
+//JavaScript:
+var a = 123+'';
+
+//8 kyu
+//Removing Elements
+//JavaScript:
+function removeEveryOther(arr){
+  for(i=1;i<=arr.length-1;i++){
+    arr.splice(i,1)
+  }
+  return arr
+}
+
+//8 kyu
+//Find the Difference in Age between Oldest and Youngest Family Members
+//JavaScript:
+function differenceInAges(ages){
+  return [Math.min(...ages), Math.max(...ages), Math.max(...ages)-Math.min(...ages)]
+}
+
+//8 kyu
+//Is it even?
+//JavaScript:
+const testEven = n => !(n%2)
+
+//8 kyu
+//All Star Code Challenge #18
+//JavaScript:
+function strCount(str, letter){  
+  return str.split(letter).length - 1
+}
+
+//8 kyu
+//Polish alphabet
+//JavaScript:
+const chars = {
+  "ą":"a",
+  "ć":"c",
+  "ę":"e",
+  "ł":"l",
+  "ń":"n",
+  "ó":"o",
+  "ś":"s",
+  "ź":"z",
+  "ż":"z"
+}
+
+const correctPolishLetters = string => [...string].map(c=>chars[c] || c).join('')
+
+//8 kyu
+//Is the string uppercase?
+//JavaScript:
+String.prototype.isUpperCase = function() {
+  return this == this.toUpperCase()
+}
+
+//8 kyu
+//SpeedCode #2 - Array Madness
+//JavaScript:
+const sumPowedArray = (arr,pow) => arr.reduce((sum,n)=>sum+(n**pow),0)
+
+const arrayMadness = (a, b) => sumPowedArray(a,2)>sumPowedArray(b,3)
+
+//8 kyu
+//altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+//JavaScript:
+
+String.prototype.toAlternatingCase = function () {
+  return this.split("").map(c => c === c.toUpperCase()? c.toLowerCase(): c.toUpperCase()).join('');
+}
+
+//8 kyu
+//Total amount of points
+//JavaScript:
+const getResult = g => {
+  let result = g.split(":")
+  if(result[0]>result[1]) return 3;
+  if(result[0]<result[1]) return 0;
+  return 1;
+}
+const points = games => games.reduce((a,b)=>a+getResult(b),0)
+
+//8 kyu
+//Expressions Matter
+//JavaScript:
+const expressionMatter = (a, b, c) => Math.max(a + b + c, a * b * c, (a + b) * c, a * (b + c))
+
+//8 kyu
+//Subtract the Sum
+//JavaScript:
+const fruits = ['kiwi','pear','kiwi','banana','melon','banana','melon','pineapple','apple','pineapple','cucumber','pineapple','cucumber','orange','grape','orange','grape','apple','grape','cherry','pear','cherry','pear','kiwi','banana','kiwi','apple','melon','banana','melon','pineapple','melon','pineapple','cucumber','orange','apple','orange','grape','orange','grape','cherry','pear','cherry','pear','apple','pear','kiwi','banana','kiwi','banana','melon','pineapple','melon','apple','cucumber','pineapple','cucumber','orange','cucumber','orange','grape','cherry','apple','cherry','pear','cherry','pear','kiwi','pear','kiwi','banana','apple','banana','melon','pineapple','melon','pineapple','cucumber','pineapple','cucumber','apple','grape','orange','grape','cherry','grape','cherry','pear','cherry','apple','kiwi','banana','kiwi','banana','melon','banana','melon','pineapple','apple','pineapple']
+const sum = n => n - [...n.toString()].reduce((a,b)=>+a + +b)
+
+
+function SubtractSum(n){
+  let lookup = sum(n)
+  result = false;
+  while(!result){
+    lookup<= fruits.length ? result = fruits[lookup-1] : lookup=sum(lookup)
+  }
+  return result
+}
+
+//8 kyu
+//Get Planet Name By ID
+//JavaScript:
+const planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+const getPlanetName = id => planets[id-1] || undefined
+
+//8 kyu
+//Welcome!
+//JavaScript:
+const greetings = {
+  english: 'Welcome',
+  czech: 'Vitejte',
+  danish: 'Velkomst',
+  dutch: 'Welkom',
+  estonian: 'Tere tulemast',
+  finnish: 'Tervetuloa',
+  flemish: 'Welgekomen',
+  french: 'Bienvenue',
+  german: 'Willkommen',
+  irish: 'Failte',
+  italian: 'Benvenuto',
+  latvian: 'Gaidits',
+  lithuanian: 'Laukiamas',
+  polish: 'Witamy',
+  spanish: 'Bienvenido',
+  swedish: 'Valkommen',
+  welsh: 'Croeso'
+}
+const greet = language => greetings[language] || "Welcome"
+
+//8 kyu
+//Grasshopper - Create the rooms
+//JavaScript:
+// Add rooms here
+var rooms = {
+  room1:{
+    name:'name1',
+    description:'description1',
+    completed:false
+  },
+  room2:{
+    name:'name2',
+    description:'description2',
+    completed:false
+  },
+  room3:{
+    name:'name3',
+    description:'description3',
+    completed:false
+  }
+}
+
+//8 kyu
+//Find Multiples of a Number
+//JavaScript:
+const findMultiples = (integer, limit) => Array.from({length: Math.floor(limit/integer)}, (_,i) => ++i*integer)
+
+//8 kyu
+//Is n divisible by x and y?
+//JavaScript:
+const isDivisible = (n, x, y) => !(n%x||n%y)
+
+//8 kyu
+//Coefficients of the Quadratic Equation
+//JavaScript:
+const quadratic = (x1, x2) => [1, -(x1+x2), x1*x2]
+
+//8 kyu
+//Short Long Short
+//JavaScript:
+function solution(a,b){
+  arr = [a,b].sort((a,b)=>a.length - b.length)
+  arr.push(arr[0]);
+  return arr.join('')
+}
+
+function solution(a, b){
+  return a.length > b.length ? b+a+b : a+b+a
+}
+
+//8 kyu
+//Parse float
+//JavaScript:
+const parseF = s => (Number.isNaN(parseFloat(s)) ? null : parseFloat(s))
+
+//8 kyu
+//Grasshopper - Messi Goals
+//JavaScript:
+let laLigaGoals = 43
+let championsLeagueGoals = 10
+let copaDelReyGoals = 5
+
+let totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals
+
+//8 kyu
+//Grasshopper - Debug
+//JavaScript:
+function weatherInfo (temp) {
+  return `${convert(temp)} is ${convert(temp) > 0 ? 'above ':''}freezing temperature`
+}
+  
+function convert (temp) {
+  var celsius = (temp - 32) * (5/9)
+  return celsius
+}
+
+//8 kyu
+//Capitalization and Mutability
+//JavaScript:
+const capitalizeWord = word => word[0].toUpperCase()+word.slice(1).toLowerCase()
+
+//8 kyu
+//Grasshopper - Debug sayHello
+//JavaScript:
+const sayHello = name => 'Hello, '+name
+
+//8 kyu
+//Grasshopper - Function syntax debugging
+//JavaScript:
+const main = (verb, noun) => verb+noun
+  
+
+//8 kyu
+//Grasshopper - If/else syntax debug
+//JavaScript:
+const checkAlive = health => health>0
+
+//8 kyu
+//Hello, Name or World!
+//JavaScript:
+const hello = n => 'Hello, '+ (n && n!==""? n[0].toUpperCase() + n.slice(1).toLowerCase() : 'World') +"!"
+
+//8 kyu
+//The falling speed of petals
+//JavaScript:
+const sakuraFall = v => v <= 0 ? 0 : 400 / v
+
+//8 kyu
+//Are You Playing Banjo?
+//JavaScript:
+const areYouPlayingBanjo = name => `${name} ${name[0].toLowerCase() == 'r' ? 'plays': 'does not play'} banjo`
+
+//8 kyu
+//Array plus array
+//JavaScript:
+const arrayPlusArray = (arr1, arr2) => arr1.concat(arr2).reduce((a,b)=>a+b)
+
+//8 kyu
+//L1: Set Alarm
+//JavaScript:
+const setAlarm = (e, v) => e>v
+
+const setAlarm = (employed, vacation) => employed && !vacation
+
+//8 kyu
+//Square(n) Sum
+//JavaScript:
+const squareSum = (numbers) => numbers.reduce((a,b)=>b*b+a,0)
+
+//8 kyu
+//Keep Hydrated!
+//JavaScript:
+const litres = t => Math.floor(t/2)
+
+//8 kyu
+//Switch it Up!
+//JavaScript:
+const nums = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine']
+const switchItUp = n => nums[n]
+
+//7 kyu
+//Check the exam
+//JavaScript:
+function checkExam(array1, array2) {
+  console.log
+  let score = 0;
+  for(i=0;i<array1.length;i++){
+    if(array2[i] !== ""){
+      score += (array1[i] == array2[i]? 4:-1)
+    }
+  }
+  return score > 0 ? score : 0
+}
+
+//8 kyu
+//Multiplication table for number
+//JavaScript:
+function multiTable(n) {
+  return Array.from({length:10},(_,i)=>`${i+1} * ${n} = ${(i+1)*n}`).join('\n')
+}
+
+//8 kyu
+//Sum Arrays
+//JavaScript:
+const sum = n => n.reduce((a,b)=>a+b,0)
+
+//8 kyu
+//Multiply
+//JavaScript:
+const multiply = (a, b) => a * b
+
+//8 kyu
+//Holiday VI - Shark Pontoon
+//JavaScript:
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
+  let me = pontoonDistance / youSpeed;
+  let shark = sharkDistance / (sharkSpeed / (dolphin ? 2 : 1));
+  return me >= shark ? 'Shark Bait!': 'Alive!'
+}
+
+//8 kyu
+//Beginner Series #2 Clock
+//JavaScript:
+function past(h, m, s){
+  return ((h*3600)+(m*60)+s)*1000
+}
+
+//8 kyu
+//Dollars and Cents
+//JavaScript:
+function formatMoney(amount){
+  return '$'+amount.toFixed(2)
+}
+
+//8 kyu
+//Function 2 - squaring an argument
+//JavaScript:
+const square = n => n*n
+
+//8 kyu
+//Take the Derivative
+//JavaScript:
+const derive = (c,e) => `${c*e}x^${e-1}`
+
+//8 kyu
+//Convert to Binary
+//JavaScript:
+let toBinary = n => +n.toString(2)
+
+//8 kyu
+//For Twins: 2. Math operations
+//JavaScript:
+function iceBrickVolume(radius, bottleLength, rimLength) {
+ return (bottleLength - rimLength) * radius * 2 * radius;
+}
+
+//8 kyu
+//Sum The Strings
+//JavaScript:
+const sumStr = (a,b) => ''+((+a)+(+b))
+
+//8 kyu
+//USD => CNY
+//JavaScript:
+const usdcny = usd => (usd*6.75).toFixed(2) + ' Chinese Yuan'
+
+//8 kyu
+//Filling an array (part 1)
+//JavaScript:
+const arr = N => N?[...Array(N).keys()]:[]
+
+//8 kyu
+//How much water do I need?
+//JavaScript:
+const howMuchWater = (water, load, clothes) =>
+  clothes > 2 * load
+    ? 'Too much clothes'
+    : clothes < load 
+       ? 'Not enough clothes' 
+       : Number((water * 1.1 ** (clothes - load)).toFixed(2))
+
+//8 kyu
+//Sum of differences in array
+//JavaScript:
+function sumOfDifferences(arr) {
+  let sum = 0;
+  arr.sort((a,b)=>b-a)
+  for(let i=0; i<arr.length-1;i++){
+    sum+= (arr[i]-arr[i+1]);
+  }
+  return sum
+}
+
+//8 kyu
+//Find the position!
+//JavaScript:
+const position = letter=> 'Position of alphabet: '+(letter.charCodeAt()-96)
+
+//8 kyu
+//NBA full 48 minutes average
+//JavaScript:
+const pointsPer48 = (ppg, mpg) => Math.round(ppg/mpg*48*10)/10 || 0
+
+//8 kyu
+//Grasshopper - Basic Function Fixer
+//JavaScript:
+const addFive = num => num+5
+
+//8 kyu
+//Aspect Ratio Cropping - Part 1
+//JavaScript:
+const aspectRatio = (x,y) => [Math.ceil(y/9*16),y]
+
+//8 kyu
+//N-th Power
+//JavaScript:
+const index = (array, n) => array[n]**n || -1
+
+//8 kyu
+//CSV representation of array
+//JavaScript:
+const toCsvText = array => array.join("\n")
+
+//8 kyu
+//Parse nice int from char problem
+//JavaScript:
+const getAge = s => +s[0]
+
+//8 kyu
+//Are arrow functions odd?
+//JavaScript:
+const odds = values => values.filter(x=>x%2==1)
+
+//8 kyu
+//Super Duper Easy
+//JavaScript:
+const problem = x => typeof x === 'number' ? x*50+6 : "Error"
+
+//8 kyu
+//Smallest unused ID
+//JavaScript:
+const nextId = ids => {
+  ids = [...new Set(ids)].sort((a,b)=>a-b)
+  if(ids[0] !== 0) return 0;
+  for(let i = 0; i<ids.length; i++){
+    if(ids[i] +1 !== ids[i+1]) return ids[i]+1
+  }
+  return ids.length
+}
+
+//8 kyu
+//Gravity Flip
+//JavaScript:
+const flip=(d, a)=> a.sort((a,b)=>d=="L"?b-a:a-b)
+
+//8 kyu
+//L1: Bartender, drinks!
+//JavaScript:
+const drinks = {
+  "jabroni":"Patron Tequila",
+  "school counselor":"Anything with Alcohol",
+  "programmer":"Hipster Craft Beer",
+  "bike gang member":"Moonshine",
+  "politician":"Your tax dollars",
+  "rapper":"Cristal",
+}
+
+const getDrinkByProfession = param => drinks[param.toLowerCase()] || 'Beer'
+
+//8 kyu
+//get character from ASCII Value
+//JavaScript:
+const getChar = c => String.fromCharCode(c)
+
+//8 kyu
+//Find the first non-consecutive number
+//JavaScript:
+function firstNonConsecutive (arr) {
+  for(i=1;i<arr.length;i++){
+    if(arr[i] - arr[i-1] > 1) return arr[i]
+  }
+  return null
+}
+
+//8 kyu
+//Incorrect division method
+//JavaScript:
+const solve = (x, y) => x/y
+
+//8 kyu
+//Do I get a bonus?
+//JavaScript:
+function bonusTime(salary, bonus) {
+return '£' + (salary * (bonus?10:1))
+}
+
+//8 kyu
+//Grasshopper - Variable Assignment Debug
+//JavaScript:
+const a = "dev"
+const b = "Lab"
+
+const name = a + b
+
+//8 kyu
+//Function 3 - multiplying two numbers
+//JavaScript:
+const multiply = (a,b) => a*b
+
+//8 kyu
+//Century From Year
+//JavaScript:
+const century = year => Math.ceil(year/100)
+
+//8 kyu
+//Beginner - Lost Without a Map
+//JavaScript:
+maps = x => x.map(n=>n*2)
+
+//8 kyu
+//Beginner - Reduce but Grow
+//JavaScript:
+const grow = x => x.reduce((a,b)=>a*b)
+
+//8 kyu
+//Grasshopper - Grade book
+//JavaScript:
+function getGrade (s1, s2, s3) {
+  avg = (s1+s2+s3)/3
+  switch(true){
+    case avg<60: return "F"
+    case avg<70: return "D"
+    case avg<80: return "C"
+    case avg<90: return "B"
+    default: return "A"
+  }
+}
+
+//8 kyu
+//UEFA EURO 2016
+//JavaScript:
+function uefaEuro2016(t, s){
+  result = ''
+  if(s[0] == s[1]){
+    result = 'teams played draw.'  
+  } else if(s[0] > s[1]){
+    result = t[0] + ' won!'
+  } else {
+    result = t[1] + ' won!'
+  }
+  return `At match ${t[0]} - ${t[1]}, ${result}`
+  
+}
+
+//8 kyu
+//Function 1 - hello world
+//JavaScript:
+const greet = () => 'hello world!'
+
+//8 kyu
+//Total pressure calculation
+//JavaScript:
+const solution = (m1, m2, M1, M2, v, t) => (M1/m1+M2/m2)*0.082*(t+273.15)/v 
+
+//8 kyu
+//Sum of positive
+//JavaScript:
+const positiveSum = arr => arr.reduce((a,b)=>a+(b>0?b:0),0)
+
+//8 kyu
+//Grasshopper - Summation
+//JavaScript:
+const summation = n => (n*(n+1))/2
+
+//8 kyu
+//Is he gonna survive?
+//JavaScript:
+const hero = (b,d) => b>=d*2
+
+//8 kyu
+//Reversed Strings
+//JavaScript:
+const solution = s => [...s].reverse().join('')
+
+//8 kyu
+//Grasshopper - Terminal game move function
+//JavaScript:
+const move = (p, r) => p+r*2
+
+//8 kyu
+//Reversed Words
+//JavaScript:
+const reverseWords = str => str.split(" ").reverse().join(" ")
+
+//8 kyu
+//Return Negative
+//JavaScript:
+const makeNegative = num => -Math.abs(num)
+
+//8 kyu
+//Convert a Number to a String!
+//JavaScript:
+const numberToString = num => num+''
+
+//8 kyu
+//The Feast of Many Beasts
+//JavaScript:
+const firstLast = str => str[0]+[...str].pop()
+
+const feast = (beast, dish) => firstLast(beast) === firstLast(dish)
+
+//8 kyu
+//Convert a Boolean to a String
+//JavaScript:
+function booleanToString(b){
+  return b+''
+}
+
+//8 kyu
+//A wolf in sheep's clothing
+//JavaScript:
+function warnTheSheep(queue) {
+  sheep_nr = queue.length-queue.indexOf("wolf")-1
+  return sheep_nr>0
+    ? `Oi! Sheep number ${sheep_nr}! You are about to be eaten by a wolf!` 
+    : `Pls go away and stop eating my sheep`
+}
+
+//8 kyu
+//Regular Ball Super Ball
+//JavaScript:
+var Ball = function(ballType="regular") {
+  this.ballType = ballType
+};
+
+//8 kyu
+//Stringy Strings
+//JavaScript:
+function stringy(size) {
+  str='1'  
+  for(let i = 1; i <size; i++){
+    str+= (i%2==1 ? '0' : '1')
+  }
+  return str
+}
+
+//8 kyu
+//Difference of Volumes of Cuboids
+//JavaScript:
+function findDifference(a, b) {
+  return Math.abs(a.reduce((a,b)=>a*b) - b.reduce((a,b)=>a*b))
+}
+
+//8 kyu
+//Merge two sorted arrays into one
+//JavaScript:
+function mergeArrays(arr1, arr2) {
+  return [...new Set(arr1.concat(arr2).sort((a,b)=>a-b))]
+}
+
+//8 kyu
+//Remove String Spaces
+//JavaScript:
+function noSpace(x){
+  return x.replace(/ /g,"")
+}
+
+//8 kyu
+//Count of positives / sum of negatives
+//JavaScript:
+function countPositivesSumNegatives(input) {
+  if(!input || input.length == 0) return [];
+  sums = [0,0]
+  input.map(n=> n>0 ? sums[0]++ : sums[1]+=n)
+  return sums 
+}
+
+//8 kyu
+//Find Maximum and Minimum Values of a List
+//JavaScript:
+min = l => Math.min(...l)
+max = l => Math.max(...l)
+
+//8 kyu
+//Can we divide it?
+//JavaScript:
+isDivideBy = (n, a, b) => n%a == 0 && n%b == 0
+
+//8 kyu
+//Convert a string to an array
+//JavaScript:
+stringToArray = s => s.split(" ")
+
+//8 kyu
+//I love you, a little , a lot, passionately ... not at all
+//JavaScript:
+t = ['I love you','a little','a lot','passionately','madly','not at all']
+howMuchILoveYou = n => t[--n%t.length]
+
+//8 kyu
+//Find numbers which are divisible by given number
+//JavaScript:
+function divisibleBy(numbers, divisor){
+  return numbers.filter(n=>n%divisor==0)
+}
+
+//8 kyu
+//Invert values
+//JavaScript:
+function invert(array) {
+   return array.map(n=>n*-1)
+}
+
+//8 kyu
+//Beginner Series #4 Cockroach
+//JavaScript:
+function cockroachSpeed(s) {
+  return Math.floor(s*27.778)
+}
+
+//8 kyu
+//Transportation on vacation
+//JavaScript:
+rentalCarCost = d => d*40 - (d > 6 ? 50 : d > 2 ? 20 : 0)
+
+//8 kyu
+//Opposites Attract
+//JavaScript:
+lovefunc = (f1, f2) => (f1-f2)%2 !== 0
+
+//8 kyu
+//DNA to RNA Conversion
+//JavaScript:
+DNAtoRNA = dna => dna.replace(/T/g,'U')
+
+//8 kyu
+//What is between?
+//JavaScript:
+function between(a, b) {
+  arr=[]
+  for(i=a; i<=b;i++){
+    arr.push(i)
+  }
+  return arr
+}
+
+//8 kyu
+//Get Nth Even Number
+//JavaScript:
+nthEven = n => n*2-2
+
+//8 kyu
+//My head is at the wrong end!
+//JavaScript:
+fixTheMeerkat = arr => arr.reverse()
+
+//8 kyu
+//Fake Binary
+//JavaScript:
+fakeBin = x => [...x].map(n=>Math.round(n*.1)).join("")
+
+//8 kyu
+//Is this my tail?
+//JavaScript:
+correctTail = (b, t) => [...b].pop() === t
+  
+
+//8 kyu
+//Sum Mixed Array
+//JavaScript:
+const sumMix = a => a.reduce((a,b)=>+b+a,0)
+
+const sumMix = x => x.reduce((a,b=0) => (+a)+(+b) )
+
+//8 kyu
+//You only need one - Beginner
+//JavaScript:
+const check = (a, x) => a.includes(x)
+
+//8 kyu
+//Squash the bugs
+//JavaScript:
+const findLongest = str => str.split(" ").map(w=>w.length).sort((a,b)=>b-a)[0]
+
+//8 kyu
+//101 Dalmatians - squash the bugs, not the dogs!
+//JavaScript:
+const dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
+const howManyDalmatians = number => {
+  switch(true){
+      case (number <= 10): return dogs[0];
+      case (number <= 50): return dogs[1];
+      case (number == 101): return dogs[3];
+      default: return dogs[2]
+  }
+}
+
+//8 kyu
+//Is there a vowel in there?
+//JavaScript:
+isVow = a =>a.map(c=>[97,101,105,111,117].includes(c)?String.fromCharCode(c):c)
+
+//8 kyu
+//Sort and Star
+//JavaScript:
+const twoSort = s => s.sort()[0].split("").join("***")
+
+//8 kyu
+//Grasshopper - Personalized Message
+//JavaScript:
+function greet (name, owner) {
+  return 'Hello '+ (name === owner ? 'boss' : 'guest')
+}
+
+//8 kyu
+//You Can't Code Under Pressure #1
+//JavaScript:
+doubleInteger = i => i*2
+
+//8 kyu
+//Find the smallest integer in the array
+//JavaScript:
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args)
+  }
+}
+
+//8 kyu
+//Lario and Muigi Pipe Problem
+//JavaScript:
+function pipeFix(n){
+  let arr = []
+  for(i = n[0]; i<=n[n.length-1];i++){
+    arr.push(i)
+  }
+  return arr
+}
+
+//8 kyu
+//Logical calculator
+//JavaScript:
+function logicalCalc(array, op){
+  if(op == 'AND') return !array.includes(false)
+  if(op == 'OR') return array.reduce((a,b) => a || b);
+  if(op == 'XOR') return array.reduce((a,b) => a != b);
+}
+
+//8 kyu
+//Template Strings
+//JavaScript:
+const TempleStrings = (obj, feature) => `${obj} are ${feature}`
+
+//8 kyu
+//Convert number to reversed array of digits
+//JavaScript:
+const digitize = n => [...n+''].map(Number).reverse();
+
+//8 kyu
+//Remove exclamation marks
+//JavaScript:
+const removeExclamationMarks = s => s.replace(/\!/g,"")
+
+//8 kyu
+//Reversed sequence
+//JavaScript:
+const reverseSeq = n => [...Array(n)].map(() => n--)
+
+//8 kyu
+//Cat years, Dog years
+//JavaScript:
+var humanYearsCatYearsDogYears = function(humanYears) {
+  let human = humanYears;
+  let cat = 0;
+  let dog = 0;
+  if(human >= 1){
+    human-=1;
+    cat+=15;
+    dog+=15
+  }
+  if(human >= 1){
+    human-=1
+    cat+=9;
+    dog+=9
+  }
+  if(human > 0) {
+    cat+=human*4;
+    dog+=human*5;
+  }
+  return [humanYears,cat,dog]
+}
+
+//8 kyu
+//FIXME: Replace all dots
+//JavaScript:
+var replaceDots = str => str.replace(/\./g, '-');
+
+//8 kyu
+//Miles per gallon to kilometers per liter
+//JavaScript:
+function converter (mpg) {
+  return Number((1.609344 / 4.54609188 * mpg).toFixed(2));
+}
+
+//8 kyu
+//Quarter of the year
+//JavaScript:
+const quarterOf = (month) => {
+  return Math.ceil(month/3)
+  
+}
+
+//8 kyu
+//Counting sheep...
+//JavaScript:
+const countSheeps = a => a.filter(s => s).length;
+
+//8 kyu
+//The Wide-Mouthed frog!
+//JavaScript:
+function mouthSize(animal) {
+  return animal.toLowerCase() == 'alligator' ? "small" : "wide"
+}
+
+//8 kyu
+//Generate range of integers
+//JavaScript:
+function generateRange(min, max, step){
+  let range = []
+  for(i=min; i<=max; i+=step){
+    if(i<=max) range.push(i)
+  }
+  return range
+}
+
+//8 kyu
+//Filter out the geese
+//JavaScript:
+function gooseFilter (birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  newBirds = []
+  birds.forEach(bird=>{
+    if(!geese.includes(bird)) newBirds.push(bird);
+  })
+  return newBirds;
+  // return an array containing all of the strings in the input array except those that match strings in geese
+};
+
+//8 kyu
+//Swap Values
+//JavaScript:
+const swapValues = array => array.reverse()
+
+//8 kyu
+//Price of Mangoes
+//JavaScript:
+const mango = (quantity, price) => (quantity - Math.floor(quantity / 3)) * price
+
+//8 kyu
+//Pre-FizzBuzz Workout #1
+//JavaScript:
+const preFizz = n => [...Array(n)].map((_, i) => i+1)
+
+//8 kyu
+//Holiday VIII - Duty Free
+//JavaScript:
+const dutyFree = (normPrice, discount, hol) => Math.floor(hol / normPrice / discount * 100)
+
+//8 kyu
+//Drink about
+//JavaScript:
+function peopleWithAgeDrink(old) {
+  switch(true){
+      case(old<14): return 'drink toddy';
+      case(old<18): return 'drink coke';
+      case(old<21): return 'drink beer';
+      default: return 'drink whisky';
+  }
+};
+
+//8 kyu
+//Powers of 2
+//JavaScript:
+function powersOfTwo(n){
+  powers = []
+  for(i=0; i<=n; i++){
+    powers.push(2**i)
+  }
+  return powers
+}
+
+//8 kyu
+//Will there be enough space?
+//JavaScript:
+const enough = (cap, on, wait) => cap-on >= wait ? 0 : wait-cap+on
+
+//8 kyu
+//Thinkful - Logic Drills: Traffic light
+//JavaScript:
+const colors = ['green','yellow','red'];
+const updateLight = current => colors[(colors.indexOf(current)+1)%colors.length]
+
+//8 kyu
+//MakeUpperCase
+//JavaScript:
+const makeUpperCase = str => str.toUpperCase()
+
+//8 kyu
+//Beginner Series #1 School Paperwork
+//JavaScript:
+const paperwork = (n, m) =>  (n < 0 || m < 0) ? 0 : n * m
+
+//8 kyu
+//Keep up the hoop
+//JavaScript:
+const hoopCount = n => n >= 10 ? 'Great, now move on to tricks' : 'Keep at it until you get it'
+
+//8 kyu
+//pick a set of first elements
+//JavaScript:
+const first = (arr, n=1) => arr.slice(0,n)
+
+//8 kyu
+//Calculate average
+//JavaScript:
+const find_average = arr => arr.reduce((a, b) => a + b, 0) / arr.length
+
+//8 kyu
+//Do you speak "English"?
+//JavaScript:
+const spEng = sentence => sentence.toLowerCase().includes("english")
+
+//8 kyu
+//Remove First and Last Character
+//JavaScript:
+const removeChar = str => str.slice(1,-1)
+
+//8 kyu
+//Abbreviate a Two Word Name
+//JavaScript:
+const abbrevName = name => name.split(' ').map(n => n[0].toUpperCase()).join('.')
+
+//8 kyu
+//Returning Strings
+//JavaScript:
+const greet = name => `Hello, ${name} how are you doing today?`;
+
+//8 kyu
+//Twice as old
+//JavaScript:
+function twiceAsOld(dad, son) {
+  return Math.abs(dad - son*2)
+}
+
+//8 kyu
+//Enumerable Magic #25 - Take the First N Elements
+//JavaScript:
+let take = (arr,n) => arr.slice(0,n);
+
+//8 kyu
+//Calculate BMI
+//JavaScript:
+function bmi(weight, height) {
+  let bmi = weight/height**2;
+  switch(true){
+      case (bmi<=18.5): return "Underweight";
+      case (bmi<=25): return "Normal";
+      case (bmi<=30): return "Overweight";
+      default: return "Obese";
+  }
+}
+
+//8 kyu
+//Will you make it?
+//JavaScript:
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return fuelLeft * mpg >= distanceToPump
+};
+
+//8 kyu
+//String repeat
+//JavaScript:
+function repeatStr (n, s) {
+  return s.repeat(n);
+}
+
+//8 kyu
+//Geometry Basics: Distance between points in 2D
+//JavaScript:
+function distanceBetweenPoints(a, b) {
+  return Math.hypot(a.x - b.x, a.y - b.y)
+}
+
+//8 kyu
+//Area or Perimeter
+//JavaScript:
+const areaOrPerimeter = function(l , w) {
+  return (l==w) ? l*w : (l+w)*2
+};
+
+//8 kyu
+//How many lightsabers do you own?
+//JavaScript:
+function howManyLightsabersDoYouOwn(name) {
+  return name === 'Zach' ? 18 : 0
+}
+
+//8 kyu
+//Convert boolean values to strings 'Yes' or 'No'.
+//JavaScript:
+function boolToWord( bool ){
+  return ["No","Yes"][bool*1]
+}
+
+//8 kyu
+//Alan Partridge II - Apple Turnover
+//JavaScript:
+function apple(x){
+ if(x**2 > 1000) return 'It\'s hotter than the sun!!';
+  return 'Help yourself to a honeycomb Yorkie for the glovebox.'
+}
+
+//4 kyu
+//Snail
+//JavaScript:
+function snail(array){
+  const sorted = []
+  while(array.length){
+    sorted.push(...array.shift())
+    for(let i=0; i<array.length; i++){
+      sorted.push(array[i].pop())
+    }
+    sorted.push(...(array.pop() || []).reverse())
+    for(let i=array.length-1; i>=0; i--){
+      sorted.push(array[i].shift())
+    }
+  }
+  return sorted
+}
+
+//5 kyu
+//Human Readable Time
+//JavaScript:
+function humanReadable(seconds) {
+  hrs = Math.floor(seconds / 3600);
+  min = Math.floor((seconds - (hrs*3600)) / 60)
+  sec = seconds - (hrs*3600) - (min*60);
+  return leadingZero(hrs)+':'+leadingZero(min)+':'+leadingZero(sec)
+}
+  
+function leadingZero(nr){
+  if(nr < 10) nr = '0'+nr.toString();
+  return nr;
+}
+
+//5 kyu
+//Simple Pig Latin
+//JavaScript:
+function pigIt(str){
+  let words = str.split(" ")
+  let punctuation = [".", ",", ":", "!", "?"]
+  let newwords = []
+  words.forEach(word => {
+    let letters = [...word];
+    letters.push(letters.shift())
+    newString = letters.join("")
+    if(!punctuation.includes(newString)) newString += "ay"
+    newwords.push(newString)
+  })
+  return newwords.join(" ")
+}
+
+//5 kyu
+//Moving Zeros To The End
+//JavaScript:
+var moveZeros = function (arr) {
+  let length = arr.length;
+  let zeroes = 0;
+  let newArray = []
+  for(i = 0; i<length; i++){
+    if(typeof arr[i]==='number' && arr[i] === 0){
+      zeroes++
+    } else {
+      newArray.push(arr[i])
+    }
+  }
+  newArray.push(...Array(zeroes).fill(0))
+  return newArray
+}
+
+//5 kyu
+//Extract the domain name from a URL
+//JavaScript:
+function domainName(str){
+  return str.replace(/http:|https:|\/\/|www.|/gi,"").split(".")[0]
+}
+
+//6 kyu
+//Find the missing letter
+//JavaScript:
+function findMissingLetter(array)
+{
+  for(let i = 0; i<array.length-1; i++){
+    let charCodeCurrent = array[i].charCodeAt(0);
+    let charCodeNext = array[i+1].charCodeAt(0);
+    if(charCodeNext - charCodeCurrent == 2) return String.fromCharCode(charCodeNext-1) 
+  }
+}
+
+//5 kyu
+//Weight for weight
+//JavaScript:
+function orderWeight(str) {
+  let table = []
+  let weights = str.trim().split(" ");
+  for(let i = 0 ; i< weights.length; i++){
+    let sum = 0;
+    for(let j=0; j<weights[i].length; j++){
+      sum += Number(weights[i][j]);
+    }
+    table.push([weights[i],sum]);
+  }
+  table.sort((a,b) => {
+    return a[1] - b[1] || a[0].localeCompare(b[0]);
+  })
+  
+  return table.map(r =>{ return r[0]}).join(" ");
+
+}
+
+//6 kyu
+//Delete occurrences of an element if it occurs more than n times
+//JavaScript:
+function deleteNth(arr,n){
+  let res = [];
+  for(let i = 0; i<arr.length; i++){
+    if(res.filter(nr => nr == arr[i]).length < n) res.push(arr[i])
+  }
+  return res
+}
+
+//6 kyu
+//Convert string to camel case
+//JavaScript:
+function toCamelCase(str){
+  let returnString = '';
+  for(let i = 0; i<str.length; i++){
+    if(str[i] == "_" || str[i] == "-"){
+      returnString+= str[i+1].toUpperCase()
+      i++;
+    } else {
+      returnString+=str[i]
+    }
+  }
+  return returnString;
+}
+
+//6 kyu
+//Split Strings
+//JavaScript:
+function solution(str){
+  let arr=[]
+  if(str.length % 2 == 1) str+='_'
+  for(let i=0; i<str.length/2;i++){
+    arr.push(str.substr(i*2,2))
+  }
+  return arr;
+}
+
+//6 kyu
+//Counting Duplicates
+//JavaScript:
+function duplicateCount(text) {
+  let unique = [...new Set([...text.toLowerCase()])];
+  let count = 0;
+  unique.forEach((u) => {
+    if (text.match(new RegExp(u, "gi")).length > 1) count++;
+  });
+  return count;
+}
+
+//6 kyu
+//Does my number look big in this?
+//JavaScript:
+function narcissistic(value) {
+  let numbers = [...value.toString()], sum = 0;
+  numbers.forEach((n) => {
+    sum += Math.pow(parseInt(n), numbers.length);
+  });
+  return sum == value;
+}
+
+//6 kyu
+//Is a number prime?
+//JavaScript:
+
+function isPrime(num) {
+  for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+        if(num % i === 0) return false; 
+    return num > 1;
+}
+
+//6 kyu
+//Create Phone Number
+//JavaScript:
+function createPhoneNumber(numbers){
+  numbers.splice(6, 0,"-")
+  numbers.splice(3, 0,") ")
+  numbers.splice(0,0,"(")
+  return numbers.join("");
+}
+
+//6 kyu
+//Take a Ten Minute Walk
+//JavaScript:
+function isValidWalk(walk) {
+  return (
+    walk.length == 10 &&
+    walk.filter((d) => d === "n").length == walk.filter((d) => d === "s").length &&
+    walk.filter((d) => d === "e").length == walk.filter((d) => d === "w").length
+  );
+}
+
+//7 kyu
+//List Filtering
+//JavaScript:
+let filter_list = (l) => {
+  return l.filter((n) => n === parseInt(n) && n >= 0);
+};
+
+//6 kyu
+//Bit Counting
+//JavaScript:
+countBits=(n)=>{return[...n.toString(2),0].reduce((a,b)=>a*1+b*1)}
+
+//8 kyu
+//Get the mean of an array
+//JavaScript:
+function getAverage(marks){
+  return (Math.floor(marks.reduce((a, b) => a + b) / marks.length));
+}
