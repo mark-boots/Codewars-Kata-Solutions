@@ -19,11 +19,13 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 
 */
 
-function rowSumOddNumbers(n, sum=0) {
-    for(let i = 0; i < n; i++){
-      sum += 1+n*(n-1) + (i*2)
-    }
-    return sum
+function rowSumOddNumbers(n, sum = 0) {
+  for (let i = 0; i < n; i++) {
+    sum += 1 + n * (n - 1) + (i * 2)
+  }
+  return sum
 }
+
+//
 
 const rowSumOddNumbers = n => n ** 3;
