@@ -1,4 +1,9 @@
 ![alt rank](https://www.codewars.com/users/mark-boots/badges/large)
+
+[<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
+
+[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
+
 ###### Codewarriors are strongly encouraged not to look at my solutions to Kata until you have completed it yourselves or at least took the time to think about your own approaches
 
 ###### Codewarriors should not submit my solutions as their own
