@@ -11,4 +11,4 @@ Your task is to remove all consecutive duplicate words from a string, leaving on
 
 
 */
-const removeConsecutiveDuplicates = s => s.split` `.filter((w,i,a)=>w!==a[i+1]).join` `
+const removeConsecutiveDuplicates = s => s.split` `.filter((w,i,a)=>w!==a[++i]).join` `
