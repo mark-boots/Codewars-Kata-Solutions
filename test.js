@@ -1,10 +1,15 @@
-function decodeMessage(string,notCode){
-    return string.replace(new RegExp(notCode.join("|"),"gi"),"")
-}
+function buildInvertedIndex(collection, term, caseSensitive, exactMatch) {
+    
+    const reg = new RegExp(`${exactMatch? '\\b'+term+'\\b' : term}`,`${caseSensitive?'' : 'i'}`)
 
-console.log(decodeMessage("I anotm tbaconhe walrus.", ["not", "bacon"]))
-//I am the walrus.
+    console.log('index directly')
+    console.log([1,collection[1], reg.test(collection[1]),reg])
 
-console.log(decodeMessage("summerlobaconokfamily ascaryt mintergalactice, I'jerrym Pimortybethckle Rick!",["summer","bacon","scary","intergalactic","jerry","morty","beth","family"]))
-//look at me, I'm Pickle Rick!
+    console.log('loop')
+    collection.forEach((val,i) => {
+        console.log([i,val, reg.test(val),reg])
+    });
+  
+  }
 
+  console.log(buildInvertedIndex(['Lorem Ipsum Dolor', 'Hodor Dolor Hodor', 'Dolormiten are not a thing'],'Dolor', true, false))

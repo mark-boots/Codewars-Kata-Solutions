@@ -17,4 +17,4 @@ Example:
 Because there is an odd number of 1-bits (3) you need to put another 1 to it to get an even number of 1-bits.
 */
 
-const checkParity = (parity, bin) => +(['even','odd'][bin.substr(-1)] == parity)
+const checkParity = (parity, bin) => +(['odd','even'][bin.replace(/0/g,'').length % 2] == parity)
