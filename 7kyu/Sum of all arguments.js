@@ -12,4 +12,4 @@ sum(1, 2, 3, 4, 5) // => 15
 
 */
 
-const sum = (...n) => [...n].reduce((a,b)=>a+b)
+const sum = (...n) => n.reduce((a,b)=>a+b)
