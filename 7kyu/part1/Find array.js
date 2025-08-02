@@ -22,4 +22,4 @@ Note: for c++ use std::vector<T> arr1, arr2.
 
 */
 
-findArray=(a,b)=>a.length*b.length?b.map(v=>a[v]??v):[]
+findArray=(a,b)=>a.length?b.map(v=>a[v]):[]

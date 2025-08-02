@@ -14,4 +14,4 @@ Hint: You are guaranteed that the number in the passed in string is placed somew
 
 */
 
-getQuote=(q,h)=>`${'Batman Robin Joker'.split` `.find(c=>c[0]==h[0])}: ${q[h.match(/\d/)]}`
+getQuote=(q,h)=>'Batman Robin Joker'.split` `.find(c=>c[0]==h[0])+': '+q[h.match(/\d/)]
