@@ -1,11 +1,6 @@
 
 test.js
 
-# Organization automation scripts
-scripts/
-push-to-github.bat
-push.bat
-
 # Temporary files
 *.tmp
 *.temp
