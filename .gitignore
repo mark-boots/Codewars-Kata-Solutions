@@ -1,15 +1,13 @@
 
 test.js
 
-# Organization scripts for GitHub folder limits
-organize-for-github.ps1
-restore-flat-structure.ps1
+# Organization automation scripts
+scripts/
 push-to-github.bat
+push.bat
 
-# Other common files to ignore
-.DS_Store
-Thumbs.db
+# Temporary files
 *.tmp
 *.temp
-*.log
-*~
+.DS_Store
+Thumbs.db
