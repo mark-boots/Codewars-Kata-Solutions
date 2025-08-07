@@ -20,3 +20,4 @@ Constraints: Lojban number ≤ 1,000,000
 Source: 2002 British Informatics Olympiad
 */
 convertLojban=l=>+l.replace(/../g,m=>'nprcvmxzbs'.indexOf(m[0]))
+convertLojban=l=>+l.replace(/../g,s=>'nprcvmxzbs'.search(s[0]))
