@@ -23,4 +23,4 @@ makesTheSentence(['S', 'h', 'e', 'a', 'd', 's', '.'], "She adds.");
 Should return false because there is only 1 'd' in the passed in array and there are 2 'd's in the passed in string.
 */
 
-makesTheSentence=(c,s)=>(c.map(x=>s=s.replace(x,"")),!s.trim())
+makesTheSentence=(c,s)=>!(c.some(x=>!(s=s.replace(x,"")))||s.trim())

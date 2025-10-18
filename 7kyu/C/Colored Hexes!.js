@@ -31,9 +31,8 @@ codes = "001 001 001" -> "white"
 */
 
 function hexColor(codes) {
-  const colors = ["black","blue","green","cyan","red","magenta","yellow","white"]
-  const rgb = codes.split(" ").map(Number)
-  const max = Math.max(...rgb);
-  const bin = parseInt(rgb.map(v => +(v == max && max !== 0)).join``,2);
-  return colors[bin] 
+  const rgb = codes.split` `.map(Number)
+  const max = Math.max(...rgb)
+  const bin = parseInt(rgb.map(v=>+(v==max&v!=0)).join``, 2)
+  return "black,blue,green,cyan,red,magenta,yellow,white".split`,`[bin] 
 }
