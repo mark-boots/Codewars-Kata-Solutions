@@ -22,4 +22,5 @@ function digits(num) {
   return result;
 }
 
+// or 
 digits=n=>[...n+''].flatMap((x,i,a)=>a.slice(i+1).map(y=>+x+ +y))
