@@ -38,3 +38,5 @@ Constraints: 2 ≤ makeNew ≤ 5.
 */
 
 candles=(c,n,l=c)=>l<n?c:candles(c+1,n,l-n+1)
+
+candles=(c,n)=>c+ --c/--n^0
