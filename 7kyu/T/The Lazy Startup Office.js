@@ -12,4 +12,4 @@ As an output you would expect in this case:
 
 */
 
-binRota=a=>a.flatMap((r,i)=>i%2?[...r].reverse():r)
+binRota=a=>a.flatMap((r,i)=>i%2?r.reverse():r)
