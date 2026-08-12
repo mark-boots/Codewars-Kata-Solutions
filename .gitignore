@@ -1,6 +1,10 @@
 
 test.js
 
+# Local helper scripts
+push-katas.bat
+push-katas.ps1
+
 # Temporary files
 *.tmp
 *.temp
