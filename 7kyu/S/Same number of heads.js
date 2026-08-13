@@ -38,8 +38,4 @@ The number of coins heads up in first and second list should be the same.
 
 */
 
-function splitCoins(coins, k) {
-  const groupA = coins.slice(0, k).map(c => c.flip());
-  const groupB = coins.slice(k);
-  return [groupA, groupB];
-}
+splitCoins=(c,k)=>[c.splice(0,k).map(x=>x.flip()),c]
