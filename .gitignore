@@ -1,2 +1,8 @@
 
-test.js
+package.json
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
